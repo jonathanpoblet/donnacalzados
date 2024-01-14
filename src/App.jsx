@@ -1,7 +1,8 @@
 import './App.css';
+import AppRoute from './router/AppRoute';
 
 function App() {
-  return <>Proyecto Inicializadod</>;
+  return <AppRoute />;
 }
 
 export default App;
