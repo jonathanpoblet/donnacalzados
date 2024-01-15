@@ -26,7 +26,7 @@ const Header = () => {
         </Navbar.Brand>
 
         {/* Icono de carrito */}
-        <Button variant='light' className='order-10 order-lg-2 ml-auto' style={{ backgroundColor: '#f5e4ea' }} data-bs-toggle='offcanvas' data-bs-target='#offcanvasExample' aria-controls='offcanvasExample'>
+        <Button variant='light' className='order-10 order-lg-2 ml-auto' style={{ backgroundColor: '#F9C1FD' }} data-bs-toggle='offcanvas' data-bs-target='#offcanvasExample' aria-controls='offcanvasExample'>
           <BsCart />
         </Button>
 

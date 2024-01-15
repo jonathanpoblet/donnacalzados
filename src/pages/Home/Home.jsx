@@ -8,7 +8,8 @@ import './home.css';
 export default function Home() {
   return (
     <main className='home'>
-      <HomeBanner />
+      {/* <HomeBanner /> */}
+      <img className='home-img' src='../assets/home/banner.png' alt='banner' />
       <h2 className='home-title'>Descubrí nuestros calzados</h2>
       <HomeProducts />
       <button className='btn btn-dark home-products-button'>MOSTRAR MÁS PRODUCTOS</button>

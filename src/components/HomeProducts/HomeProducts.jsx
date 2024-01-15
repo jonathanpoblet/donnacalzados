@@ -33,26 +33,6 @@ export default function HomeProducts() {
       title: 'Raizer',
       price: 8500,
     },
-    {
-      img: '../assets/home/forum.png',
-      title: 'Forum',
-      price: 15000,
-    },
-    {
-      img: '../assets/home/retro.png',
-      title: 'Retro 4',
-      price: 17300,
-    },
-    {
-      img: '../assets/home/converse.png',
-      title: 'Botitas Converse',
-      price: 9000,
-    },
-    {
-      img: '../assets/home/benito.png',
-      title: 'Benito',
-      price: 23000,
-    },
   ];
   return (
     <section className='home-products'>
