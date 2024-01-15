@@ -1,0 +1,32 @@
+.home-banner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px;
+  width: 100%;
+  background-color: #f5e4ea;
+}
+
+.home-banner-info {
+  width: 500px;
+  margin-right: 150px;
+}
+
+.home-banner-info-title {
+  font-size: 60px;
+  margin-bottom: 50px;
+  text-shadow: 4px 4px 4px rgb(211, 203, 203);
+}
+
+.home-banner-info-subtitle {
+  font-size: 20px;
+  margin-top: 25px;
+  text-shadow: 4px 4px 4px rgb(206, 206, 206);
+}
+
+.home-banner-img {
+  width: 350px;
+  box-shadow: 2px 2px 10px 2px rgb(124, 124, 124);
+  border-radius: 5px;
+}
