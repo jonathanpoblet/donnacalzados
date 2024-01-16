@@ -18,9 +18,6 @@ export default function Home() {
     <main className='home'>
       {/* <HomeBanner /> */}
       <img className='home-img' src='../donnacalzados/assets/home/banner.png' alt='banner' data-aos='fade-up' data-aos-offset='100' data-aos-easing='ease-in-sine' data-aos-duration='600' />
-      <h2 className='home-title' data-aos='fade-up' data-aos-offset='200' data-aos-easing='ease-in-sine' data-aos-duration='600'>
-        Descubrí nuestros calzados
-      </h2>
       <HomeProducts />
       <button className='btn btn-dark home-products-button'>MOSTRAR MÁS PRODUCTOS</button>
       <HomeInfo />

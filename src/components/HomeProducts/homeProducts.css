@@ -1,5 +1,25 @@
 .home-products {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.home-products-title {
+  margin: 50px;
+  color: #e54787;
+  padding-bottom: 2px;
+  margin-bottom: 60px;
+  margin-top: 100px;
+  font-size: 40px;
+  padding: 15px 30px;
+  border-radius: 5px;
+}
+
+.home-products-container {
+  display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
@@ -8,7 +28,7 @@
   max-width: 1200px;
 }
 
-.home-products-card {
+.home-products-container-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,25 +43,25 @@
   border-radius: 5px;
 }
 
-.home-products-card:hover {
+.home-products-container-card:hover {
   opacity: 0.8;
 }
 
-.home-products-card-img {
+.home-products-container-card-img {
   width: 100%;
   height: 300px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
 
-.home-products-card-title {
+.home-products-container-card-title {
   padding: 10px 5px;
   font-size: 18px;
   color: #e54787;
   font-weight: 500;
 }
 
-.home-products-card-price {
+.home-products-container-card-price {
   font-size: 12px;
   padding: 0px 5px 10px 5px;
   color: rgb(0, 0, 0);
@@ -52,7 +72,7 @@
     max-width: 1000px;
   }
 
-  .home-products-card {
+  .home-products-container-card {
     width: 26%;
   }
 }
@@ -62,17 +82,17 @@
     max-width: 100%;
   }
 
-  .home-products-card {
+  .home-products-container-card {
     width: 43%;
   }
 
-  .home-products-card-img {
+  .home-products-container-card-img {
     height: 560px;
   }
 }
 
 @media screen and (max-width: 900px) {
-  .home-products-card-img {
+  .home-products-container-card-img {
     height: 500px;
   }
 }
@@ -84,13 +104,18 @@
 }
 
 @media screen and (max-width: 700px) {
-  .home-products-card-img {
+  .home-products-title {
+    font-size: 30px;
+    text-align: center;
+    border-bottom: 0px;
+  }
+  .home-products-container-card-img {
     height: 336px;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .home-products-card-img {
+  .home-products-container-card-img {
     height: 100%;
   }
 
@@ -98,11 +123,19 @@
     max-width: 80%;
   }
 
-  .home-products-card {
+  .home-products-container-card {
     width: 100%;
   }
 
-  .home-products-card:hover {
+  .home-products-container-card:hover {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .home-products-title {
+    font-size: 25px;
+    margin-top: 30px;
+    margin-bottom: 0px;
   }
 }

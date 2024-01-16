@@ -11,19 +11,8 @@
   width: 100%;
 }
 
-.home-title {
-  margin: 50px;
-  color: #e54787;
-  padding-bottom: 2px;
-  margin-bottom: 60px;
-  margin-top: 100px;
-  font-size: 40px;
-  padding: 15px 30px;
-  border-radius: 5px;
-}
-
 .home-products-button {
-  width: 1110px;
+  width: 1125px;
   background-color: #000000;
   color: #fff;
   border: none;
@@ -45,24 +34,8 @@
   }
 }
 
-@media screen and (max-width: 700px) {
-  .home-title {
-    font-size: 30px;
-    text-align: center;
-    border-bottom: 0px;
-  }
-}
-
 @media screen and (max-width: 600px) {
   .home-products-button {
     width: 80%;
-  }
-}
-
-@media screen and (max-width: 450px) {
-  .home-title {
-    font-size: 25px;
-    margin-top: 30px;
-    margin-bottom: 0px;
   }
 }

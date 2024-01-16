@@ -80,15 +80,18 @@ export default function HomeProducts() {
   ];
   return (
     <section className='home-products' data-aos='fade-up' data-aos-offset='200' data-aos-easing='ease-in-sine' data-aos-duration='600'>
-      {products.map((prod, index) => {
-        return (
-          <div className='home-products-card' key={index}>
-            <img className='home-products-card-img' src={prod.img} alt='Producto' />
-            <p className='home-products-card-title'>{prod.title}</p>
-            <p className='home-products-card-price'>${formatPrice(prod.price)}</p>
-          </div>
-        );
-      })}
+      <h2 className='home-products-title'>Descubrí nuestros calzados</h2>
+      <div className='home-products-container'>
+        {products.map((prod, index) => {
+          return (
+            <div className='home-products-container-card' key={index}>
+              <img className='home-products-container-card-img' src={prod.img} alt='Producto' />
+              <p className='home-products-container-card-title'>{prod.title}</p>
+              <p className='home-products-container-card-price'>${formatPrice(prod.price)}</p>
+            </div>
+          );
+        })}
+      </div>
     </section>
   );
 }
