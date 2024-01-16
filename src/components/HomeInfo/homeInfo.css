@@ -39,3 +39,46 @@
 .home-info-container-texts p {
   font-size: 14px;
 }
+
+@media screen and (max-width: 1220px) {
+  .home-info {
+    width: 895px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .home-info {
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .home-info-container {
+    width: 100%;
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .home-info-container-texts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0px;
+  }
+
+  .home-info-container-texts p,
+  .home-info-container-texts h5 {
+    text-align: center;
+    margin-left: 0px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .home-info {
+    width: 80%;
+  }
+}

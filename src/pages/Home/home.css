@@ -31,3 +31,35 @@
   padding: 10px;
   margin-top: 50px;
 }
+
+@media screen and (max-width: 1220px) {
+  .home-products-button {
+    width: 895px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .home-products-button {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .home-title {
+    font-size: 30px;
+    text-align: center;
+    border-bottom: 0px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .home-products-button {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .home-title {
+    font-size: 25px;
+  }
+}

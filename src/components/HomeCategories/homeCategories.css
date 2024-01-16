@@ -19,3 +19,26 @@
 .home-categories-img:hover {
   opacity: 0.7;
 }
+
+@media screen and (max-width: 1220px) {
+  .home-categories {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .home-categories {
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 90%;
+  }
+  .home-categories-img {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .home-categories {
+    width: 80%;
+  }
+}

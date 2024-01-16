@@ -79,3 +79,53 @@
 .home-contact-form-button:hover {
   background-color: rgb(51, 51, 51);
 }
+
+@media screen and (max-width: 1220px) {
+  .home-contact {
+    width: 895px;
+    margin-bottom: 100px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .home-contact {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .home-contact-title {
+    font-size: 30px;
+    border-bottom: 0px;
+  }
+  .home-contact-form-input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 40px;
+  }
+
+  .home-contact-form-errors {
+    width: 100%;
+  }
+
+  .home-contact-form-textarea {
+    width: 100%;
+  }
+
+  .home-contact-form-button {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .home-contact {
+    width: 80%;
+    padding: 40px 30px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .home-contact-title {
+    font-size: 25px;
+  }
+}

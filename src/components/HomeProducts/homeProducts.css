@@ -15,7 +15,8 @@
   align-items: center;
   width: 21%;
   margin-top: 40px;
-  background-color: #f0f0f0;
+  /* background: linear-gradient(#f9c1fd 70%, #fee9ff); */
+  background-color: rgba(0, 0, 0, 0.932);
   cursor: pointer;
   transition: 0.5s;
   box-shadow: 2px 2px 10px 2px rgb(190, 190, 190);
@@ -36,9 +37,67 @@
 .home-products-card-title {
   padding: 10px 5px;
   font-size: 18px;
+  color: #fff;
 }
 
 .home-products-card-price {
   font-size: 12px;
   padding: 0px 5px 10px 5px;
+  color: #f9c1fd;
+}
+
+@media screen and (max-width: 1220px) {
+  .home-products {
+    max-width: 1000px;
+  }
+
+  .home-products-card {
+    width: 26%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .home-products {
+    max-width: 100%;
+  }
+
+  .home-products-card {
+    width: 43%;
+  }
+
+  .home-products-card-img {
+    height: 560px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .home-products-card-img {
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .home-products-card-img {
+    height: 420px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .home-products-card-img {
+    height: 336px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .home-products-card-img {
+    height: 100%;
+  }
+
+  .home-products {
+    max-width: 80%;
+  }
+
+  .home-products-card {
+    width: 100%;
+  }
 }
