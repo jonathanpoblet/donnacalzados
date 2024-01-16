@@ -20,7 +20,7 @@ export default function Header() {
         />
 
         <Navbar.Brand href='/'>
-          <img src='/assets/logo.png' alt='Logo' className='navbar-img' />
+          <img src='/donnacalzados/assets/logo.png' alt='Logo' className='navbar-img' />
         </Navbar.Brand>
 
         <Button variant='light' className='order-10 order-lg-2 ml-auto' style={{ backgroundColor: '#F9C1FD' }} data-bs-toggle='offcanvas' data-bs-target='#offcanvasExample' aria-controls='offcanvasExample'>
