@@ -11,15 +11,15 @@ export default function HomeCategories() {
   }, []);
   const categories = [
     {
-      url: '../donnacalzados/assets/home/hombres.png',
+      url: '../assets/home/hombres.png',
       alt: 'Hombres',
     },
     {
-      url: '../donnacalzados/assets/home/mujeres.png',
+      url: '../assets/home/mujeres.png',
       alt: 'Mujeres',
     },
     {
-      url: '../donnacalzados/assets/home/niños.png',
+      url: '../assets/home/niños.png',
       alt: 'Niños',
     },
   ];
