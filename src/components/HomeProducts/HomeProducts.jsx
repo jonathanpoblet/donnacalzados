@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import './HomeProducts.css';
 
 export default function HomeProducts() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const products = [
     {
       img: '../assets/home/force.png',
@@ -33,9 +38,19 @@ export default function HomeProducts() {
       title: 'Raizer',
       price: 8500,
     },
+    {
+      img: '../assets/home/force.png',
+      title: 'Air Force',
+      price: 8000,
+    },
+    {
+      img: '../assets/home/converse2.png',
+      title: 'Botitas Converse',
+      price: 11000,
+    },
   ];
   return (
-    <section className='home-products'>
+    <section className='home-products' data-aos='fade-up' data-aos-offset='200' data-aos-easing='ease-in-sine' data-aos-duration='600'>
       {products.map((prod, index) => {
         return (
           <div className='home-products-card' key={index}>

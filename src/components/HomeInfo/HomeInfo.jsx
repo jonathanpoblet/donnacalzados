@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SiMercadopago } from 'react-icons/si';
 import { CiDeliveryTruck, CiCreditCard1 } from 'react-icons/ci';
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 import './HomeInfo.css';
 
 export default function HomeInfo() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const info = [
     {
       logo: <CiCreditCard1 className='home-info-container-logo' />,
@@ -23,7 +29,7 @@ export default function HomeInfo() {
     },
   ];
   return (
-    <section className='home-info'>
+    <section className='home-info' data-aos='fade-up' data-aos-offset='200' data-aos-easing='ease-in-sine' data-aos-duration='600'>
       {info.map((inf, index) => {
         return (
           <div className='home-info-container' key={index}>

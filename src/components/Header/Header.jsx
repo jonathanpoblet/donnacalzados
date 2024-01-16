@@ -4,12 +4,11 @@ import { BsCart } from 'react-icons/bs';
 
 import './header.css';
 
-const Header = () => {
+export default function Header() {
   return (
     <header className='text-center'>
       <p style={{ backgroundColor: '#000', color: '#fff', fontSize: 13, width: '100%', padding: '10px 5px' }}>ENVIOS A TODA LA ARGENTINA</p>
       <Navbar collapseOnSelect expand='lg' variant='light' className='w-100 justify-content-around'>
-        {/* Icono de menú para pantallas pequeñas */}
         <Navbar.Toggle
           aria-controls='responsive-navbar-nav'
           className='order-0 btn-light button-toggle'
@@ -20,17 +19,14 @@ const Header = () => {
           }}
         />
 
-        {/* Logo */}
         <Navbar.Brand href='/'>
           <img src='/assets/logo.png' alt='Logo' className='navbar-img' />
         </Navbar.Brand>
 
-        {/* Icono de carrito */}
         <Button variant='light' className='order-10 order-lg-2 ml-auto' style={{ backgroundColor: '#F9C1FD' }} data-bs-toggle='offcanvas' data-bs-target='#offcanvasExample' aria-controls='offcanvasExample'>
           <BsCart />
         </Button>
 
-        {/* Contenido del menú colapsado */}
         <Navbar.Collapse id='responsive-navbar-nav'>
           <Nav className='d-flex justify-content-end ms-lg-5'>
             <Nav.Link href='/' className='text-dark mx-2'>
@@ -45,17 +41,13 @@ const Header = () => {
             <Nav.Link href='/productos' className='text-dark mx-2'>
               Niños
             </Nav.Link>
-            <Nav.Link href='/contacto' className='text-dark mx-2'>
-              Contacto
-            </Nav.Link>
             <Nav.Link href='/informacion' className='text-dark mx-2'>
-              Info
+              Información
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
 
-      {/* Contenido del carrito en el offcanvas */}
       <div className='offcanvas offcanvas-start' tabIndex='-1' id='offcanvasExample' aria-labelledby='offcanvasExampleLabel'>
         <div className='offcanvas-header'>
           <h5 className='offcanvas-title' id='offcanvasExampleLabel'>
@@ -69,6 +61,4 @@ const Header = () => {
       </div>
     </header>
   );
-};
-
-export default Header;
+}
