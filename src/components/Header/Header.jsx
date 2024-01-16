@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Navbar, Nav, Button } from 'react-bootstrap';
 import { BsCart } from 'react-icons/bs';
 
 import './header.css';
 
 export default function Header() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!window.location.hash) {
+      window.location.href = 'http://localhost:5173/donnacalzados/#';
+    }
+  }, [location.pathname, navigate]);
   return (
     <header className='text-center'>
       <p style={{ backgroundColor: '#000', color: '#fff', fontSize: 13, width: '100%', padding: '10px 5px' }}>ENVIOS A TODA LA ARGENTINA</p>
@@ -32,16 +41,16 @@ export default function Header() {
             <Nav.Link href='/' className='text-dark mx-2'>
               Inicio
             </Nav.Link>
-            <Nav.Link href='/productos' className='text-dark mx-2'>
+            <Nav.Link href='./#productos' className='text-dark mx-2'>
               Hombres
             </Nav.Link>
-            <Nav.Link href='/productos/mujeres' className='text-dark mx-2'>
+            <Nav.Link href='./#productos/mujeres' className='text-dark mx-2'>
               Mujeres
             </Nav.Link>
-            <Nav.Link href='/productos/ninos' className='text-dark mx-2'>
+            <Nav.Link href='./#productos/ninos' className='text-dark mx-2'>
               Niños
             </Nav.Link>
-            <Nav.Link href='/informacion' className='text-dark mx-2'>
+            <Nav.Link href='./#informacion' className='text-dark mx-2'>
               Información
             </Nav.Link>
           </Nav>
