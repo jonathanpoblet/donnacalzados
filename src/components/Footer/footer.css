@@ -100,4 +100,8 @@
     height: 250px;
     border: none;
   }
+
+  .footer-container-info-text {
+    margin-bottom: 0px !important;
+  }
 }

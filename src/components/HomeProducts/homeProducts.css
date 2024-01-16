@@ -100,4 +100,8 @@
   .home-products-card {
     width: 100%;
   }
+
+  .home-products-card:hover {
+    opacity: 1;
+  }
 }
