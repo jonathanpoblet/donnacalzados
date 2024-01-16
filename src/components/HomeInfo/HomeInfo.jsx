@@ -5,7 +5,7 @@ import { CiDeliveryTruck, CiCreditCard1 } from 'react-icons/ci';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import './HomeInfo.css';
+import './homeInfo.css';
 
 export default function HomeInfo() {
   useEffect(() => {
