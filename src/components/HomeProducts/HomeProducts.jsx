@@ -18,62 +18,62 @@ export default function HomeProducts() {
   }, []);
   const products = [
     {
-      img: '../assets/home/force.png',
+      img: '../donnacalzados/assets/home/force.png',
       title: 'Air Force',
       price: 8000,
     },
     {
-      img: '../assets/home/converse2.png',
+      img: '../donnacalzados/assets/home/converse2.png',
       title: 'Botitas Converse',
       price: 11000,
     },
     {
-      img: '../assets/home/ultraboost.png',
+      img: '../donnacalzados/assets/home/ultraboost.png',
       title: 'Ultraboost',
       price: 9200,
     },
     {
-      img: '../assets/home/niza.png',
+      img: '../donnacalzados/assets/home/niza.png',
       title: 'Niza',
       price: 9200,
     },
     {
-      img: '../assets/home/puma.png',
+      img: '../donnacalzados/assets/home/puma.png',
       title: 'Puma XL',
       price: 10200,
     },
     {
-      img: '../assets/home/raizer.png',
+      img: '../donnacalzados/assets/home/raizer.png',
       title: 'Raizer',
       price: 8500,
     },
     {
-      img: '../assets/home/force.png',
+      img: '../donnacalzados/assets/home/force.png',
       title: 'Air Force',
       price: 8000,
     },
     {
-      img: '../assets/home/converse2.png',
+      img: '../donnacalzados/assets/home/converse2.png',
       title: 'Botitas Converse',
       price: 11000,
     },
     {
-      img: '../assets/home/puma.png',
+      img: '../donnacalzados/assets/home/puma.png',
       title: 'Puma XL',
       price: 10200,
     },
     {
-      img: '../assets/home/raizer.png',
+      img: '../donnacalzados/assets/home/raizer.png',
       title: 'Raizer',
       price: 8500,
     },
     {
-      img: '../assets/home/force.png',
+      img: '../donnacalzados/assets/home/force.png',
       title: 'Air Force',
       price: 8000,
     },
     {
-      img: '../assets/home/converse2.png',
+      img: '../donnacalzados/assets/home/converse2.png',
       title: 'Botitas Converse',
       price: 11000,
     },
