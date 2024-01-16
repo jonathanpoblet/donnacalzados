@@ -32,8 +32,8 @@ export default function Header() {
           <img src='/donnacalzados/assets/logo.png' alt='Logo' className='navbar-img' />
         </Navbar.Brand>
 
-        <Button variant='light' className='order-10 order-lg-2 ml-auto' style={{ backgroundColor: '#F9C1FD' }} data-bs-toggle='offcanvas' data-bs-target='#offcanvasExample' aria-controls='offcanvasExample'>
-          <BsCart />
+        <Button variant='light' className='order-10 order-lg-2 ml-auto' style={{ backgroundColor: '#E54787' }} data-bs-toggle='offcanvas' data-bs-target='#offcanvasExample' aria-controls='offcanvasExample'>
+          <BsCart style={{ color: '#fff' }} />
         </Button>
 
         <Navbar.Collapse id='responsive-navbar-nav'>
@@ -42,13 +42,13 @@ export default function Header() {
               Inicio
             </Nav.Link>
             <Nav.Link href='./#productos' className='text-dark mx-2'>
-              Hombres
+              Hombre
             </Nav.Link>
             <Nav.Link href='./#productos/mujeres' className='text-dark mx-2'>
-              Mujeres
+              Mujer
             </Nav.Link>
             <Nav.Link href='./#productos/ninos' className='text-dark mx-2'>
-              Niños
+              Niño/a
             </Nav.Link>
             <Nav.Link href='./#informacion' className='text-dark mx-2'>
               Información

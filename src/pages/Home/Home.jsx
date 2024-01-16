@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <main className='home'>
       {/* <HomeBanner /> */}
-      <img className='home-img' src='../donnacalzados/assets/home/banner-copia.png' alt='banner' data-aos='fade-up' data-aos-offset='100' data-aos-easing='ease-in-sine' data-aos-duration='600' />
+      <img className='home-img' src='../donnacalzados/assets/home/banner.png' alt='banner' data-aos='fade-up' data-aos-offset='100' data-aos-easing='ease-in-sine' data-aos-duration='600' />
       <h2 className='home-title' data-aos='fade-up' data-aos-offset='200' data-aos-easing='ease-in-sine' data-aos-duration='600'>
         Descubrí nuestros calzados
       </h2>

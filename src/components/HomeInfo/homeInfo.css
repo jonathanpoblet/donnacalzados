@@ -4,7 +4,7 @@
   justify-self: center;
   align-items: center;
   width: 1110px;
-  background-color: #f9c1fd;
+  background-color: #e54787;
   padding: 30px;
   border-radius: 5px;
   margin-top: 50px;
@@ -22,6 +22,7 @@
 
 .home-info-container-logo {
   font-size: 50px;
+  color: rgb(0, 0, 0);
 }
 
 .home-info-container-texts {
@@ -34,10 +35,12 @@
 
 .home-info-container-texts h5 {
   font-size: 18px;
+  color: #fff;
 }
 
 .home-info-container-texts p {
   font-size: 14px;
+  color: #fff;
 }
 
 @media screen and (max-width: 1220px) {
