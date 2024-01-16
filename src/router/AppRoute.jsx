@@ -17,7 +17,7 @@ export default function AppRoute() {
         <Layout>
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/productos' element={<Products />} />
+            <Route path='./productos' element={<Products />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </Layout>
