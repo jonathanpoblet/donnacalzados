@@ -42,6 +42,11 @@
   .home-products-button {
     width: 90%;
   }
+
+  .home-img {
+    min-height: 400px;
+    object-fit: cover;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -50,16 +55,30 @@
     text-align: center;
     border-bottom: 0px;
   }
+  .home-img {
+    min-height: 300px;
+  }
 }
 
 @media screen and (max-width: 600px) {
   .home-products-button {
     width: 80%;
   }
+
+  .home-img {
+    min-height: 250px;
+  }
 }
 
 @media screen and (max-width: 450px) {
   .home-title {
     font-size: 25px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: none;
+  }
+
+  .home-img {
+    min-height: 210px;
   }
 }
