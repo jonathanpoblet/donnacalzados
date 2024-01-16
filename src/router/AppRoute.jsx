@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Layout from '../components/Layout/Layout';
 import ScrollToTopOnUrlChange from '../utils/scroll';
 
@@ -12,16 +12,14 @@ const Spinner = lazy(() => import('../components/Spinner/Spinner'));
 export default function AppRoute() {
   return (
     <Suspense fallback={<Spinner />}>
-      <BrowserRouter>
-        <ScrollToTopOnUrlChange />
-        <Layout>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='./productos' element={<Products />} />
-            <Route path='*' element={<NotFound />} />
-          </Routes>
-        </Layout>
-      </BrowserRouter>
+      <ScrollToTopOnUrlChange />
+      <Layout>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='./productos' element={<Products />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </Layout>
     </Suspense>
   );
 }
