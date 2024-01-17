@@ -20,6 +20,7 @@
   box-shadow: 2px 2px 10px 2px #bbbbbb;
   padding: 10px;
   margin-top: 50px;
+  letter-spacing: 1px;
 }
 
 @media screen and (max-width: 1220px) {

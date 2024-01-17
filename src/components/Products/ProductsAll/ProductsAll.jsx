@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import './homeProducts.css';
+import './productsAll.css';
 
-export default function HomeProducts() {
+export default function ProductsAll() {
   const formatPrice = number => {
     const formatNumber = new Intl.NumberFormat('es-ES', {
       minimumFractionDigits: 0,
@@ -13,9 +11,6 @@ export default function HomeProducts() {
 
     return formatNumber;
   };
-  useEffect(() => {
-    AOS.init();
-  }, []);
   const products = [
     {
       img: '../donnacalzados/assets/home/force.png',
@@ -79,19 +74,16 @@ export default function HomeProducts() {
     },
   ];
   return (
-    <section className='home-products' data-aos='fade-up' data-aos-offset='200' data-aos-easing='ease-in-sine' data-aos-duration='600'>
-      <h2 className='home-products-title'>DESCUBRÍ NUESTROS CALZADOS</h2>
-      <div className='home-products-container'>
-        {products.map((prod, index) => {
-          return (
-            <div className='home-products-container-card' key={index}>
-              <img className='home-products-container-card-img' src={prod.img} alt='Producto' />
-              <p className='home-products-container-card-title'>{prod.title.toLocaleUpperCase()}</p>
-              <p className='home-products-container-card-price'>${formatPrice(prod.price)}</p>
-            </div>
-          );
-        })}
-      </div>
-    </section>
+    <article className='products-all'>
+      {products.map((prod, index) => {
+        return (
+          <div className='products-all-card' key={index}>
+            <img className='products-all-card-img' src={prod.img} alt='Producto' />
+            <p className='products-all-card-title'>{prod.title.toLocaleUpperCase()}</p>
+            <p className='products-all-card-price'>${formatPrice(prod.price)}</p>
+          </div>
+        );
+      })}
+    </article>
   );
 }

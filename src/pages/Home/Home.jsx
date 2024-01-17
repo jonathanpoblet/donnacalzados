@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import HomeBanner from '../../components/HomeBanner/HomeBanner';
 import HomeCategories from '../../components/HomeCategories/HomeCategories';
 import HomeContact from '../../components/HomeContact/HomeContact';
 import HomeInfo from '../../components/HomeInfo/HomeInfo';

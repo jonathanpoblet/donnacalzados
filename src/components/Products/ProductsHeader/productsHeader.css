@@ -1,0 +1,30 @@
+.products-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 1080px;
+}
+
+.products-header-link {
+  text-decoration: none;
+  color: rgb(44, 44, 44);
+  transition: 1s;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.products-header-link:hover {
+  text-decoration: underline 1px #000;
+}
+
+.products-header-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 0px;
+}
+
+.products-header-bar {
+  margin: 0px 4px;
+}

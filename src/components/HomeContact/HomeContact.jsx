@@ -23,7 +23,7 @@ export default function HomeContact() {
   }, []);
   return (
     <section className='home-contact' data-aos='fade-up' data-aos-offset='200' data-aos-easing='ease-in-sine' data-aos-duration='600'>
-      <h2 className='home-contact-title'>Contactanos</h2>
+      <h2 className='home-contact-title'>CONTACTANOS</h2>
       <Formik
         initialValues={{
           nombre: '',
@@ -41,7 +41,7 @@ export default function HomeContact() {
             {errors.email && touched.email ? <div className='home-contact-form-errors'>{errors.email}</div> : null}
             <Field as='textarea' className='home-contact-form-textarea' name='mensaje' placeholder='Mensaje' /> {errors.mensaje && touched.mensaje ? <div className='home-contact-form-errors'>{errors.mensaje}</div> : null}
             <button className='home-contact-form-button' type='submit'>
-              Enviar
+              ENVIAR
             </button>
             <div id='noexiste'></div>
           </Form>

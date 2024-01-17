@@ -1,16 +1,15 @@
 import React from 'react';
-import { FaSearch } from 'react-icons/fa';
+import ProductsBody from '../../components/Products/ProductsBody/ProductsBody';
+import ProductsFilter from '../../components/Products/ProductsFilter/ProductsFilter';
+import ProductsHeader from '../../components/Products/ProductsHeader/ProductsHeader';
 
 import './products.css';
 
 export default function Products() {
   return (
     <main className='products'>
-      <h1 className='products-title'>Calzados</h1>
-      <div className='products-search'>
-        <input className='products-search-input' type='text' placeholder='Buscar' />
-        <FaSearch className='products-search-icon' />
-      </div>
+      <ProductsHeader />
+      <ProductsBody />
     </main>
   );
 }

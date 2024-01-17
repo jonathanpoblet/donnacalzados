@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Navbar, Nav, Button } from 'react-bootstrap';
+import { Navbar, Nav, Button, NavDropdown } from 'react-bootstrap';
 import { BsCart } from 'react-icons/bs';
 
 import './header.css';
@@ -38,20 +38,38 @@ export default function Header() {
 
         <Navbar.Collapse id='responsive-navbar-nav'>
           <Nav className='d-flex justify-content-end ms-lg-5'>
-            <Nav.Link href='/' className='text-dark mx-2'>
-              Inicio
+            <Nav.Link href='/' className='text mx-2'>
+              INICIO
             </Nav.Link>
-            <Nav.Link href='./#productos' className='text-dark mx-2'>
-              Hombre
-            </Nav.Link>
-            <Nav.Link href='./#productos/mujeres' className='text-dark mx-2'>
-              Mujer
-            </Nav.Link>
-            <Nav.Link href='./#productos/ninos' className='text-dark mx-2'>
-              Niño/a
-            </Nav.Link>
-            <Nav.Link href='./#informacion' className='text-dark mx-2'>
-              Información
+            <NavDropdown title='HOMBRE' id='collasible-nav-dropdown' className='mx-2'>
+              <NavDropdown.Item href='./#productos?p=hombre&calzado=zapatillas' className='custom-dropdown-item text-center'>
+                ZAPATILLAS
+              </NavDropdown.Item>
+              <NavDropdown.Item href='./#productos?p=hombre&calzado=ojotas' className='custom-dropdown-item text-center'>
+                OJOTAS
+              </NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown title='MUJER' id='collasible-nav-dropdown' className='mx-2'>
+              <NavDropdown.Item href='./#productos?p=mujer&calzado=zapatillas' className='custom-dropdown-item text-center'>
+                ZAPATILLAS
+              </NavDropdown.Item>
+              <NavDropdown.Item href='./#productos?p=mujer&calzado=sandalias' className='custom-dropdown-item text-center'>
+                SANDALIAS
+              </NavDropdown.Item>
+              <NavDropdown.Item href='./#productos?p=mujer&calzado=ojotas' className='custom-dropdown-item text-center'>
+                OJOTAS
+              </NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown title='NIÑO/A' id='collasible-nav-dropdown' className='mx-2'>
+              <NavDropdown.Item href='./#productos?p=niño&calzado=zapatillas' className='custom-dropdown-item text-center'>
+                ZAPATILLAS
+              </NavDropdown.Item>
+              <NavDropdown.Item href='./#productos?p=niño&calzado=ojotas' className='custom-dropdown-item text-center'>
+                OJOTAS
+              </NavDropdown.Item>
+            </NavDropdown>
+            <Nav.Link href='./#informacion' className='text mx-2'>
+              INFORMACIÓN
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

@@ -6,17 +6,6 @@ header {
   width: 100% !important;
 }
 
-.cart-button {
-  background-color: #f5e4ea !important;
-  outline: none !important;
-  border: none !important;
-}
-.cart-button:active .cart-button:focus,
-.cart-button:hover {
-  outline: none !important;
-  border: none !important;
-}
-
 .navbar-brand {
   margin-right: 0px !important;
 }
@@ -28,6 +17,31 @@ header {
 .navbar-collapse div a {
   text-decoration: none;
   color: #000;
+}
+
+.dropdown-menu {
+  padding: 0px !important;
+  border: 1px solid rgba(187, 187, 187, 0.288) !important;
+  border-radius: 5px;
+}
+
+.dropdown-menu a {
+  padding: 5px !important;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.nav-item,
+.nav-link {
+  font-size: 14px !important;
+  letter-spacing: 1px !important;
+  color: rgb(44, 44, 44) !important;
+}
+
+.dropdown-item:active,
+.dropdown-item:focus {
+  background-color: rgba(238, 238, 238, 0.288) !important;
+  color: #000 !important;
 }
 
 @media screen and (min-width: 992px) {
