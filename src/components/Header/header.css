@@ -48,7 +48,6 @@ header {
   .navbar {
     max-width: 1200px !important;
     padding: 20px 50px !important;
-    justify-content: space-around !important;
   }
   .navbar-collapse {
     display: flex !important;

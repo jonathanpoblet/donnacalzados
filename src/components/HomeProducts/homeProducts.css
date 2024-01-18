@@ -25,6 +25,7 @@
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
+  max-width: 1200px;
 }
 
 .home-products-container-card {
@@ -50,18 +51,19 @@
   height: 300px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  object-fit: cover;
 }
 
 .home-products-container-card-title {
   padding: 10px 5px;
-  font-size: 15px;
+  font-size: 13px;
   letter-spacing: 1px;
   color: #000;
   font-weight: 500;
 }
 
 .home-products-container-card-price {
-  font-size: 13px;
+  font-size: 12px;
   padding: 0px 5px 10px 5px;
   color: rgb(0, 0, 0);
 }

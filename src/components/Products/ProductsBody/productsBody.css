@@ -6,3 +6,335 @@
   max-width: 1080px;
   margin-top: 50px;
 }
+
+.products-filter {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 200px;
+}
+
+.products-filter-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.products-filter-header-title {
+  letter-spacing: 1px;
+  font-size: 14px;
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+
+.products-filter-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.products-filter-container-type,
+.products-filter-container-size,
+.products-filter-container-color,
+.products-filter-container-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 156px;
+  padding: 20px 0px;
+  border-top: 1px solid rgb(223, 223, 223);
+}
+
+.products-filter-container-type h3,
+.products-filter-container-size h3,
+.products-filter-container-color h3,
+.products-filter-container-price h3 {
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.products-filter-container-type div,
+.products-filter-container-size div,
+.products-filter-container-color div,
+.products-filter-container-price div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.products-filter-container-type div button,
+.products-filter-container-size div button,
+.products-filter-container-price div button {
+  padding: 5px 7px;
+  font-size: 11px;
+  margin-bottom: 11px;
+  margin-right: 11px;
+  border: 0px;
+  border-radius: 5px;
+  transition: 0.5s;
+  background-color: #fff;
+  box-shadow: 1px 1px 2px 1px rgb(224, 224, 224);
+}
+
+.products-filter-container-type div button:hover,
+.products-filter-container-size div button:hover,
+.products-filter-container-price div button:hover {
+  background-color: rgb(189, 189, 189);
+}
+
+.products-filter-container-color div button {
+  font-size: 15px;
+  margin-bottom: 11px;
+  margin-right: 11px;
+  border: 0px;
+  border-radius: 5px;
+  transition: 0.5s;
+  box-shadow: 1px 1px 2px 1px rgb(224, 224, 224);
+}
+
+.color-option {
+  width: 27px;
+  height: 27px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 11px;
+  margin-right: 11px;
+  transition: 0.5s;
+  border: 1px solid rgb(238, 238, 238);
+}
+.selected {
+  box-shadow: 0 0 7px #000;
+  border: none;
+}
+
+.size-option,
+.price-option {
+  background-color: #ddd;
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  border: none;
+  transition: 0.5s;
+}
+
+.size-option.selected,
+.price-option.selected {
+  background-color: rgb(175, 175, 175);
+  box-shadow: 0 0 4px #000;
+  color: #fff;
+}
+
+.products-all {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.products-all-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  margin-bottom: 40px;
+  margin-left: 30px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.5s;
+  box-shadow: 2px 2px 10px 2px rgb(190, 190, 190);
+  border-radius: 5px;
+}
+
+.products-all-card:hover {
+  opacity: 0.8;
+}
+
+.products-all-card-img {
+  width: 100%;
+  height: 250px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  object-fit: cover;
+}
+
+.products-all-card-title {
+  padding: 10px 5px;
+  font-size: 13px;
+  text-align: center;
+  letter-spacing: 1px;
+  color: #000;
+  font-weight: 500;
+}
+
+.products-all-card-price {
+  font-size: 12px;
+  padding: 0px 5px 10px 5px;
+  color: rgb(0, 0, 0);
+}
+
+@media screen and (max-width: 1220px) {
+  .products-body {
+    max-width: 1000px;
+  }
+
+  .products-all-card {
+    width: 28%;
+  }
+
+  .products-all-card-img {
+    height: 220px;
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .products-body {
+    max-width: 850px;
+  }
+
+  .products-all-card {
+    margin-left: 20px;
+  }
+
+  .products-all-card-img {
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .products-body {
+    flex-direction: column;
+    max-width: 700px;
+    margin-top: 10px;
+  }
+
+  .products-filter {
+    width: 100%;
+    justify-content: center;
+    margin: 10px;
+  }
+
+  .products-filter-container {
+    flex-direction: row;
+    border-top: 0px;
+  }
+
+  .products-all-card {
+    margin: 10px;
+    width: 30%;
+  }
+
+  .products-filter-container-type,
+  .products-filter-container-size,
+  .products-filter-container-color,
+  .products-filter-container-price {
+    padding: 0px;
+    border: 0px;
+    margin-right: 25px;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .products-body {
+    max-width: 500px;
+  }
+  .products-filter-container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .products-all {
+    justify-content: space-between;
+  }
+
+  .products-all-card {
+    width: 46%;
+    margin: 0px;
+    margin-top: 40px;
+  }
+
+  .products-all-card-img {
+    height: 245px;
+  }
+
+  .products-filter {
+    margin: 0;
+    margin-top: 10px;
+  }
+
+  .products-filter-header-title {
+    margin-bottom: 0px;
+  }
+
+  .products-filter-container-size,
+  .products-filter-container-price {
+    margin-right: 0px;
+    margin-top: 10px;
+    width: 180px;
+  }
+
+  .products-filter-container-type,
+  .products-filter-container-color {
+    width: 150px;
+    margin-top: 10px;
+  }
+
+  .products-all-card:hover {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .products-all {
+    justify-content: center;
+    padding: 0px 20px;
+  }
+
+  .products-all-card {
+    width: 80%;
+    margin: 0px;
+    margin-top: 40px;
+  }
+
+  .products-all-card-img {
+    height: 100%;
+  }
+
+  .products-filter {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .products-filter-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .products-filter-header {
+    width: 75%;
+  }
+
+  .products-filter-header-title {
+    width: 100%;
+  }
+
+  .products-filter-container-price,
+  .products-filter-container-color {
+    display: none;
+  }
+
+  .products-filter-container-type,
+  .products-filter-container-size {
+    width: 75%;
+    margin-right: 0px;
+  }
+}

@@ -17,7 +17,7 @@ export default function Header() {
   return (
     <header className='text-center'>
       <p style={{ backgroundColor: '#000', color: '#fff', fontSize: 13, width: '100%', padding: '10px 5px' }}>ENVIOS A TODA LA ARGENTINA</p>
-      <Navbar collapseOnSelect expand='lg' variant='light' className='w-100 justify-content-around'>
+      <Navbar collapseOnSelect expand='lg' variant='light' className='w-100 justify-content-beetwen px-3 px-lg-5'>
         <Navbar.Toggle
           aria-controls='responsive-navbar-nav'
           className='order-0 btn-light button-toggle'
@@ -38,37 +38,19 @@ export default function Header() {
 
         <Navbar.Collapse id='responsive-navbar-nav'>
           <Nav className='d-flex justify-content-end ms-lg-5'>
-            <Nav.Link href='/' className='text mx-2'>
+            <Nav.Link onClick={() => navigate('/')} className='text mx-2'>
               INICIO
             </Nav.Link>
-            <NavDropdown title='HOMBRE' id='collasible-nav-dropdown' className='mx-2'>
-              <NavDropdown.Item href='./#productos?p=hombre&calzado=zapatillas' className='custom-dropdown-item text-center'>
-                ZAPATILLAS
-              </NavDropdown.Item>
-              <NavDropdown.Item href='./#productos?p=hombre&calzado=ojotas' className='custom-dropdown-item text-center'>
-                OJOTAS
-              </NavDropdown.Item>
-            </NavDropdown>
-            <NavDropdown title='MUJER' id='collasible-nav-dropdown' className='mx-2'>
-              <NavDropdown.Item href='./#productos?p=mujer&calzado=zapatillas' className='custom-dropdown-item text-center'>
-                ZAPATILLAS
-              </NavDropdown.Item>
-              <NavDropdown.Item href='./#productos?p=mujer&calzado=sandalias' className='custom-dropdown-item text-center'>
-                SANDALIAS
-              </NavDropdown.Item>
-              <NavDropdown.Item href='./#productos?p=mujer&calzado=ojotas' className='custom-dropdown-item text-center'>
-                OJOTAS
-              </NavDropdown.Item>
-            </NavDropdown>
-            <NavDropdown title='NIÑO/A' id='collasible-nav-dropdown' className='mx-2'>
-              <NavDropdown.Item href='./#productos?p=niño&calzado=zapatillas' className='custom-dropdown-item text-center'>
-                ZAPATILLAS
-              </NavDropdown.Item>
-              <NavDropdown.Item href='./#productos?p=niño&calzado=ojotas' className='custom-dropdown-item text-center'>
-                OJOTAS
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href='./#informacion' className='text mx-2'>
+            <Nav.Link onClick={() => navigate('./productos?p=hombre')} className='text mx-2'>
+              HOMBRE
+            </Nav.Link>
+            <Nav.Link onClick={() => navigate('./productos?p=mujer')} className='text mx-2'>
+              MUJER
+            </Nav.Link>
+            <Nav.Link onClick={() => navigate('./productos?p=niño')} className='text mx-2'>
+              NIÑO/A
+            </Nav.Link>
+            <Nav.Link onClick={() => navigate('./informacion')} className='text mx-2'>
               INFORMACIÓN
             </Nav.Link>
           </Nav>
