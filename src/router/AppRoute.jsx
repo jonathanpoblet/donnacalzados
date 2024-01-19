@@ -4,7 +4,10 @@ import Layout from '../components/Layout/Layout';
 import ScrollToTopOnUrlChange from '../utils/scroll';
 
 const Home = lazy(() => import('../pages/Home/Home'));
-const Products = lazy(() => import('../pages/Products/Products'));
+const Man = lazy(() => import('../pages/Man/Man'));
+const Woman = lazy(() => import('../pages/Woman/Woman'));
+const Child = lazy(() => import('../pages/Child/Child'));
+
 const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
 
 const Spinner = lazy(() => import('../components/Spinner/Spinner'));
@@ -17,7 +20,9 @@ export default function AppRoute() {
         <Layout>
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/productos' element={<Products />} />
+            <Route path='/hombre' element={<Man />} />
+            <Route path='/mujer' element={<Woman />} />
+            <Route path='/niño' element={<Child />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </Layout>

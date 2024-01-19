@@ -5,7 +5,7 @@ import './layout.css';
 
 export default function Layout({ children }) {
   return (
-    <div className='fade-in'>
+    <div className='fade-in' id='layout'>
       <Header />
       {children}
       <Footer />

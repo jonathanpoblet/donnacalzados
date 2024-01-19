@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Navbar, Nav, Button, NavDropdown } from 'react-bootstrap';
 import { BsCart } from 'react-icons/bs';
 import useWindowSize from '../../utils/useWindowSize';
-
 import './header.css';
 
 export default function Header() {
@@ -18,9 +17,9 @@ export default function Header() {
 
   const navLinks = [
     { key: 'inicio', label: 'INICIO', path: './', pathDesktop: './' },
-    { key: 'hombre', label: 'HOMBRE', path: './#productos?p=hombre', pathDesktop: '/productos?p=hombre' },
-    { key: 'mujer', label: 'MUJER', path: './#productos?p=mujer', pathDesktop: '/productos?p=mujer' },
-    { key: 'niño', label: 'NIÑO/A', path: './#productos?p=niño', pathDesktop: '/productos?p=niño' },
+    { key: 'hombre', label: 'HOMBRE', path: './#hombre', pathDesktop: '/hombre' },
+    { key: 'mujer', label: 'MUJER', path: './#mujer', pathDesktop: '/mujer' },
+    { key: 'niño', label: 'NIÑO/A', path: './#niño', pathDesktop: '/niño' },
     { key: 'informacion', label: 'INFORMACIÓN', path: './#informacion', pathDesktop: '/informacion' },
   ];
 

@@ -1,75 +1,40 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { products } from '../../../test/products';
-import { colors } from '../../../test/colors';
 import { formatPrice } from '../../../utils/formatPrice';
 
 import './productsBody.css';
 
-export default function ProductsBody() {
-  const { search } = useLocation();
-  const params = new URLSearchParams(search);
-
-  const [queryPerson, setQueryPerson] = useState(params.get('p'));
-  const [sizes, setSizes] = useState([]);
-  const [categories, setCategories] = useState([]);
+export default function ProductsBody({ products, sizes, categories, colors }) {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedSizes, setSelectedSizes] = useState([]);
   const [selectedColors, setSelectedColors] = useState([]);
-  const [selectedPriceRange, setSelectedPriceRange] = useState([]);
+  const [sortOrder, setSortOrder] = useState(''); // Nuevo estado para el tipo de ordenamiento
   const [tempProducts, setTempProducts] = useState([]);
 
   useEffect(() => {
-    setQueryPerson(params.get('p'));
-  }, [window.location.href]);
+    const filteredProducts = products
+      .filter(prod => {
+        const meetsCategory = selectedCategories.length === 0 || selectedCategories.includes(prod.category);
+        const meetsSize = selectedSizes.length === 0 || selectedSizes.some(size => prod.size.includes(size));
+        const meetsColor = selectedColors.length === 0 || selectedColors.some(selectedColor => prod.color.some(prodColor => selectedColor === prodColor));
 
-  useEffect(() => {
-    if (queryPerson === 'hombre') {
-      setSizes(['35', '36', '37', '38', '39', '40', '41', '42', '43', '44']);
-      setCategories(['Zapatilla', 'Ojotas']);
-    } else if (queryPerson === 'mujer') {
-      setSizes(['35', '36', '37', '38', '39', '40']);
-      setCategories(['Zapatilla', 'Sandalia', 'Ojotas']);
-    } else if (queryPerson === 'niño') {
-      setSizes(['27', '28', '29', '30', '31', '32', '33', '34']);
-      setCategories(['Zapatilla', 'Ojotas']);
-    }
-  }, [queryPerson]);
-
-  useEffect(() => {
-    const filteredProducts = products.filter(prod => {
-      const meetsCategory = selectedCategories.length === 0 || selectedCategories.includes(prod.category);
-      const meetsSize = selectedSizes.length === 0 || selectedSizes.some(size => prod.size.includes(size));
-      const meetsColor = selectedColors.length === 0 || selectedColors.some(selectedColor => prod.color.some(prodColor => selectedColor === prodColor));
-      const meetsPriceRange = selectedPriceRange.length === 0 || selectedPriceRange.some(range => isPriceInRange(prod.price, range));
-
-      console.log(meetsCategory);
-      console.log(meetsSize);
-      console.log(meetsColor);
-      console.log(meetsPriceRange);
-
-      return meetsCategory && meetsSize && meetsColor && meetsPriceRange;
-    });
+        return meetsCategory && meetsSize && meetsColor;
+      })
+      .sort((a, b) => {
+        // Lógica de ordenamiento
+        if (sortOrder === 'asc') {
+          return a.price - b.price;
+        } else if (sortOrder === 'desc') {
+          return b.price - a.price;
+        } else {
+          return 0; // Sin ordenamiento
+        }
+      });
 
     setTempProducts(filteredProducts);
-  }, [selectedCategories, selectedSizes, selectedColors, selectedPriceRange]);
-
-  const isPriceInRange = (price, range) => {
-    const [min, max] = parsePriceRange(range);
-    return price >= min && price <= max;
-  };
-
-  const parsePriceRange = range => {
-    const [min, max] = range.split('-').map(value => parseInt(value.trim().replace('$', '').replace(',', ''), 10));
-
-    return [min, max];
-  };
+  }, [selectedCategories, selectedSizes, selectedColors, sortOrder, products]);
 
   const toggleSelection = (selectedArray, value) => {
-    console.log(selectedArray);
-    console.log(value);
     if (selectedArray.includes(value)) {
-      console.log(selectedArray.includes(value));
       return selectedArray.filter(s => s !== value);
     } else {
       return [...selectedArray, value];
@@ -77,8 +42,6 @@ export default function ProductsBody() {
   };
 
   const toggleFilter = (filterType, value) => {
-    console.log('Toggle Filter Called:', filterType, value);
-
     switch (filterType) {
       case 'categories':
         setSelectedCategories(toggleSelection(selectedCategories, value));
@@ -89,12 +52,8 @@ export default function ProductsBody() {
       case 'colors':
         setSelectedColors(toggleSelection(selectedColors, value));
         break;
-      case 'price':
-        const priceRanges = {
-          '- $20.000': '0-20000',
-          '+ $20.000': '20001-Infinity',
-        };
-        setSelectedPriceRange(toggleSelection(selectedPriceRange, priceRanges[value]));
+      case 'sort':
+        setSortOrder(value);
         break;
       default:
         break;
@@ -103,7 +62,7 @@ export default function ProductsBody() {
 
   const showFilters = () => {
     const display = document.getElementById('filter-container').style.display;
-    if (display == 'flex') document.getElementById('filter-container').style.display = 'none';
+    if (display === 'flex') document.getElementById('filter-container').style.display = 'none';
     else document.getElementById('filter-container').style.display = 'flex';
   };
 
@@ -148,24 +107,29 @@ export default function ProductsBody() {
           <div className='products-filter-container-price'>
             <h3>Precio</h3>
             <div>
-              <button className={`price-option ${selectedPriceRange.includes('- $20.000') ? 'selected' : ''}`} onClick={() => toggleFilter('price', '- $20.000')}>
-                - $20.000
+              <button className={`price-option ${sortOrder === 'asc' ? 'selected' : ''}`} onClick={() => toggleFilter('sort', 'asc')}>
+                Menor a Mayor Precio
               </button>
-              <button className={`price-option ${selectedPriceRange.includes('+ $20.000') ? 'selected' : ''}`} onClick={() => toggleFilter('price', '+ $20.000')}>
-                + $20.000
+              <button className={`price-option ${sortOrder === 'desc' ? 'selected' : ''}`} onClick={() => toggleFilter('sort', 'desc')}>
+                Mayor a Menor Precio
               </button>
             </div>
           </div>
         </div>
       </article>
+
       <article className='products-all'>
-        {tempProducts.map((prod, index) => (
-          <div className='products-all-card' key={index}>
-            <img className='products-all-card-img' src={prod.img} alt='Producto' />
-            <p className='products-all-card-title'>{prod.title.toLocaleUpperCase()}</p>
-            <p className='products-all-card-price'>${formatPrice(prod.price)}</p>
-          </div>
-        ))}
+        {tempProducts.length !== 0 ? (
+          tempProducts.map((prod, index) => (
+            <div className='products-all-card' key={index}>
+              <img className='products-all-card-img' src={prod.img} alt='Producto' />
+              <p className='products-all-card-title'>{prod.title.toLocaleUpperCase()}</p>
+              <p className='products-all-card-price'>${formatPrice(prod.price)}</p>
+            </div>
+          ))
+        ) : (
+          <p className='products-all-notfound'>No se encontraron productos con los filtros seleccionados</p>
+        )}
       </article>
     </section>
   );
