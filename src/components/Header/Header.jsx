@@ -17,11 +17,11 @@ export default function Header() {
   };
 
   const navLinks = [
-    { key: 'inicio', label: 'INICIO', path: '/', pathDesktop: '/' },
-    { key: 'hombre', label: 'HOMBRE', path: '/#productos?p=hombre', pathDesktop: '/productos?p=hombre' },
-    { key: 'mujer', label: 'MUJER', path: '/#productos?p=mujer', pathDesktop: '/productos?p=mujer' },
-    { key: 'niño', label: 'NIÑO/A', path: '/#productos?p=niño', pathDesktop: '/productos?p=niño' },
-    { key: 'informacion', label: 'INFORMACIÓN', path: '/#informacion', pathDesktop: '/informacion' },
+    { key: 'inicio', label: 'INICIO', path: './', pathDesktop: './' },
+    { key: 'hombre', label: 'HOMBRE', path: './#productos?p=hombre', pathDesktop: '/productos?p=hombre' },
+    { key: 'mujer', label: 'MUJER', path: './#productos?p=mujer', pathDesktop: '/productos?p=mujer' },
+    { key: 'niño', label: 'NIÑO/A', path: './#productos?p=niño', pathDesktop: '/productos?p=niño' },
+    { key: 'informacion', label: 'INFORMACIÓN', path: './#informacion', pathDesktop: '/informacion' },
   ];
 
   // useEffect(() => {
@@ -43,7 +43,7 @@ export default function Header() {
           }}
         />
 
-        <Navbar.Brand href='/'>
+        <Navbar.Brand href='./'>
           <img src='/donnacalzados/assets/logo.png' alt='Logo' className='navbar-img' />
         </Navbar.Brand>
 
