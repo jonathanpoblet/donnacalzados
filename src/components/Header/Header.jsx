@@ -2,12 +2,27 @@ import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Navbar, Nav, Button, NavDropdown } from 'react-bootstrap';
 import { BsCart } from 'react-icons/bs';
+import useWindowSize from '../../utils/useWindowSize';
 
 import './header.css';
 
 export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
+
+  const windowSize = useWindowSize();
+
+  const handleNavLinkClick = ruta => {
+    navigate(ruta);
+  };
+
+  const navLinks = [
+    { key: 'inicio', label: 'INICIO', path: '/', pathDesktop: '/' },
+    { key: 'hombre', label: 'HOMBRE', path: '/#productos?p=hombre', pathDesktop: '/productos?p=hombre' },
+    { key: 'mujer', label: 'MUJER', path: '/#productos?p=mujer', pathDesktop: '/productos?p=mujer' },
+    { key: 'niño', label: 'NIÑO/A', path: '/#productos?p=niño', pathDesktop: '/productos?p=niño' },
+    { key: 'informacion', label: 'INFORMACIÓN', path: '/#informacion', pathDesktop: '/informacion' },
+  ];
 
   useEffect(() => {
     if (!window.location.hash) {
@@ -38,21 +53,19 @@ export default function Header() {
 
         <Navbar.Collapse id='responsive-navbar-nav'>
           <Nav className='d-flex justify-content-end ms-lg-5'>
-            <Nav.Link onClick={() => navigate('/')} className='text mx-2'>
-              INICIO
-            </Nav.Link>
-            <Nav.Link onClick={() => navigate('./productos?p=hombre')} className='text mx-2'>
-              HOMBRE
-            </Nav.Link>
-            <Nav.Link onClick={() => navigate('./productos?p=mujer')} className='text mx-2'>
-              MUJER
-            </Nav.Link>
-            <Nav.Link onClick={() => navigate('./productos?p=niño')} className='text mx-2'>
-              NIÑO/A
-            </Nav.Link>
-            <Nav.Link onClick={() => navigate('./informacion')} className='text mx-2'>
-              INFORMACIÓN
-            </Nav.Link>
+            {navLinks.map(({ key, label, path, pathDesktop }) => (
+              <React.Fragment key={key}>
+                {windowSize.width <= 992 ? (
+                  <Nav.Link href={path} className='text mx-2'>
+                    {label}
+                  </Nav.Link>
+                ) : (
+                  <Nav.Link className='text mx-2' onClick={() => handleNavLinkClick(pathDesktop)}>
+                    {label}
+                  </Nav.Link>
+                )}
+              </React.Fragment>
+            ))}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

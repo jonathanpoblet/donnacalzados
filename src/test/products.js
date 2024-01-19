@@ -96,7 +96,7 @@ export const products = [
     size: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
     category: 'Zapatilla',
     person: ['Hombre', 'Mujer'],
-    color: ['Blanco'],
+    color: ['Negro'],
     model: 'Air Force'
   },
   {
@@ -116,7 +116,7 @@ export const products = [
     size: ['35', '36', '37', '38', '39', '40'],
     category: 'Zapatilla',
     person: ['Mujer'],
-    color: ['Blanco', 'Violeta', 'Verde', 'Amarillo'],
+    color: ['Blanco', 'Violeta', 'Turqueza', 'Amarillo'],
     model: 'Air Force'
   },
   {
@@ -146,7 +146,7 @@ export const products = [
     size: ['35', '36', '37', '38', '39', '40'],
     category: 'Zapatilla',
     person: ['Mujer'],
-    color: ['Blanco', 'Verde'],
+    color: ['Blanco', 'Turqueza'],
     model: 'Air Force'
   },
   {
@@ -176,7 +176,7 @@ export const products = [
     size: ['35', '36', '37', '38', '39', '40'],
     category: 'Zapatilla',
     person: ['Hombre', 'Mujer'],
-    color: ['Blanco', 'Verde'],
+    color: ['Blanco', 'Turqueza'],
     model: 'Air Force'
   },
   {
@@ -226,7 +226,7 @@ export const products = [
     size: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
     category: 'Zapatilla',
     person: ['Hombre', 'Mujer'],
-    color: ['Blanco', 'Negro', 'Rojo'],
+    color: ['Blanco', 'Negro'],
     model: 'Air Force'
   },
   {
@@ -256,7 +256,7 @@ export const products = [
     size: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
     category: 'Zapatilla',
     person: ['Hombre', 'Mujer'],
-    color: ['Blanco', 'Negro', 'Rojo'],
+    color: ['Blanco', 'Rojo'],
     model: 'Air Force'
   },
   {
@@ -276,7 +276,7 @@ export const products = [
     size: ['35', '36', '37', '38', '39', '40'],
     category: 'Zapatilla',
     person: ['Mujer'],
-    color: ['Blanco', 'Negro', 'Rosa'],
+    color: ['Blanco', 'Rosa'],
     model: 'Air Force'
   },
 ];
