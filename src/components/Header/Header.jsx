@@ -17,10 +17,10 @@ export default function Header() {
 
   const navLinks = [
     { key: 'inicio', label: 'INICIO', path: './', pathDesktop: './' },
+    { key: 'nosotros', label: 'NOSOTROS', path: './#nosotros', pathDesktop: '/nosotros' },
     { key: 'hombre', label: 'HOMBRE', path: './#hombre', pathDesktop: '/hombre' },
     { key: 'mujer', label: 'MUJER', path: './#mujer', pathDesktop: '/mujer' },
     { key: 'niño', label: 'NIÑO/A', path: './#niño', pathDesktop: '/niño' },
-    { key: 'informacion', label: 'INFORMACIÓN', path: './#informacion', pathDesktop: '/informacion' },
   ];
 
   // useEffect(() => {

@@ -7,6 +7,7 @@ const Home = lazy(() => import('../pages/Home/Home'));
 const Man = lazy(() => import('../pages/Man/Man'));
 const Woman = lazy(() => import('../pages/Woman/Woman'));
 const Child = lazy(() => import('../pages/Child/Child'));
+const AboutUs = lazy(() => import('../pages/AboutUs/AboutUs'));
 
 const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
 
@@ -23,6 +24,7 @@ export default function AppRoute() {
             <Route path='/hombre' element={<Man />} />
             <Route path='/mujer' element={<Woman />} />
             <Route path='/niño' element={<Child />} />
+            <Route path='/nosotros' element={<AboutUs />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </Layout>
