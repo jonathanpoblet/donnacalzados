@@ -24,11 +24,11 @@ export default function Header() {
     { key: 'informacion', label: 'INFORMACIÓN', path: '/#informacion', pathDesktop: '/informacion' },
   ];
 
-  useEffect(() => {
-    if (!window.location.hash) {
-      window.location.href = 'http://localhost:5173/donnacalzados/#';
-    }
-  }, [location.pathname, navigate]);
+  // useEffect(() => {
+  //   if (!window.location.hash) {
+  //     window.location.href = 'http://localhost:5173/donnacalzados/#';
+  //   }
+  // }, [location.pathname, navigate]);
   return (
     <header className='text-center'>
       <p style={{ backgroundColor: '#000', color: '#fff', fontSize: 13, width: '100%', padding: '10px 5px' }}>ENVIOS A TODA LA ARGENTINA</p>
