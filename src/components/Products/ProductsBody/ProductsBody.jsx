@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { formatPrice } from '../../../utils/formatPrice';
 
 import './productsBody.css';
+import { setDetail } from '../../../app/state/detailSlice';
 
-export default function ProductsBody({ products, sizes, categories, colors }) {
+export default function ProductsBody({ products, sizes, categories, colors, person }) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedSizes, setSelectedSizes] = useState([]);
   const [selectedColors, setSelectedColors] = useState([]);
-  const [sortOrder, setSortOrder] = useState(''); // Nuevo estado para el tipo de ordenamiento
-  const [tempProducts, setTempProducts] = useState([]);
+  const [sortOrder, setSortOrder] = useState('');
+  const [tempProducts, setTempProducts] = useState(products);
 
   useEffect(() => {
     const filteredProducts = products
@@ -20,18 +26,22 @@ export default function ProductsBody({ products, sizes, categories, colors }) {
         return meetsCategory && meetsSize && meetsColor;
       })
       .sort((a, b) => {
-        // Lógica de ordenamiento
         if (sortOrder === 'asc') {
           return a.price - b.price;
         } else if (sortOrder === 'desc') {
           return b.price - a.price;
         } else {
-          return 0; // Sin ordenamiento
+          return 0;
         }
       });
 
     setTempProducts(filteredProducts);
-  }, [selectedCategories, selectedSizes, selectedColors, sortOrder, products]);
+  }, [selectedCategories, selectedSizes, selectedColors, sortOrder]);
+
+  const handleDetail = prod => {
+    dispatch(setDetail(prod));
+    navigate(`/detalle?producto=${prod.id}&persona=${person.toLocaleLowerCase()}`);
+  };
 
   const toggleSelection = (selectedArray, value) => {
     if (selectedArray.includes(value)) {
@@ -121,7 +131,7 @@ export default function ProductsBody({ products, sizes, categories, colors }) {
       <article className='products-all'>
         {tempProducts.length !== 0 ? (
           tempProducts.map((prod, index) => (
-            <div className='products-all-card' key={index}>
+            <div className='products-all-card' key={index} onClick={() => handleDetail(prod)}>
               <img className='products-all-card-img' src={prod.img} alt='Producto' />
               <p className='products-all-card-title'>{prod.title.toLocaleUpperCase()}</p>
               <p className='products-all-card-price'>${formatPrice(prod.price)}</p>

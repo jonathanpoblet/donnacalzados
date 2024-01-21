@@ -1,5 +1,6 @@
 export const productsChild = [
   {
+    id: 700,
     img: '../donnacalzados/assets/products/force-niño-blanco.png',
     title: 'Air Force',
     price: 9000,
@@ -10,6 +11,7 @@ export const productsChild = [
     model: 'Air Force'
   },
   {
+    id: 701,
     img: '../donnacalzados/assets/products/force-niño-blanconegro.png',
     title: 'Air Force',
     price: 9000,
@@ -20,6 +22,7 @@ export const productsChild = [
     model: 'Air Force'
   },
   {
+    id: 702,
     img: '../donnacalzados/assets/products/force-niño-negroblanco.png',
     title: 'Air Force',
     price: 9000,
@@ -30,6 +33,7 @@ export const productsChild = [
     model: 'Air Force'
   },
   {
+    id: 703,
     img: '../donnacalzados/assets/products/force-niño-blancovioleta.png',
     title: 'Air Force',
     price: 9000,

@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { Navbar, Nav, Button, NavDropdown } from 'react-bootstrap';
 import { BsCart } from 'react-icons/bs';
 import useWindowSize from '../../utils/useWindowSize';
 import './header.css';
+import Cart from '../Cart/Cart';
 
 export default function Header() {
+  const cart = useSelector(state => state.cart);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -46,8 +49,9 @@ export default function Header() {
           <img src='/donnacalzados/assets/logo.png' alt='Logo' className='navbar-img' />
         </Navbar.Brand>
 
-        <Button variant='light' className='order-10 order-lg-2 ml-auto' style={{ backgroundColor: '#E54787' }} data-bs-toggle='offcanvas' data-bs-target='#offcanvasExample' aria-controls='offcanvasExample'>
+        <Button variant='light' className='order-10 order-lg-2 ml-auto' style={{ backgroundColor: '#E54787', position: 'relative' }} data-bs-toggle='offcanvas' data-bs-target='#offcanvasExample' aria-controls='offcanvasExample'>
           <BsCart style={{ color: '#fff' }} />
+          <p style={{ position: 'absolute', marginRight: '3px', right: 0, bottom: 0, top: 0, borderRadius: '20%', fontSize: '10px', color: '#fff', fontWeight: 700 }}>{cart.length ? cart.length : ''}</p>
         </Button>
 
         <Navbar.Collapse id='responsive-navbar-nav'>
@@ -69,17 +73,7 @@ export default function Header() {
         </Navbar.Collapse>
       </Navbar>
 
-      <div className='offcanvas offcanvas-start' tabIndex='-1' id='offcanvasExample' aria-labelledby='offcanvasExampleLabel'>
-        <div className='offcanvas-header'>
-          <h5 className='offcanvas-title' id='offcanvasExampleLabel'>
-            Carrito
-          </h5>
-          <button type='button' className='btn-close' data-bs-dismiss='offcanvas' aria-label='Close'></button>
-        </div>
-        <div className='offcanvas-body'>
-          <div>Contenido del carrito</div>
-        </div>
-      </div>
+      <Cart />
     </header>
   );
 }

@@ -20,10 +20,11 @@ export default function AboutUsBody() {
       <h2>¿POR QUE CONFIAR EN NOSOTROS?</h2>
       <p>
         ​En Donna Calzados te garantizamos la seguridad de todas tus compras online, manteniendo tus datos bajo la más estricta confidencialidad. Te aseguramos cada transacción electrónica que realices en nuestra página web. Tu información personal será cifrada y no podrá ser leída ni utilizada por
-        terceros mientras realices una compra. A su vez, Todo Calzados te asegura que dichos datos no saldrán de la compañía, manejándolos con total responsabilidad, de manera absolutamente confidencial y conforme a lo dispuesto por la legislación vigente.
+        terceros mientras realices una compra. A su vez, Donna Calzados te asegura que dichos datos no saldrán de la compañía, manejándolos con total responsabilidad, de manera absolutamente confidencial y conforme a lo dispuesto por la legislación vigente.
       </p>
+      <h2>COMPRAS MAYORISTAS</h2>
+      <p>Si contas con tu propio negocio o queres empezar tu emprendimiento nosotros te ayudamos. Contactanos al WhatsApp: 11 5046-0184 para poder asesorate y enviarte nuestro catalogo mayorista, con listado de precios y fotos de todos nuestros calzados.</p>
       <br />
-      <p>Además nos podes encontrar en:</p>
       <div>
         <FaWhatsapp onClick={() => window.open('https://wa.me/1150460184', '_blank')} />
         <FaInstagram onClick={() => window.open('https://www.instagram.com/donnacalzadosymoda/', '_blank')} />

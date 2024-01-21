@@ -17,17 +17,17 @@ export default function HomeCategories() {
     {
       url: '../donnacalzados/assets/home/hombres.png',
       alt: 'Hombres',
-      page: './productos?p=hombre',
+      page: './hombre',
     },
     {
       url: '../donnacalzados/assets/home/mujeres.png',
       alt: 'Mujeres',
-      page: './productos?p=mujer',
+      page: './mujer',
     },
     {
       url: '../donnacalzados/assets/home/niños.png',
       alt: 'Niños',
-      page: './productos?p=niño',
+      page: './niño',
     },
   ];
   return (

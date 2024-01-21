@@ -44,6 +44,9 @@ header {
   color: #000 !important;
 }
 
+.header-button-cart {
+}
+
 @media screen and (min-width: 992px) {
   .navbar {
     max-width: 1200px !important;

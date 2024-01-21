@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
+import Swal from 'sweetalert2';
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -14,7 +16,26 @@ const ContactSchema = Yup.object().shape({
 });
 
 const submitHandler = values => {
-  console.log(values);
+  let timerInterval;
+  Swal.fire({
+    title: 'Mensaje enviado!',
+    timer: 2000,
+    timerProgressBar: true,
+    didOpen: () => {
+      Swal.showLoading();
+      const timer = Swal.getPopup().querySelector('b');
+      timerInterval = setInterval(() => {
+        timer.textContent = `${Swal.getTimerLeft()}`;
+      }, 100);
+    },
+    willClose: () => {
+      clearInterval(timerInterval);
+    },
+  });
+
+  setTimeout(() => {
+    location.reload();
+  }, 2000);
 };
 
 export default function HomeContact() {

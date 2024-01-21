@@ -5,6 +5,10 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+body {
+  padding-right: 0px !important;
+}
+
 p {
   margin-bottom: 0px;
 }
