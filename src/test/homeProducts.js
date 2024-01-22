@@ -1,5 +1,6 @@
 export const homeProducts = [
   {
+    id: 1,
     img: '../donnacalzados/assets/products/force-adulto-blanco.png',
     title: 'Air Force',
     price: 10500,
@@ -7,9 +8,10 @@ export const homeProducts = [
     category: 'Zapatilla',
     person: ['Hombre', 'Mujer'],
     color: ['Blanco'],
-    model: 'Air Force'
+    model: 'Air Force',
   },
   {
+    id: 2,
     img: '../donnacalzados/assets/products/force-adulto-rosanegro.png',
     title: 'Air Force',
     price: 10500,
@@ -17,9 +19,10 @@ export const homeProducts = [
     category: 'Zapatilla',
     person: ['Mujer'],
     color: ['Blanco', 'Negro', 'Rosa'],
-    model: 'Air Force'
+    model: 'Air Force',
   },
   {
+    id: 3,
     img: '../donnacalzados/assets/products/force-adulto-rosablanco.png',
     title: 'Air Force',
     price: 10500,
@@ -27,9 +30,10 @@ export const homeProducts = [
     category: 'Zapatilla',
     person: ['Mujer'],
     color: ['Blanco', 'Rosa'],
-    model: 'Air Force'
+    model: 'Air Force',
   },
   {
+    id: 4,
     img: '../donnacalzados/assets/products/force-adulto-violetablanco.png',
     title: 'Air Force',
     price: 10500,
@@ -37,9 +41,10 @@ export const homeProducts = [
     category: 'Zapatilla',
     person: ['Mujer'],
     color: ['Blanco', 'Violeta'],
-    model: 'Air Force'
+    model: 'Air Force',
   },
   {
+    id: 5,
     img: '../donnacalzados/assets/products/force-adulto-blanconegro.png',
     title: 'Air Force',
     price: 10500,
@@ -47,9 +52,10 @@ export const homeProducts = [
     category: 'Zapatilla',
     person: ['Hombre', 'Mujer'],
     color: ['Blanco', 'Negro'],
-    model: 'Air Force'
+    model: 'Air Force',
   },
   {
+    id: 6,
     img: '../donnacalzados/assets/products/force-niño-blancovioleta.png',
     title: 'Air Force',
     price: 9000,
@@ -57,9 +63,10 @@ export const homeProducts = [
     category: 'Zapatilla',
     person: ['Niño'],
     color: ['Blanco', 'Violeta'],
-    model: 'Air Force'
+    model: 'Air Force',
   },
   {
+    id: 7,
     img: '../donnacalzados/assets/products/force-justdoit-adulto-rosablanco.png',
     title: 'Air Force Just Do It',
     price: 14000,
@@ -67,9 +74,10 @@ export const homeProducts = [
     category: 'Zapatilla',
     person: ['Mujer'],
     color: ['Blanco', 'Rosa'],
-    model: 'Air Force'
+    model: 'Air Force',
   },
   {
+    id: 8,
     img: '../donnacalzados/assets/products/force-justdoit-adulto-negroblanco.png',
     title: 'Air Force Just Do It',
     price: 14000,
@@ -77,6 +85,6 @@ export const homeProducts = [
     category: 'Zapatilla',
     person: ['Hombre', 'Mujer'],
     color: ['Blanco', 'Negro', 'Naranja'],
-    model: 'Air Force'
+    model: 'Air Force',
   },
 ];
