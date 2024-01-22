@@ -4,6 +4,7 @@ import { BsTrash } from 'react-icons/bs';
 
 import './cart.css';
 import { addQuantity, deleteProduct, restQuantity } from '../../app/state/cartSlice';
+import Swal from 'sweetalert2';
 
 export default function Cart() {
   const cart = useSelector(state => state.cart);
@@ -82,7 +83,17 @@ export default function Cart() {
                 <p className='offcanvas-body-total-container-credit'>O hasta 3 cuotas sin interés de ${formatPrice(total / 3)}</p>
               </div>
             </div>
-            <button className='offcanvas-body-pay'>INICIAR COMPRA</button>
+            <button
+              onClick={() =>
+                Swal.fire({
+                  title: 'Redirigiendo al formulario de compra',
+                  confirmButtonColor: '#E54787',
+                })
+              }
+              className='offcanvas-body-pay'
+            >
+              INICIAR COMPRA
+            </button>
           </>
         )}
       </div>
