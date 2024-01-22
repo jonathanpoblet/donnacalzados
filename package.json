@@ -14,6 +14,7 @@
     "aos": "^2.3.4",
     "axios": "^1.4.0",
     "bootstrap": "^5.3.0",
+    "cdbreact": "^1.5.18",
     "formik": "^2.4.5",
     "react": "^18.2.0",
     "react-alice-carousel": "^2.8.0",
