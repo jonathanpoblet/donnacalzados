@@ -107,7 +107,14 @@ export default function Detail() {
         <img className='detail-body-img' src={product.img} alt='Calzado' />
         <div className='detail-body-info'>
           <h2>{product.title}</h2>
-          <p> $ {formatPrice(product.price)}</p>
+          <p>
+            $ {formatPrice(product.price)}
+            <small className='mt-2'>
+              {' '}
+              (O hasta 3 cuotas sin interés de <b>${formatPrice(product.price / 3)}</b>)
+            </small>
+          </p>
+
           <label>Cantidad</label>
           <div className='detail-body-info-buttons'>
             <button onClick={() => restQuantity()} className='detail-body-info-actions'>

@@ -55,7 +55,7 @@
 }
 
 .home-products-container-card-title {
-  padding: 10px 5px;
+  padding: 10px;
   font-size: 13px;
   letter-spacing: 1px;
   color: #000;
@@ -64,7 +64,7 @@
 
 .home-products-container-card-price {
   font-size: 12px;
-  padding: 0px 5px 10px 5px;
+  padding: 0px 10px 10px 10px;
   color: rgb(0, 0, 0);
 }
 

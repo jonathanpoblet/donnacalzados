@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { homeProducts } from '../../test/homeProducts';
@@ -11,6 +11,7 @@ import './homeProducts.css';
 export default function HomeProducts() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [productsToShow, setProductsToShow] = useState(8); // Inicializado con 8 productos
 
   const handleDetail = prod => {
     dispatch(setDetail(prod));
@@ -25,23 +26,51 @@ export default function HomeProducts() {
 
     return formatNumber;
   };
+
+  const updateProductsToShow = () => {
+    const screenWidth = window.innerWidth;
+    let maxProductsToShow = 8;
+
+    if (screenWidth < 1100) {
+      maxProductsToShow = 6;
+    }
+
+    if (screenWidth < 600) {
+      maxProductsToShow = 4;
+    }
+
+    setProductsToShow(maxProductsToShow);
+  };
+
   useEffect(() => {
     AOS.init();
+    updateProductsToShow(); // Llamada inicial al cargar el componente
+
+    // Agregar un listener para actualizar el estado cuando cambia el tamaño de la pantalla
+    window.addEventListener('resize', updateProductsToShow);
+
+    // Limpiar el listener al desmontar el componente
+    return () => {
+      window.removeEventListener('resize', updateProductsToShow);
+    };
   }, []);
 
   return (
     <section className='home-products' data-aos='fade-up' data-aos-offset='200' data-aos-easing='ease-in-sine' data-aos-duration='600'>
       <h2 className='home-products-title'>DESCUBRÍ NUESTROS CALZADOS</h2>
       <div className='home-products-container'>
-        {homeProducts.map((prod, index) => {
-          return (
-            <div className='home-products-container-card' key={index} onClick={() => handleDetail(prod)}>
-              <img className='home-products-container-card-img' src={prod.img} alt='Producto' />
-              <p className='home-products-container-card-title'>{prod.title.toLocaleUpperCase()}</p>
-              <p className='home-products-container-card-price'>${formatPrice(prod.price)}</p>
-            </div>
-          );
-        })}
+        {homeProducts.slice(0, productsToShow).map((prod, index) => (
+          <div className='home-products-container-card' key={index} onClick={() => handleDetail(prod)}>
+            <img className='home-products-container-card-img' src={prod.img} alt='Producto' />
+            <p className='home-products-container-card-title'>{prod.title.toLocaleUpperCase()}</p>
+            <p className='home-products-container-card-price'>
+              <b>${formatPrice(prod.price)}</b>
+            </p>
+            <p className='home-products-container-card-price'>
+              <b>3</b> cuotas sin interés <b>${formatPrice(prod.price / 3)}</b>
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   );
