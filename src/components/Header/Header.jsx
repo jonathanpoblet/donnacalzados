@@ -20,10 +20,9 @@ export default function Header() {
 
   const navLinks = [
     { key: 'inicio', label: 'INICIO', path: './', pathDesktop: './' },
+    { key: 'productos', label: 'PRODUCTOS', path: './#productos', pathDesktop: '/productos' },
     { key: 'nosotros', label: 'NOSOTROS', path: './#nosotros', pathDesktop: '/nosotros' },
-    { key: 'hombre', label: 'HOMBRE', path: './#hombre', pathDesktop: '/hombre' },
-    { key: 'mujer', label: 'MUJER', path: './#mujer', pathDesktop: '/mujer' },
-    { key: 'niño', label: 'NIÑO/A', path: './#niño', pathDesktop: '/niño' },
+    { key: 'compras-mayoristas', label: 'COMPRAS MAYORISTAS', path: './#compras-mayoristas', pathDesktop: '/compras-mayoristas' },
   ];
 
   // useEffect(() => {
@@ -32,9 +31,9 @@ export default function Header() {
   //   }
   // }, [location.pathname, navigate]);
   return (
-    <header className='text-center'>
+    <header>
       <p style={{ backgroundColor: '#000', color: '#fff', fontSize: 13, width: '100%', padding: '10px 5px' }}>ENVIOS A TODA LA ARGENTINA</p>
-      <Navbar collapseOnSelect expand='lg' variant='light' className='w-100 justify-content-beetwen px-3 px-lg-5'>
+      <Navbar collapseOnSelect expand='lg' variant='light' className='justify-content-beetwen '>
         <Navbar.Toggle
           aria-controls='responsive-navbar-nav'
           className='order-0 btn-light button-toggle'
@@ -42,6 +41,7 @@ export default function Header() {
             border: 'none',
             outline: 'none',
             boxShadow: 'none',
+            paddingLeft: 0,
           }}
         />
 
@@ -59,11 +59,11 @@ export default function Header() {
             {navLinks.map(({ key, label, path, pathDesktop }) => (
               <React.Fragment key={key}>
                 {windowSize.width <= 992 ? (
-                  <Nav.Link href={path} className='text mx-2'>
+                  <Nav.Link href={path} className='mx-2'>
                     {label}
                   </Nav.Link>
                 ) : (
-                  <Nav.Link className='text mx-2' onClick={() => handleNavLinkClick(pathDesktop)}>
+                  <Nav.Link className='mx-2' onClick={() => handleNavLinkClick(pathDesktop)}>
                     {label}
                   </Nav.Link>
                 )}

@@ -31,12 +31,8 @@ export default function HomeProducts() {
     const screenWidth = window.innerWidth;
     let maxProductsToShow = 8;
 
-    if (screenWidth < 1100) {
+    if (screenWidth < 1220) {
       maxProductsToShow = 6;
-    }
-
-    if (screenWidth < 600) {
-      maxProductsToShow = 4;
     }
 
     setProductsToShow(maxProductsToShow);
@@ -44,12 +40,11 @@ export default function HomeProducts() {
 
   useEffect(() => {
     AOS.init();
-    updateProductsToShow(); // Llamada inicial al cargar el componente
 
-    // Agregar un listener para actualizar el estado cuando cambia el tamaño de la pantalla
+    updateProductsToShow();
+
     window.addEventListener('resize', updateProductsToShow);
 
-    // Limpiar el listener al desmontar el componente
     return () => {
       window.removeEventListener('resize', updateProductsToShow);
     };
@@ -60,15 +55,16 @@ export default function HomeProducts() {
       <h2 className='home-products-title'>DESCUBRÍ NUESTROS CALZADOS</h2>
       <div className='home-products-container'>
         {homeProducts.slice(0, productsToShow).map((prod, index) => (
-          <div className='home-products-container-card' key={index} onClick={() => handleDetail(prod)}>
-            <img className='home-products-container-card-img' src={prod.img} alt='Producto' />
+          <div className='home-products-container-card' key={index}>
+            <img className='home-products-container-card-img' src={prod.img} alt='Producto' onClick={() => handleDetail(prod)} />
             <p className='home-products-container-card-title'>{prod.title.toLocaleUpperCase()}</p>
             <p className='home-products-container-card-price'>
               <b>${formatPrice(prod.price)}</b>
             </p>
-            <p className='home-products-container-card-price'>
+            <p className='home-products-container-card-price home-products-container-card-price2'>
               <b>3</b> cuotas sin interés <b>${formatPrice(prod.price / 3)}</b>
             </p>
+            <button className='home-products-container-card-button'>AGREGAR AL CARRITO</button>
           </div>
         ))}
       </div>

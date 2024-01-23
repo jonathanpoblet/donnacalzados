@@ -110,12 +110,7 @@ export default function ProductsBody({ products, sizes, categories, colors, pers
             <h3>Color</h3>
             <div>
               {colors.map(c => (
-                <div
-                  key={c.name}
-                  className={`color-option ${selectedColors.includes(c.name) ? 'selected' : ''}`}
-                  style={{ backgroundColor: c.color }}
-                  onClick={() => toggleFilter('colors', c.name)}
-                ></div>
+                <div key={c.name} className={`color-option ${selectedColors.includes(c.name) ? 'selected' : ''}`} style={{ backgroundColor: c.color }} onClick={() => toggleFilter('colors', c.name)}></div>
               ))}
             </div>
           </div>
@@ -136,15 +131,16 @@ export default function ProductsBody({ products, sizes, categories, colors, pers
       <article className='products-all'>
         {tempProducts.length !== 0 ? (
           tempProducts.map((prod, index) => (
-            <div className='products-all-card' key={index} onClick={() => handleDetail(prod)}>
-              <img className='products-all-card-img' src={prod.img} alt='Producto' />
+            <div className='products-all-card' key={index}>
+              <img className='products-all-card-img' src={prod.img} alt='Producto' onClick={() => handleDetail(prod)} />
               <p className='products-all-card-title'>{prod.title.toLocaleUpperCase()}</p>
               <p className='products-all-card-price'>
                 <b>${formatPrice(prod.price)}</b>
               </p>
-              <p className='products-all-card-price'>
+              <p className='products-all-card-price products-all-card-price2'>
                 <b>3</b> cuotas sin interés <b>${formatPrice(prod.price / 3)}</b>
               </p>
+              <button className='products-all-card-button'>AGREGAR AL CARRITO</button>
             </div>
           ))
         ) : (

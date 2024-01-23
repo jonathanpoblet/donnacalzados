@@ -4,6 +4,7 @@
   align-items: center;
   width: 100%;
   max-width: 1080px;
+  margin-top: 30px;
 }
 
 .products-header-link {
@@ -44,23 +45,12 @@
 
 @media screen and (max-width: 992px) {
   .products-header {
-    max-width: 700px;
-    margin-left: 20px;
-  }
-}
-
-@media screen and (max-width: 820px) {
-  .products-header {
-    max-width: 500px;
+    max-width: 90%;
     margin-left: 0px;
   }
 }
 
 @media screen and (max-width: 570px) {
-  .products-header {
-    width: 75%;
-  }
-
   .products-header-title,
   .products-header-bar,
   .products-header-link {

@@ -37,6 +37,7 @@
 
 @media screen and (max-width: 600px) {
   .home-products-button {
-    width: 80%;
+    width: 90%;
+    font-size: 12px;
   }
 }

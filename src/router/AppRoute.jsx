@@ -5,8 +5,7 @@ import ScrollToTopOnUrlChange from '../utils/scroll';
 
 const Home = lazy(() => import('../pages/Home/Home'));
 const Man = lazy(() => import('../pages/Man/Man'));
-const Woman = lazy(() => import('../pages/Woman/Woman'));
-const Child = lazy(() => import('../pages/Child/Child'));
+const Wholesaler = lazy(() => import('../pages/Wholesaler/Wholesaler'));
 const AboutUs = lazy(() => import('../pages/AboutUs/AboutUs'));
 const Detail = lazy(() => import('../pages/Detail/Detail'));
 
@@ -22,11 +21,10 @@ export default function AppRoute() {
         <Layout>
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/hombre' element={<Man />} />
-            <Route path='/mujer' element={<Woman />} />
-            <Route path='/niño' element={<Child />} />
+            <Route path='/productos' element={<Man />} />
             <Route path='/nosotros' element={<AboutUs />} />
             <Route path='/detalle' element={<Detail />} />
+            <Route path='/compras-mayoristas' element={<Wholesaler />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </Layout>

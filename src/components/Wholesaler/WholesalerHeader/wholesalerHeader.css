@@ -1,4 +1,4 @@
-.aboutUs-header {
+.wholesaler-header {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -6,7 +6,7 @@
   max-width: 1080px;
 }
 
-.aboutUs-header-link {
+.wholesaler-header-link {
   text-decoration: none;
   color: rgb(44, 44, 44);
   transition: 1s;
@@ -14,11 +14,11 @@
   letter-spacing: 1px;
 }
 
-.aboutUs-header-link:hover {
+.wholesaler-header-link:hover {
   text-decoration: underline 1px #000;
 }
 
-.aboutUs-header-title {
+.wholesaler-header-title {
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -26,26 +26,26 @@
   color: #e54787;
 }
 
-.aboutUs-header-bar {
+.wholesaler-header-bar {
   margin: 0px 4px;
 }
 
 @media screen and (max-width: 1220px) {
-  .aboutUs-header {
+  .wholesaler-header {
     max-width: 90%;
   }
 }
 
 @media screen and (max-width: 820px) {
-  .aboutUs-header {
+  .wholesaler-header {
     margin-left: 0px;
   }
 }
 
 @media screen and (max-width: 570px) {
-  .aboutUs-header-title,
-  .aboutUs-header-bar,
-  .aboutUs-header-link {
+  .wholesaler-header-title,
+  .wholesaler-header-bar,
+  .wholesaler-header-link {
     font-size: 12px;
   }
 }
