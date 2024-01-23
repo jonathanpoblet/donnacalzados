@@ -1,8 +1,8 @@
-[
+export const products = [
   {
     id: 1,
     img: '../donnacalzados/assets/products/force-adulto-rosanegro.png',
-    title: 'Air Force',
+
     price: 10500,
     size: ['35', '36', '37', '38', '39', '40'],
     category: 'Zapatilla',
@@ -13,7 +13,7 @@
   {
     id: 2,
     img: '../donnacalzados/assets/products/force-adulto-rosablanco.png',
-    title: 'Air Force',
+
     price: 10500,
     size: ['35', '36', '37', '38', '39', '40'],
     category: 'Zapatilla',
@@ -24,7 +24,7 @@
   {
     id: 3,
     img: '../donnacalzados/assets/products/force-adulto-violetablanco.png',
-    title: 'Air Force',
+
     price: 10500,
     size: ['35', '36', '37', '38', '39', '40'],
     category: 'Zapatilla',
@@ -36,7 +36,7 @@
   {
     id: 4,
     img: '../donnacalzados/assets/products/force-adulto-camaleon.png',
-    title: 'Air Force',
+
     price: 10500,
     size: ['35', '36', '37', '38', '39', '40'],
     category: 'Zapatilla',
@@ -69,7 +69,7 @@
   {
     id: 7,
     img: '../donnacalzados/assets/products/force-adulto-blanco.png',
-    title: 'Air Force',
+
     price: 10500,
     size: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
     category: 'Zapatilla',
@@ -81,7 +81,7 @@
   {
     id: 8,
     img: '../donnacalzados/assets/products/force-adulto-blanconegro.png',
-    title: 'Air Force',
+
     price: 10500,
     size: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
     category: 'Zapatilla',
@@ -93,7 +93,7 @@
   {
     id: 9,
     img: '../donnacalzados/assets/products/force-adulto-negro.png',
-    title: 'Air Force',
+
     price: 10500,
     size: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
     category: 'Zapatilla',
@@ -104,7 +104,7 @@
   {
     id: 10,
     img: '../donnacalzados/assets/products/force-adulto-negroblanco.png',
-    title: 'Air Force',
+
     price: 10500,
     size: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
     category: 'Zapatilla',
@@ -249,7 +249,7 @@
   {
     id: 23,
     img: '../donnacalzados/assets/products/force-niño-blanco.png',
-    title: 'Air Force',
+
     price: 9000,
     size: ['27', '28', '29', '30', '31', '32', '33', '34'],
     category: 'Zapatilla',
@@ -260,7 +260,7 @@
   {
     id: 24,
     img: '../donnacalzados/assets/products/force-niño-blanconegro.png',
-    title: 'Air Force',
+
     price: 9000,
     size: ['27', '28', '29', '30', '31', '32', '33', '34'],
     category: 'Zapatilla',
@@ -271,7 +271,7 @@
   {
     id: 25,
     img: '../donnacalzados/assets/products/force-niño-negroblanco.png',
-    title: 'Air Force',
+
     price: 9000,
     size: ['27', '28', '29', '30', '31', '32', '33', '34'],
     category: 'Zapatilla',
@@ -282,7 +282,7 @@
   {
     id: 26,
     img: '../donnacalzados/assets/products/force-niño-blancovioleta.png',
-    title: 'Air Force',
+
     price: 9000,
     size: ['27', '28', '29', '30', '31', '32', '33', '34'],
     category: 'Zapatilla',

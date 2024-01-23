@@ -106,7 +106,7 @@ export default function Detail() {
       <section className='detail-body'>
         <img className='detail-body-img' src={product.img} alt='Calzado' />
         <div className='detail-body-info'>
-          <h2>{product.title}</h2>
+          <h2>{product.model}</h2>
           <p>
             $ {formatPrice(product.price)}
             <small className='mt-2'>

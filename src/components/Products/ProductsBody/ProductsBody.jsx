@@ -6,11 +6,11 @@ import { formatPrice } from '../../../utils/formatPrice';
 import './productsBody.css';
 import { setDetail } from '../../../app/state/detailSlice';
 
-export default function ProductsBody({ products, sizes, categories, colors, person }) {
+export default function ProductsBody({ products, sizes, models, categories, colors, person }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedModels, setSelectedModels] = useState([]);
   const [selectedSizes, setSelectedSizes] = useState([]);
   const [selectedColors, setSelectedColors] = useState([]);
   const [sortOrder, setSortOrder] = useState('');
@@ -19,11 +19,11 @@ export default function ProductsBody({ products, sizes, categories, colors, pers
   useEffect(() => {
     const filteredProducts = products
       .filter(prod => {
-        const meetsCategory = selectedCategories.length === 0 || selectedCategories.includes(prod.category);
+        const meetsModel = selectedModels.length === 0 || selectedModels.includes(prod.model);
         const meetsSize = selectedSizes.length === 0 || selectedSizes.some(size => prod.size.includes(size));
         const meetsColor = selectedColors.length === 0 || selectedColors.some(selectedColor => prod.color.some(prodColor => selectedColor === prodColor));
 
-        return meetsCategory && meetsSize && meetsColor;
+        return meetsModel && meetsSize && meetsColor;
       })
       .sort((a, b) => {
         if (sortOrder === 'asc') {
@@ -36,7 +36,7 @@ export default function ProductsBody({ products, sizes, categories, colors, pers
       });
 
     setTempProducts(filteredProducts);
-  }, [selectedCategories, selectedSizes, selectedColors, sortOrder]);
+  }, [selectedModels, selectedSizes, selectedColors, sortOrder]);
 
   const handleDetail = prod => {
     dispatch(setDetail(prod));
@@ -53,8 +53,8 @@ export default function ProductsBody({ products, sizes, categories, colors, pers
 
   const toggleFilter = (filterType, value) => {
     switch (filterType) {
-      case 'categories':
-        setSelectedCategories(toggleSelection(selectedCategories, value));
+      case 'models':
+        setSelectedModels(toggleSelection(selectedModels, value));
         break;
       case 'sizes':
         setSelectedSizes(toggleSelection(selectedSizes, value));
@@ -87,15 +87,16 @@ export default function ProductsBody({ products, sizes, categories, colors, pers
         </div>
         <div className='products-filter-container' id='filter-container'>
           <div className='products-filter-container-type'>
-            <h3>Calzado</h3>
+            <h3>Modelos</h3>
             <div>
-              {categories.map(cat => (
-                <button key={cat} className={`size-option ${selectedCategories.includes(cat) ? 'selected' : ''}`} onClick={() => toggleFilter('categories', cat)}>
-                  {cat}
+              {models.map(mod => (
+                <button key={mod} className={`size-option ${selectedModels.includes(mod) ? 'selected' : ''}`} onClick={() => toggleFilter('models', mod)}>
+                  {mod}
                 </button>
               ))}
             </div>
           </div>
+
           <div className='products-filter-container-size'>
             <h3>Talle</h3>
             <div>
@@ -133,7 +134,7 @@ export default function ProductsBody({ products, sizes, categories, colors, pers
           tempProducts.map((prod, index) => (
             <div className='products-all-card' key={index}>
               <img className='products-all-card-img' src={prod.img} alt='Producto' onClick={() => handleDetail(prod)} />
-              <p className='products-all-card-title'>{prod.title.toLocaleUpperCase()}</p>
+              <p className='products-all-card-title'>{prod.model.toLocaleUpperCase()}</p>
               <p className='products-all-card-price'>
                 <b>${formatPrice(prod.price)}</b>
               </p>

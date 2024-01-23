@@ -1,15 +1,17 @@
 import ProductsBody from '../../components/Products/ProductsBody/ProductsBody';
 import ProductsHeader from '../../components/Products/ProductsHeader/ProductsHeader';
+import { products } from '../../test/all';
 import { colors } from '../../test/colors';
-import { productsMan } from '../../test/productsMan';
+import { models } from '../../test/models';
+import { sizes } from '../../test/sizes';
 
-import './man.css';
+import './products.css';
 
 export default function Products() {
   return (
     <main className='products fade-in'>
       <ProductsHeader />
-      <ProductsBody products={productsMan} sizes={['35', '36', '37', '38', '39', '40', '41', '42', '43', '44']} categories={['Zapatilla', 'Ojotas']} colors={colors} person={'Hombre'} />
+      <ProductsBody products={products} sizes={sizes} models={models} categories={['Zapatilla', 'Ojotas']} colors={colors} person={'Hombre'} />
     </main>
   );
 }

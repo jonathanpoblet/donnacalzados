@@ -45,7 +45,7 @@ export default function Cart() {
                 <img className='offcanvas-body-container-img' src={c.img} />
                 <div className='offcanvas-body-container-info'>
                   <h6 className='offcanvas-body-container-info-text'>
-                    Modelo: <span>{c.title}</span>
+                    Modelo: <span>{c.model}</span>
                   </h6>
                   <h6 className='offcanvas-body-container-info-text'>
                     Precio: <span>${formatPrice(c.price)}</span>
