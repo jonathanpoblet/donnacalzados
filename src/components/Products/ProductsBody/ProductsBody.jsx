@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { formatPrice } from '../../../utils/formatPrice';
+import { setDetail } from '../../../app/state/detailSlice';
 
 import './productsBody.css';
-import { setDetail } from '../../../app/state/detailSlice';
 
 export default function ProductsBody({ products, sizes, models, colors }) {
   const navigate = useNavigate();

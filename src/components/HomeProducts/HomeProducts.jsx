@@ -15,7 +15,7 @@ export default function HomeProducts() {
 
   const handleDetail = prod => {
     dispatch(setDetail(prod));
-    navigate(`./detalle?producto=${prod.id}`);
+    navigate(`./productos/detalle?producto=${prod.id}`);
   };
 
   const formatPrice = number => {
