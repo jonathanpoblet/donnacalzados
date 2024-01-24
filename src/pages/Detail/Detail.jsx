@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { addToCart } from '../../app/state/cartSlice';
 import Swal from 'sweetalert2';
 
@@ -9,12 +9,7 @@ import './detail.css';
 export default function Detail() {
   const product = useSelector(state => state.detail.detail);
   const location = useLocation();
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  const queryParams = new URLSearchParams(location.search);
-  const productQueryParam = queryParams.get('producto');
-  const person = queryParams.get('persona');
 
   const [quantity, setQuantity] = useState(1);
 
@@ -86,10 +81,6 @@ export default function Detail() {
     setQuantity(quantity - 1);
   };
 
-  useEffect(() => {
-    if (person !== 'hombre' && person !== 'mujer' && person !== 'niño') navigate('../');
-  }, [location.search]);
-
   return (
     <main className='detail'>
       <section className='detail-header'>
@@ -97,11 +88,11 @@ export default function Detail() {
           Inicio
         </Link>
         <span className='detail-header-bar'>/</span>
-        <Link className='detail-header-link' to={`/${person}`}>
-          {person.charAt(0).toUpperCase() + person.slice(1)}
+        <Link className='detail-header-link' to='/productos'>
+          Productos
         </Link>
         <span className='detail-header-bar'>/</span>
-        <h1 className='detail-header-title'>Detalle</h1>
+        <h1 className='detail-header-title'>{product.model}</h1>
       </section>
       <section className='detail-body'>
         <img className='detail-body-img' src={product.img} alt='Calzado' />

@@ -22,8 +22,8 @@ export default function AppRoute() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/productos' element={<Products />} />
+            <Route path='/productos/detalle' element={<Detail />} />
             <Route path='/nosotros' element={<AboutUs />} />
-            <Route path='/detalle' element={<Detail />} />
             <Route path='/compras-mayoristas' element={<Wholesaler />} />
             <Route path='*' element={<NotFound />} />
           </Routes>

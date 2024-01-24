@@ -11,11 +11,11 @@ import './homeProducts.css';
 export default function HomeProducts() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [productsToShow, setProductsToShow] = useState(8); // Inicializado con 8 productos
+  const [productsToShow, setProductsToShow] = useState(8);
 
   const handleDetail = prod => {
     dispatch(setDetail(prod));
-    navigate(`/detalle?producto=${prod.id}&persona=${prod.person[0].toLocaleLowerCase()}`);
+    navigate(`./detalle?producto=${prod.id}`);
   };
 
   const formatPrice = number => {

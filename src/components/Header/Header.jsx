@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Navbar, Nav, Button, NavDropdown } from 'react-bootstrap';
@@ -25,11 +25,13 @@ export default function Header() {
     { key: 'compras-mayoristas', label: 'COMPRAS MAYORISTAS', path: './#compras-mayoristas', pathDesktop: '/compras-mayoristas' },
   ];
 
-  // useEffect(() => {
-  //   if (!window.location.hash) {
-  //     window.location.href = 'http://localhost:5173/donnacalzados/#';
-  //   }
-  // }, [location.pathname, navigate]);
+  useEffect(() => {
+    const navbar = document.getElementsByClassName('navbar-collapse')[0];
+
+    if (navbar) {
+      navbar.classList.remove('show');
+    }
+  }, [location.pathname, navigate]);
   return (
     <header>
       <p style={{ backgroundColor: '#000', color: '#fff', fontSize: 13, width: '100%', padding: '10px 5px' }}>ENVIOS A TODA LA ARGENTINA</p>

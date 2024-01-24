@@ -6,7 +6,7 @@ import { formatPrice } from '../../../utils/formatPrice';
 import './productsBody.css';
 import { setDetail } from '../../../app/state/detailSlice';
 
-export default function ProductsBody({ products, sizes, models, categories, colors, person }) {
+export default function ProductsBody({ products, sizes, models, colors }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -40,7 +40,7 @@ export default function ProductsBody({ products, sizes, models, categories, colo
 
   const handleDetail = prod => {
     dispatch(setDetail(prod));
-    navigate(`/detalle?producto=${prod.id}&persona=${person.toLocaleLowerCase()}`);
+    navigate(`./detalle?producto=${prod.id}`);
   };
 
   const toggleSelection = (selectedArray, value) => {

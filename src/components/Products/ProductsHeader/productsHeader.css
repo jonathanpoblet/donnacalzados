@@ -56,4 +56,8 @@
   .products-header-link {
     font-size: 12px;
   }
+
+  .products-header {
+    margin-top: 0px;
+  }
 }

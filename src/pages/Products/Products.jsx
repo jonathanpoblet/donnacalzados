@@ -11,7 +11,7 @@ export default function Products() {
   return (
     <main className='products fade-in'>
       <ProductsHeader />
-      <ProductsBody products={products} sizes={sizes} models={models} categories={['Zapatilla', 'Ojotas']} colors={colors} person={'Hombre'} />
+      <ProductsBody products={products} sizes={sizes} models={models} colors={colors} />
     </main>
   );
 }
