@@ -25,7 +25,8 @@
 }
 
 .footer-container-div-title {
-  color: #fff;
+  color: #ffffff;
+  font-weight: 500;
 }
 
 .footer-container-div-list {
@@ -43,7 +44,7 @@
 .footer-container-div-list-item-link {
   font-size: 14px;
   text-decoration: none;
-  color: #000;
+  color: #eeeeee;
   transition: 0.5s;
 }
 
@@ -53,14 +54,14 @@
 
 .footer-container-div-list-item-icon {
   font-size: 16px;
-  color: #fff;
+  color: #111;
 }
 
 .footer-container-div-list-item-info {
   font-size: 14px;
   margin-bottom: 0px;
   margin-left: 10px;
-  color: #000;
+  color: #eeeeee;
 }
 
 .footer-copyright {
