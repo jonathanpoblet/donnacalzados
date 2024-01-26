@@ -7,11 +7,10 @@ import { RxCross1 } from 'react-icons/rx';
 
 import './productsBody.css';
 
-export default function ProductsBody({ products, sizes, models, colors }) {
+export default function ProductsBody({ products, sizes, brands }) {
   const [show, setShow] = useState(false);
-  const [selectedModels, setSelectedModels] = useState([]);
+  const [selectedBrands, setSelectedBrands] = useState([]);
   const [selectedSizes, setSelectedSizes] = useState([]);
-  const [selectedColors, setSelectedColors] = useState([]);
   const [sortOrder, setSortOrder] = useState('');
   const [tempProducts, setTempProducts] = useState(products);
   const [selectedFilters, setSelectedFilters] = useState([]);
@@ -22,11 +21,10 @@ export default function ProductsBody({ products, sizes, models, colors }) {
   useEffect(() => {
     const filteredProducts = products
       .filter(prod => {
-        const meetsModel = selectedModels.length === 0 || selectedModels.includes(prod.model);
+        const meetsBrand = selectedBrands.length === 0 || selectedBrands.includes(prod.brand);
         const meetsSize = selectedSizes.length === 0 || selectedSizes.some(size => prod.size.includes(size));
-        const meetsColor = selectedColors.length === 0 || selectedColors.some(selectedColor => prod.color.some(prodColor => selectedColor === prodColor));
 
-        return meetsModel && meetsSize && meetsColor;
+        return meetsBrand && meetsSize;
       })
       .sort((a, b) => {
         if (sortOrder === 'asc') {
@@ -39,7 +37,7 @@ export default function ProductsBody({ products, sizes, models, colors }) {
       });
 
     setTempProducts(filteredProducts);
-  }, [selectedModels, selectedSizes, selectedColors, sortOrder]);
+  }, [selectedBrands, selectedSizes, sortOrder]);
 
   const toggleSelection = (selectedArray, value) => {
     if (selectedArray.includes(value)) {
@@ -51,24 +49,18 @@ export default function ProductsBody({ products, sizes, models, colors }) {
 
   const toggleFilter = (filterType, value, filterName) => {
     switch (filterType) {
-      case 'models':
-        setSelectedModels(prevModels => toggleSelection(prevModels, value));
+      case 'brands':
+        setSelectedBrands(prevBrands => toggleSelection(prevBrands, value));
         break;
       case 'sizes':
         setSelectedSizes(prevSizes => toggleSelection(prevSizes, value));
         break;
-      case 'colors':
-        setSelectedColors(prevColors => toggleSelection(prevColors, value));
-        break;
       case 'sort':
-        // Manejar de manera exclusiva los filtros de precio
         if (value === 'asc' || value === 'desc') {
-          // Si es un filtro de precio, deseleccionar el filtro de precio opuesto
           setSortOrder(prevSortOrder => (prevSortOrder === value ? '' : value));
           const oppositeSortOrder = value === 'asc' ? 'desc' : 'asc';
           setSelectedFilters(prevFilters => prevFilters.filter(filter => filter.filterType !== 'sort' || filter.value !== oppositeSortOrder));
         } else {
-          // Si no es un filtro de precio, manejar como antes
           setSortOrder(prevSortOrder => (prevSortOrder === value ? '' : value));
           const selectedFilter = { filterType, value, filterName };
           if (selectedFilters.some(filter => filter.filterType === filterType && filter.value === value)) {
@@ -92,14 +84,11 @@ export default function ProductsBody({ products, sizes, models, colors }) {
 
   const removeFilter = filter => {
     switch (filter.filterType) {
-      case 'models':
-        setSelectedModels(prevModels => toggleSelection(prevModels, filter.value));
+      case 'brands':
+        setSelectedBrands(prevBrands => toggleSelection(prevBrands, filter.value));
         break;
       case 'sizes':
         setSelectedSizes(prevSizes => toggleSelection(prevSizes, filter.value));
-        break;
-      case 'colors':
-        setSelectedColors(prevColors => toggleSelection(prevColors, filter.value));
         break;
       case 'sort':
         setSortOrder('');
@@ -148,11 +137,11 @@ export default function ProductsBody({ products, sizes, models, colors }) {
               <Offcanvas.Body>
                 <div className='products-filter-container-mobile'>
                   <div className='products-filter-container-mobile-type'>
-                    <h3>Modelos</h3>
+                    <h3>Marcas</h3>
                     <div>
-                      {models.map(mod => (
-                        <button key={mod} className={`size-option ${selectedModels.includes(mod) ? 'selected' : ''}`} onClick={() => toggleFilter('models', mod, 'Modelo')}>
-                          {mod}
+                      {brands.map(bra => (
+                        <button key={bra} className={`size-option ${selectedBrands.includes(bra) ? 'selected' : ''}`} onClick={() => toggleFilter('brands', bra, 'Marca')}>
+                          {bra}
                         </button>
                       ))}
                     </div>
@@ -165,19 +154,6 @@ export default function ProductsBody({ products, sizes, models, colors }) {
                         <button key={s} className={`size-option ${selectedSizes.includes(s) ? 'selected' : ''}`} onClick={() => toggleFilter('sizes', s, 'Talle')}>
                           {s}
                         </button>
-                      ))}
-                    </div>
-                  </div>
-                  <div className='products-filter-container-mobile-color'>
-                    <h3>Color</h3>
-                    <div>
-                      {colors.map(c => (
-                        <div
-                          key={c.name}
-                          className={`color-option ${selectedColors.includes(c.name) ? 'selected' : ''}`}
-                          style={{ backgroundColor: c.color }}
-                          onClick={() => toggleFilter('colors', c.name, 'Color')}
-                        ></div>
                       ))}
                     </div>
                   </div>
@@ -202,11 +178,11 @@ export default function ProductsBody({ products, sizes, models, colors }) {
 
           <div className='products-filter-container' id='filter-container'>
             <div className='products-filter-container-type'>
-              <h3>Modelos</h3>
+              <h3>Marcas</h3>
               <div>
-                {models.map(mod => (
-                  <button key={mod} className={`size-option ${selectedModels.includes(mod) ? 'selected' : ''}`} onClick={() => toggleFilter('models', mod, 'Modelo')}>
-                    {mod}
+                {brands.map(bra => (
+                  <button key={bra} className={`size-option ${selectedBrands.includes(bra) ? 'selected' : ''}`} onClick={() => toggleFilter('brands', bra, 'Marca')}>
+                    {bra}
                   </button>
                 ))}
               </div>
@@ -219,19 +195,6 @@ export default function ProductsBody({ products, sizes, models, colors }) {
                   <button key={s} className={`size-option ${selectedSizes.includes(s) ? 'selected' : ''}`} onClick={() => toggleFilter('sizes', s, 'Talle')}>
                     {s}
                   </button>
-                ))}
-              </div>
-            </div>
-            <div className='products-filter-container-color'>
-              <h3>Color</h3>
-              <div>
-                {colors.map(c => (
-                  <div
-                    key={c.name}
-                    className={`color-option ${selectedColors.includes(c.name) ? 'selected' : ''}`}
-                    style={{ backgroundColor: c.color }}
-                    onClick={() => toggleFilter('colors', c.name, 'Color')}
-                  ></div>
                 ))}
               </div>
             </div>

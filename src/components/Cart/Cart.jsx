@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BsTrash } from 'react-icons/bs';
 
-import './cart.css';
 import { addQuantity, deleteProduct, restQuantity } from '../../app/state/cartSlice';
 import Swal from 'sweetalert2';
+import './cart.css';
 
 export default function Cart() {
   const cart = useSelector(state => state.cart);
@@ -25,7 +25,6 @@ export default function Cart() {
     for (let i = 0; i < cart.length; i++) {
       tempTotal += cart[i].quantity * cart[i].price;
     }
-    console.log(tempTotal);
     setTotal(tempTotal);
   }, [cart]);
 
@@ -41,7 +40,7 @@ export default function Cart() {
         {cart.length !== 0 ? (
           cart.map(c => {
             return (
-              <div className='offcanvas-body-container' key={`${c.id}/${c.selectedSize}`}>
+              <div className='offcanvas-body-container' key={c.idCartProduct}>
                 <img className='offcanvas-body-container-img' src={c.img} />
                 <div className='offcanvas-body-container-info'>
                   <h6 className='offcanvas-body-container-info-text'>
@@ -58,14 +57,14 @@ export default function Cart() {
                   </h6>
                   <h6 className='offcanvas-body-container-info-text'>Cantidad:</h6>
                   <div className='offcanvas-body-container-info-buttons'>
-                    <button onClick={() => dispatch(restQuantity(`${c.id}/${c.selectedSize}`))} className='offcanvas-body-container-info-actions'>
+                    <button onClick={() => dispatch(restQuantity(c.idCartProduct))} className='offcanvas-body-container-info-actions'>
                       -
                     </button>
                     <input id='detail-quantity' type='number' value={c.quantity} min={1} readOnly={true} />
-                    <button onClick={() => dispatch(addQuantity(`${c.id}/${c.selectedSize}`))} className='offcanvas-body-container-info-actions'>
+                    <button onClick={() => dispatch(addQuantity(c.idCartProduct))} className='offcanvas-body-container-info-actions'>
                       +
                     </button>
-                    <BsTrash onClick={() => dispatch(deleteProduct(`${c.id}/${c.selectedSize}`))} id='delete-cart-button' className='offcanvas-body-container-info-delete' />
+                    <BsTrash onClick={() => dispatch(deleteProduct(c.idCartProduct))} id='delete-cart-button' className='offcanvas-body-container-info-delete' />
                   </div>
                 </div>
               </div>

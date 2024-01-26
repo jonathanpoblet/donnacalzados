@@ -1,8 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
-import Swal from "sweetalert2";
+import { createSlice } from '@reduxjs/toolkit';
+import Swal from 'sweetalert2';
 
 export const cartSlice = createSlice({
-  name: "cart",
+  name: 'cart',
   initialState: JSON.parse(localStorage.getItem('donna-calzados-carrito')) || [],
   reducers: {
     addToCart: (state, action) => {
@@ -20,10 +20,10 @@ export const cartSlice = createSlice({
 
       localStorage.setItem('donna-calzados-carrito', JSON.stringify(state));
       Swal.fire({
-        title: "Calzado Agregado al carrito",
+        title: 'Calzado Agregado al carrito',
         showDenyButton: true,
         showCancelButton: false,
-        confirmButtonText: "Ir al carrito",
+        confirmButtonText: 'Ir al carrito',
         confirmButtonColor: '#E54787',
         denyButtonColor: '#000000',
         denyButtonText: `Seguir comprando`,
@@ -32,8 +32,8 @@ export const cartSlice = createSlice({
           confirmButton.setAttribute('data-bs-toggle', 'offcanvas');
           confirmButton.setAttribute('data-bs-target', '#offcanvasExample');
           confirmButton.setAttribute('aria-controls', 'offcanvasExample');
-        }
-      })
+        },
+      });
     },
     restQuantity: (state, action) => {
       const index = state.findIndex(s => s.idCartProduct === action.payload);
@@ -43,8 +43,7 @@ export const cartSlice = createSlice({
           title: 'Cantidad mínima 1 unidad',
           confirmButtonColor: '#E54787',
         });
-      }
-      else {
+      } else {
         state[index].quantity--;
         localStorage.setItem('donna-calzados-carrito', JSON.stringify(state));
       }
@@ -57,15 +56,13 @@ export const cartSlice = createSlice({
           title: 'Cantidad máxima 1 unidad',
           confirmButtonColor: '#E54787',
         });
-      }
-      else {
+      } else {
         state[index].quantity++;
         localStorage.setItem('donna-calzados-carrito', JSON.stringify(state));
       }
     },
     deleteProduct: (state, action) => {
       const filter = state.filter(s => s.idCartProduct !== action.payload);
-
 
       Swal.fire({
         title: 'Producto Eliminado',
@@ -74,9 +71,8 @@ export const cartSlice = createSlice({
 
       localStorage.setItem('donna-calzados-carrito', JSON.stringify(filter));
       return filter;
-
-    }
-  }
+    },
+  },
 });
 
 export const { addToCart, restQuantity, addQuantity, deleteProduct } = cartSlice.actions;

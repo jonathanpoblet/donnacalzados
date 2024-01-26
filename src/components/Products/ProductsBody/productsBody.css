@@ -246,25 +246,18 @@
 
 @media screen and (max-width: 1220px) {
   .products-body {
-    max-width: 1000px;
+    max-width: 90%;
   }
 
   .selected-filters-container {
-    max-width: 1000px;
-  }
-}
-
-@media screen and (max-width: 1140px) {
-  .products-body {
-    max-width: 850px;
-  }
-
-  .selected-filters-container {
-    max-width: 850px;
+    max-width: 90%;
   }
 }
 
 @media screen and (max-width: 992px) {
+  #filter-container {
+    display: none;
+  }
   .products-body {
     flex-direction: column;
     width: 90%;

@@ -8,6 +8,10 @@ import './detail.css';
 
 export default function Detail() {
   const product = useSelector(state => state.detail.detail);
+  const [selectedProduct, setSelectedProduct] = useState({
+    ...product,
+    products: product.products[0],
+  });
   const location = useLocation();
   const dispatch = useDispatch();
 
@@ -40,10 +44,11 @@ export default function Detail() {
     }
 
     const newProduct = {
-      ...product,
+      ...selectedProduct,
       selectedSize: size[0].value,
-      idCartProduct: `${product.id}/${size[0].value}`,
+      idCartProduct: selectedProduct.products.img,
       quantity: quantity,
+      img: selectedProduct.products.img,
     };
     dispatch(addToCart(newProduct));
   };
@@ -81,6 +86,18 @@ export default function Detail() {
     setQuantity(quantity - 1);
   };
 
+  const handleSelectProduct = e => {
+    const index = product.products.findIndex(p => p.img == e.target.id);
+    const newProductSelected = { ...product, products: product.products[index] };
+    const sizes = document.getElementsByClassName('detail-active-size');
+    const sizesArray = Array.from(sizes);
+
+    sizesArray.forEach(size => {
+      size.className = 'detail-body-info-sizes-buttons';
+    });
+    setSelectedProduct(newProductSelected);
+  };
+
   return (
     <main className='detail'>
       <section className='detail-header'>
@@ -92,20 +109,38 @@ export default function Detail() {
           Productos
         </Link>
         <span className='detail-header-bar'>/</span>
-        <h1 className='detail-header-title'>{product.model}</h1>
+        <h1 className='detail-header-title'>{selectedProduct.model}</h1>
       </section>
       <section className='detail-body'>
-        <img className='detail-body-img' src={product.img} alt='Calzado' />
+        <div>
+          <img className='detail-body-img' src={selectedProduct.products.img} alt='Calzado' />
+        </div>
         <div className='detail-body-info'>
-          <h2>{product.model}</h2>
+          <h2>{selectedProduct.model}</h2>
           <p>
             $ {formatPrice(product.price)}
             <small className='mt-2'>
               {' '}
-              (O hasta 3 cuotas sin interés de <b>${formatPrice(product.price / 3)}</b>)
+              (O hasta 3 cuotas sin interés de <b>${formatPrice(selectedProduct.price / 3)}</b>)
             </small>
           </p>
 
+          <label>Colores</label>
+          <div className='detail-body-info-colors'>
+            {product.products.map(p => {
+              return <img onClick={e => handleSelectProduct(e)} key={p.img} id={p.img} className='detail-body-info-colors' src={p.img} alt='Calzado' />;
+            })}
+          </div>
+          <label>Talles</label>
+          <div className='detail-body-info-sizes'>
+            {selectedProduct.products.sizes.map(s => {
+              return (
+                <button className='detail-body-info-sizes-buttons' value={s} onClick={e => selectSize(e)} key={s}>
+                  {s}
+                </button>
+              );
+            })}
+          </div>
           <label>Cantidad</label>
           <div className='detail-body-info-buttons'>
             <button onClick={() => restQuantity()} className='detail-body-info-actions'>
@@ -115,16 +150,6 @@ export default function Detail() {
             <button onClick={() => addQuantity()} className='detail-body-info-actions'>
               +
             </button>
-          </div>
-          <label>Talles</label>
-          <div className='detail-body-info-sizes'>
-            {product.size.map(s => {
-              return (
-                <button className='detail-body-info-sizes-buttons' value={s} onClick={e => selectSize(e)} key={s}>
-                  {s}
-                </button>
-              );
-            })}
           </div>
           <button onClick={() => addProductToCart()} className='detail-body-info-add'>
             AGREGAR AL CARRITO

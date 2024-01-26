@@ -20,7 +20,7 @@ export default function ProductsAll({ products }) {
       {products.length !== 0 ? (
         products.map((prod, index) => (
           <div className='products-all-card' key={index}>
-            <img className='products-all-card-img' src={prod.img} alt='Producto' onClick={() => handleDetail(prod)} />
+            <img className='products-all-card-img' src={prod.products[0].img} alt='Producto' onClick={() => handleDetail(prod)} />
             <p className='products-all-card-title'>{prod.model.toLocaleUpperCase()}</p>
             <p className='products-all-card-price'>
               <b>${formatPrice(prod.price)}</b>

@@ -33,18 +33,6 @@
 
 @media screen and (max-width: 1220px) {
   .products-header {
-    max-width: 1000px;
-  }
-}
-
-@media screen and (max-width: 1140px) {
-  .products-header {
-    max-width: 850px;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  .products-header {
     max-width: 90%;
     margin-left: 0px;
   }
@@ -55,9 +43,5 @@
   .products-header-bar,
   .products-header-link {
     font-size: 12px;
-  }
-
-  .products-header {
-    margin-top: 0px;
   }
 }
