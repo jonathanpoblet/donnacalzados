@@ -5,7 +5,7 @@ export const productsTest = [
     price: 10500,
     size: ['35', '36', '37', '38', '39', '40'],
     color: ['Blanco', 'Negro', 'Rosa'],
-    model: 'Force'
+    model: 'Force',
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const productsTest = [
     price: 10500,
     size: ['35', '36', '37', '38', '39', '40'],
     color: ['Blanco', 'Rosa'],
-    model: 'Force'
+    model: 'Force',
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ export const productsTest = [
     price: 10500,
     size: ['35', '36', '37', '38', '39', '40'],
     color: ['Blanco', 'Violeta'],
-    model: 'Force'
+    model: 'Force',
   },
 
   {
@@ -30,7 +30,7 @@ export const productsTest = [
     price: 10500,
     size: ['35', '36', '37', '38', '39', '40'],
     color: ['Blanco', 'Violeta', 'Turqueza', 'Amarillo'],
-    model: 'Force'
+    model: 'Force',
   },
   {
     id: 5,
@@ -38,7 +38,7 @@ export const productsTest = [
     price: 14000,
     size: ['35', '36', '37', '38', '39', '40'],
     color: ['Blanco', 'Turqueza'],
-    model: 'Force Engomado'
+    model: 'Force Engomado',
   },
   {
     id: 6,
@@ -46,7 +46,7 @@ export const productsTest = [
     price: 13500,
     size: ['35', '36', '37', '38', '39', '40'],
     color: ['Blanco', 'Rosa'],
-    model: 'Force ER'
+    model: 'Force ER',
   },
   {
     id: 7,
@@ -54,7 +54,7 @@ export const productsTest = [
     price: 10500,
     size: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
     color: ['Blanco'],
-    model: 'Force'
+    model: 'Force',
   },
 
   {
@@ -63,7 +63,7 @@ export const productsTest = [
     price: 10500,
     size: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
     color: ['Blanco', 'Negro'],
-    model: 'Force'
+    model: 'Force',
   },
 
   {
@@ -72,7 +72,7 @@ export const productsTest = [
     price: 10500,
     size: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
     color: ['Negro'],
-    model: 'Force'
+    model: 'Force',
   },
   {
     id: 10,
@@ -80,7 +80,7 @@ export const productsTest = [
     price: 10500,
     size: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
     color: ['Blanco', 'Negro'],
-    model: 'Force'
+    model: 'Force',
   },
 
   {
@@ -89,7 +89,7 @@ export const productsTest = [
     price: 14000,
     size: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
     color: ['Blanco', 'Negro', 'Azul'],
-    model: 'Force Engomado'
+    model: 'Force Engomado',
   },
   {
     id: 12,
@@ -97,7 +97,7 @@ export const productsTest = [
     price: 14000,
     size: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
     color: ['Blanco', 'Negro'],
-    model: 'Force Engomado'
+    model: 'Force Engomado',
   },
 
   {
@@ -106,7 +106,7 @@ export const productsTest = [
     price: 14000,
     size: ['35', '36', '37', '38', '39', '40'],
     color: ['Blanco', 'Negro', 'Naranja'],
-    model: 'Force Do It'
+    model: 'Force Just Do It',
   },
   {
     id: 14,
@@ -114,7 +114,7 @@ export const productsTest = [
     price: 14000,
     size: ['35', '36', '37', '38', '39', '40'],
     color: ['Blanco', 'Turqueza'],
-    model: 'Force Do It'
+    model: 'Force Just Do It',
   },
   {
     id: 15,
@@ -122,7 +122,7 @@ export const productsTest = [
     price: 13500,
     size: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
     color: ['Blanco', 'Negro'],
-    model: 'Force ER'
+    model: 'Force ER',
   },
   {
     id: 16,
@@ -130,7 +130,7 @@ export const productsTest = [
     price: 13500,
     size: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
     color: ['Blanco', 'Gris'],
-    model: 'Force ER'
+    model: 'Force ER',
   },
   {
     id: 17,
@@ -138,7 +138,7 @@ export const productsTest = [
     price: 13500,
     size: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
     color: ['Blanco', 'Negro', 'Gris'],
-    model: 'Force ER'
+    model: 'Force ER',
   },
   {
     id: 18,
@@ -146,7 +146,7 @@ export const productsTest = [
     price: 13500,
     size: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
     color: ['Blanco', 'Negro', 'Rojo'],
-    model: 'Force ER'
+    model: 'Force ER',
   },
   {
     id: 19,
@@ -154,7 +154,7 @@ export const productsTest = [
     price: 13500,
     size: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
     color: ['Blanco', 'Negro'],
-    model: 'Force ER'
+    model: 'Force ER',
   },
   {
     id: 20,
@@ -162,7 +162,7 @@ export const productsTest = [
     price: 13500,
     size: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
     color: ['Blanco', 'Negro', 'Marron'],
-    model: 'Force ER'
+    model: 'Force ER',
   },
   {
     id: 21,
@@ -170,7 +170,7 @@ export const productsTest = [
     price: 13500,
     size: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
     color: ['Blanco', 'Negro'],
-    model: 'Force ER'
+    model: 'Force ER',
   },
   {
     id: 22,
@@ -178,7 +178,7 @@ export const productsTest = [
     price: 13500,
     size: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
     color: ['Blanco', 'Rojo'],
-    model: 'Force ER'
+    model: 'Force ER',
   },
   {
     id: 23,
@@ -186,7 +186,7 @@ export const productsTest = [
     price: 9000,
     size: ['27', '28', '29', '30', '31', '32', '33', '34'],
     color: ['Blanco'],
-    model: 'Force'
+    model: 'Force',
   },
   {
     id: 24,
@@ -194,7 +194,7 @@ export const productsTest = [
     price: 9000,
     size: ['27', '28', '29', '30', '31', '32', '33', '34'],
     color: ['Blanco', 'Negro'],
-    model: 'Force Niño'
+    model: 'Force Niño',
   },
   {
     id: 25,
@@ -202,7 +202,7 @@ export const productsTest = [
     price: 9000,
     size: ['27', '28', '29', '30', '31', '32', '33', '34'],
     color: ['Blanco', 'Negro'],
-    model: 'Force Niño'
+    model: 'Force Niño',
   },
   {
     id: 26,
@@ -210,6 +210,6 @@ export const productsTest = [
     price: 9000,
     size: ['27', '28', '29', '30', '31', '32', '33', '34'],
     color: ['Blanco', 'Violeta'],
-    model: 'Force Niño'
-  }
-]
+    model: 'Force Niño',
+  },
+];
