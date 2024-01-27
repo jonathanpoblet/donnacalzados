@@ -1,6 +1,5 @@
 import ProductsBody from '../../components/Products/ProductsBody/ProductsBody';
 import ProductsHeader from '../../components/Products/ProductsHeader/ProductsHeader';
-import { products } from '../../test/all';
 import { productsTest } from '../../test/allTest';
 import { colors } from '../../test/colors';
 import { brands } from '../../test/brand';

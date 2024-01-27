@@ -166,4 +166,11 @@
   .products-all-card-button {
     font-size: 10px;
   }
+
+  .products-all-card-button:hover,
+  .products-all-card-button:active,
+  .products-all-card-button:focus {
+    opacity: 1;
+    background-color: #e54786 !important;
+  }
 }

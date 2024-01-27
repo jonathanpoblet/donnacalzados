@@ -8,6 +8,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 import './home.css';
+import { useState } from 'react';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -16,8 +17,6 @@ export default function Home() {
   }, []);
   return (
     <main className='home'>
-      {/* <HomeBanner /> */}
-      {/* <img className='home-img' src='../donnacalzados/assets/home/banner.png' alt='banner' data-aos='fade-up' data-aos-offset='100' data-aos-easing='ease-in-sine' data-aos-duration='600' /> */}
       <HomeProducts />
       <button onClick={() => navigate('/productos')} className='btn btn-dark home-products-button'>
         MOSTRAR MÁS PRODUCTOS

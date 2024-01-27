@@ -21,11 +21,6 @@ export const productsTest = [
         id: 102,
       },
       {
-        img: '../donnacalzados/assets/products/force-adulto-blanco.png',
-        sizes: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
-        id: 104,
-      },
-      {
         img: '../donnacalzados/assets/products/force-adulto-blanconegro.png',
         sizes: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
         id: 105,
@@ -98,6 +93,83 @@ export const productsTest = [
         img: '../donnacalzados/assets/products/force-justdoit-adulto-verdeblanco.png',
         sizes: ['35', '36', '37', '38', '39', '40'],
         id: 501,
+      },
+    ],
+  },
+  {
+    price: 11100,
+    id: 6,
+    model: 'Vans Plataforma',
+    brand: 'Vans',
+    products: [
+      {
+        img: '../donnacalzados/assets/products/vans-plataforma-adulto-clasica.png',
+        sizes: ['35', '36', '37', '38', '39', '40'],
+        id: 600,
+      },
+      {
+        img: '../donnacalzados/assets/products/vans-plataforma-adulto-negras.png',
+        sizes: ['35', '36', '37', '38', '39', '40'],
+        id: 601,
+      },
+    ],
+  },
+  {
+    price: 11100,
+    id: 7,
+    model: 'Vans',
+    brand: 'Vans',
+    products: [
+      {
+        img: '../donnacalzados/assets/products/vans-adulto-clasicas.png',
+        sizes: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
+        id: 700,
+      },
+      {
+        img: '../donnacalzados/assets/products/vans-adulto-negras.png',
+        sizes: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
+        id: 701,
+      },
+    ],
+  },
+  {
+    price: 10500,
+    id: 8,
+    model: 'Niza',
+    brand: 'Adidas',
+    products: [
+      {
+        img: '../donnacalzados/assets/products/niza-adulto-blancas.png',
+        sizes: ['35', '36', '37', '38', '39', '40', '41', '42'],
+        id: 800,
+      },
+      {
+        img: '../donnacalzados/assets/products/niza-adulto-negras.png',
+        sizes: ['35', '36', '37', '38', '39', '40'],
+        id: 801,
+      },
+    ],
+  },
+  {
+    price: 10500,
+    id: 9,
+    model: 'Air Max',
+    brand: 'Nike',
+    products: [
+      {
+        img: '../donnacalzados/assets/products/airmax-adulto-amarillo.png',
+        sizes: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
+        id: 900,
+      },
+      {
+        img: '../donnacalzados/assets/products/airmax-adulto-azul.png',
+        sizes: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
+        id: 901,
+      },
+      {
+        img: '../donnacalzados/assets/products/airmax-adulto-naranja.png',
+        sizes: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
+        id: 902,
       },
     ],
   },
