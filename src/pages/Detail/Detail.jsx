@@ -95,6 +95,16 @@ export default function Detail() {
     sizesArray.forEach(size => {
       size.className = 'detail-body-info-sizes-buttons';
     });
+
+    const imgs = document.getElementsByClassName('detail-body-info-colors');
+    const imgArray = Array.from(imgs);
+
+    imgArray.forEach(i => {
+      i.className = 'detail-body-info-colors';
+    });
+
+    e.target.className = 'detail-body-info-colors img-selected';
+
     setSelectedProduct(newProductSelected);
   };
 

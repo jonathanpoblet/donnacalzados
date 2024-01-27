@@ -21,11 +21,6 @@ export const productsTest = [
         id: 102,
       },
       {
-        img: '../donnacalzados/assets/products/force-adulto-negroblanco.png',
-        sizes: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
-        id: 103,
-      },
-      {
         img: '../donnacalzados/assets/products/force-adulto-blanco.png',
         sizes: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
         id: 104,
@@ -85,59 +80,6 @@ export const productsTest = [
         img: '../donnacalzados/assets/products/force-niño-blanco.png',
         sizes: ['27', '28', '29', '30', '31', '32', '33', '34'],
         id: 303,
-      },
-    ],
-  },
-  {
-    price: 12300,
-    id: 4,
-    model: 'Force ER',
-    brand: 'Nike',
-    products: [
-      {
-        img: '../donnacalzados/assets/products/force-er-adulto-blancorosa.png',
-        sizes: ['35', '36', '37', '38', '39', '40'],
-        id: 400,
-      },
-      {
-        img: '../donnacalzados/assets/products/force-er-adulto-negroblanco.png',
-        sizes: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
-        id: 401,
-      },
-      {
-        img: '../donnacalzados/assets/products/force-er-adulto-grisblanco.png',
-        sizes: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
-        id: 402,
-      },
-      {
-        img: '../donnacalzados/assets/products/force-er-adulto-grisblanconegro.png',
-        sizes: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
-        id: 403,
-      },
-      {
-        img: '../donnacalzados/assets/products/force-er-adulto-rojoblanconegro.png',
-        sizes: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
-        id: 404,
-      },
-      {
-        img: '../donnacalzados/assets/products/force-er-adulto-lv.png',
-        sizes: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
-        id: 405,
-      },
-      {
-        img: '../donnacalzados/assets/products/force-er-adulto-lvblanco.png',
-        sizes: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
-        id: 406,
-      },
-      {
-        img: '../donnacalzados/assets/products/force-er-adulto-blanconegro.png',
-        sizes: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
-        id: 407,
-      },
-      {
-        img: '../donnacalzados/assets/products/force-er-adulto-blancorojo.png',
-        sizes: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
-        id: 408,
       },
     ],
   },

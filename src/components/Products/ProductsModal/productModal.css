@@ -1,0 +1,166 @@
+.product-modal-body {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.product-modal-body-img {
+  width: 350px;
+  height: 440px;
+  object-fit: cover;
+  box-shadow: 2px 2px 10px 2px rgb(228, 228, 228);
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.product-modal-body-info label {
+  margin-top: 15px;
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+  text-shadow: 1px 1px 1px rgb(241, 241, 241);
+  margin-top: 15px;
+}
+
+.product-modal-body-info-title {
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+  color: #000;
+  font-weight: 500;
+}
+
+.product-modal-body-info-price {
+  font-size: 14px;
+  padding: 0px 5px 0px 5px;
+  color: rgb(0, 0, 0);
+}
+
+.product-modal-body-info-colors-img {
+  width: 65px;
+  height: 70px;
+  margin-right: 5px;
+  margin-top: 5px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 5px 1px rgb(221, 221, 221);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.product-modal-body-info-colors-img:hover {
+  opacity: 0.7;
+}
+
+.img-selected {
+  opacity: 0.5;
+}
+
+.product-modal-body-info-sizes {
+  width: 270px;
+}
+
+.product-modal-body-info-sizes-buttons {
+  font-size: 14px;
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  margin-right: 7px;
+  margin-top: 7px;
+  border: 1px solid rgb(231, 231, 231);
+  box-shadow: 2px 2px 4px 2px rgb(241, 241, 241);
+  transition: 0.5s;
+}
+
+.product-modal-body-info-sizes-buttons:hover {
+  opacity: 0.7;
+}
+
+.product-modal-body-info-add:hover {
+  opacity: 0.7;
+}
+
+.product-modal-active-size {
+  background-color: #e54787;
+  color: #fff;
+}
+
+.product-modal-body-info-buttons {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.product-modal-body-info-buttons input {
+  width: 60px;
+  height: 35px;
+  background-color: rgb(243, 243, 243);
+  margin-top: 10px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  user-select: none !important;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.product-modal-body-info-buttons button {
+  font-size: 14px;
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  margin-right: 15px;
+  margin-top: 10px;
+  border: 1px solid rgb(231, 231, 231);
+  box-shadow: 2px 2px 4px 2px rgb(241, 241, 241);
+  transition: 0.5s;
+}
+
+.product-modal-body-info-buttons button:hover {
+  opacity: 0.7;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.product-modal-info-actions {
+  background-color: #e54787;
+  color: #fff;
+  width: 35px;
+}
+
+.product-modal-body-info-add {
+  width: 240px;
+  margin-top: 15px;
+  padding: 7px 12px;
+  border: none;
+  box-shadow: 2px 2px 10px 2px #fff;
+  background-color: #000;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 992px) {
+  .product-modal-body {
+    flex-direction: column;
+  }
+
+  .product-modal-body-img {
+    width: 100%;
+    height: 100%;
+    margin-right: 0px;
+  }
+
+  .product-modal-body-info {
+    margin-top: 10px;
+    max-width: 300px;
+  }
+}

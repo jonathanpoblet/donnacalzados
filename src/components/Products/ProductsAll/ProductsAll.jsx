@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setDetail } from '../../../app/state/detailSlice';
 import { formatPrice } from '../../../utils/formatPrice';
+import ProductModal from '../ProductsModal/ProductModal';
+import Button from 'react-bootstrap/Button';
 
 import './productsAll.css';
 
 export default function ProductsAll({ products }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const [modalShow, setModalShow] = useState(false);
+  const [product, setProduct] = useState({});
 
   const handleDetail = prod => {
     dispatch(setDetail(prod));
@@ -17,6 +22,7 @@ export default function ProductsAll({ products }) {
 
   return (
     <article className='products-all'>
+      <ProductModal product={product} show={modalShow} onHide={() => setModalShow(false)} />
       {products.length !== 0 ? (
         products.map((prod, index) => (
           <div className='products-all-card' key={index}>
@@ -28,7 +34,16 @@ export default function ProductsAll({ products }) {
             <p className='products-all-card-price products-all-card-price2'>
               <b>3</b> cuotas sin interés <b>${formatPrice(prod.price / 3)}</b>
             </p>
-            <button className='products-all-card-button'>AGREGAR AL CARRITO</button>
+            <Button
+              className='products-all-card-button'
+              onClick={() => {
+                prod.quantity = 1;
+                setProduct(prod);
+                setModalShow(true);
+              }}
+            >
+              AGREGAR AL CARRITO
+            </Button>
           </div>
         ))
       ) : (

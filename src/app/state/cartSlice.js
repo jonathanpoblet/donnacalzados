@@ -32,6 +32,9 @@ export const cartSlice = createSlice({
           confirmButton.setAttribute('data-bs-toggle', 'offcanvas');
           confirmButton.setAttribute('data-bs-target', '#offcanvasExample');
           confirmButton.setAttribute('aria-controls', 'offcanvasExample');
+
+          const bodyElement = document.querySelector('body');
+          bodyElement.style = 'overflow: auto'
         },
       });
     },
