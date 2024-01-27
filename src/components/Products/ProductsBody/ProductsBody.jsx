@@ -22,7 +22,7 @@ export default function ProductsBody({ products, sizes, brands }) {
     const filteredProducts = products
       .filter(prod => {
         const meetsBrand = selectedBrands.length === 0 || selectedBrands.includes(prod.brand);
-        const meetsSize = selectedSizes.length === 0 || selectedSizes.some(size => prod.size.includes(size));
+        const meetsSize = selectedSizes.length === 0 || selectedSizes.some(size => prod.products.some(product => product.sizes.includes(size)));
 
         return meetsBrand && meetsSize;
       })
