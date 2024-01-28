@@ -25,6 +25,17 @@ export const productsTest = [
         sizes: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
         id: 105,
       },
+      {
+        img: '../donnacalzados/assets/products/force-adulto-camaleon.png',
+        sizes: ['35', '36', '37', '38', '39', '40'],
+        id: 102,
+      },
+      {
+        img: '../donnacalzados/assets/products/force-adulto-blanconegro.png',
+        sizes: ['35', '36', '37', '38', '39', '40', '41', '42', '43', '44'],
+        id: 105,
+      },
+
     ],
   },
   {

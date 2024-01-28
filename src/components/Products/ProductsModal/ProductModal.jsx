@@ -124,13 +124,13 @@ export default function ProductModal(props) {
 
   return (
     <Modal className='product-modal' style={{ letterSpacing: '1px' }} {...props} size='lg' aria-labelledby='contained-modal-title-vcenter' centered>
-      <Modal.Header style={{ backgroundColor: '#e54787', color: '#fff' }} closeButton>
-        <Modal.Title id='contained-modal-title-vcenter'>Agregar al carrito</Modal.Title>
-      </Modal.Header>
       <Modal.Body className='product-modal-body'>
         <img className='product-modal-body-img' src={tempProduct.products && tempProduct.products.img} alt='Calzado' />
         <div className='product-modal-body-info'>
-          <h2>{props.product && props.product.model}</h2>
+          <div className='product-modal-body-info-title-container'>
+            <h2 className='product-modal-body-info-title'>{props.product && props.product.model}</h2>
+            <button onClick={() => props.onHide()} type='button' className='btn-close' aria-label='Close' closebutton='true'></button>
+          </div>
           <p className='product-modal-body-info-price'>
             $ {formatPrice(props.product && props.product.price)}
             <small className='mt-2'>

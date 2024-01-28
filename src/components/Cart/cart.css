@@ -195,4 +195,9 @@ input[type='number'] {
   .offcanvas-body-pay:hover {
     opacity: 1;
   }
+
+  .offcanvas-body-container-info-buttons input {
+    width: 50px;
+    font-size: 13px;
+  }
 }

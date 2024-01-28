@@ -1,16 +1,38 @@
+.modal-header {
+  border-bottom: 0px;
+  padding: 0px;
+}
+
+.modal-header .btn-close {
+  padding-right: 35px;
+}
+
 .product-modal-body {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  padding: 0px !important;
 }
 
 .product-modal-body-img {
   width: 350px;
-  height: 440px;
+  height: 450px;
+  min-height: 100%;
   object-fit: cover;
-  box-shadow: 2px 2px 10px 2px rgb(228, 228, 228);
-  border-radius: 5px;
-  margin-right: 20px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.product-modal-body-info {
+  margin: 20px;
+  width: 100%;
+}
+
+.product-modal-body-info-title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .product-modal-body-info label {
@@ -18,21 +40,22 @@
   font-size: 18px;
   color: rgb(0, 0, 0);
   text-shadow: 1px 1px 1px rgb(241, 241, 241);
-  margin-top: 15px;
 }
 
 .product-modal-body-info-title {
-  font-size: 20px;
+  font-size: 30px;
   text-align: center;
   letter-spacing: 1px;
   color: #000;
   font-weight: 500;
+  margin-bottom: 0px;
 }
 
 .product-modal-body-info-price {
   font-size: 14px;
   padding: 0px 5px 0px 5px;
   color: rgb(0, 0, 0);
+  margin-top: 10px;
 }
 
 .product-modal-body-info-colors-img {
@@ -54,14 +77,10 @@
   opacity: 0.5;
 }
 
-.product-modal-body-info-sizes {
-  width: 270px;
-}
-
 .product-modal-body-info-sizes-buttons {
-  font-size: 14px;
-  width: 35px;
-  height: 35px;
+  font-size: 13px;
+  width: 30px;
+  height: 30px;
   border-radius: 5px;
   margin-right: 7px;
   margin-top: 7px;
@@ -155,12 +174,14 @@ input[type='number'] {
 
   .product-modal-body-img {
     width: 100%;
-    height: 350px;
+    height: 420px;
     margin-right: 0px;
+    border-bottom-left-radius: 0px;
   }
 
   .product-modal-body-info {
     margin-top: 10px;
-    max-width: 300px;
+    padding-right: 35px;
+    max-width: 100%;
   }
 }
