@@ -1,6 +1,4 @@
 import React from 'react';
-import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
-import { FaFacebook } from 'react-icons/fa6';
 
 import './wholesalerBody.css';
 
