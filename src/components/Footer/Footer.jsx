@@ -83,7 +83,7 @@ export default function Footer() {
         <div className='footer-copyright-container'>
           <p>© 2024 Copyright Donna Calzados</p>
           <div>
-            <BsWhatsapp onClick={() => window.open('https://wa.me/1150460184', '_blank')} />
+            <BsWhatsapp onClick={() => window.open('https://wa.me/541150460184', '_blank')} />
             <BsInstagram onClick={() => window.open('https://www.instagram.com/donnacalzadosymoda/', '_blank')} />
             <BsFacebook onClick={() => window.open('https://www.facebook.com/donnaflores20', '_blank')} />
           </div>

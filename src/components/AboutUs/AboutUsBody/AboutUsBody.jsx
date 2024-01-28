@@ -43,7 +43,7 @@ export default function AboutUsBody() {
       <p>Para la correcta gestión de los cambios, te solicitamos realizarlos a traves de nuestro WhatsApp: 11 5046-0184 . Envianos el motivo del reclamo y el número de pedido</p>
       <br />
       <div>
-        <FaWhatsapp onClick={() => window.open('https://wa.me/1150460184', '_blank')} />
+        <FaWhatsapp onClick={() => window.open('https://wa.me/541150460184', '_blank')} />
         <FaInstagram onClick={() => window.open('https://www.instagram.com/donnacalzadosymoda/', '_blank')} />
         <FaFacebook onClick={() => window.open('https://www.facebook.com/donnaflores20', '_blank')} />
       </div>
