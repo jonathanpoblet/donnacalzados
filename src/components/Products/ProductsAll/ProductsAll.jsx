@@ -37,8 +37,7 @@ export default function ProductsAll({ products }) {
             <Button
               className='products-all-card-button'
               onClick={() => {
-                prod.quantity = 1;
-                setProduct(prod);
+                setProduct({ ...prod, quantity: 1 });
                 setModalShow(true);
               }}
             >

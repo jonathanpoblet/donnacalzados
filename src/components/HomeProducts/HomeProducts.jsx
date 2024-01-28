@@ -79,8 +79,7 @@ export default function HomeProducts() {
               <Button
                 className='home-products-container-card-button'
                 onClick={() => {
-                  prod.quantity = 1;
-                  setProduct(prod);
+                  setProduct({ ...prod, quantity: 1 });
                   setModalShow(true);
                 }}
               >
