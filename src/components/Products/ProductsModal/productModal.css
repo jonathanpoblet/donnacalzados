@@ -184,4 +184,13 @@ input[type='number'] {
     padding-right: 35px;
     max-width: 100%;
   }
+
+  .product-modal-body-info-sizes {
+    width: 250px;
+  }
+
+  .product-modal-body-info-add {
+    width: 208px;
+    font-size: 12px;
+  }
 }
