@@ -8,6 +8,7 @@ const Products = lazy(() => import('../pages/Products/Products'));
 const Wholesaler = lazy(() => import('../pages/Wholesaler/Wholesaler'));
 const AboutUs = lazy(() => import('../pages/AboutUs/AboutUs'));
 const Detail = lazy(() => import('../pages/Detail/Detail'));
+const Checkout = lazy(() => import('../pages/Checkout/Checkout'));
 
 const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
 
@@ -25,6 +26,7 @@ export default function AppRoute() {
             <Route path='/productos/detalle' element={<Detail />} />
             <Route path='/nosotros' element={<AboutUs />} />
             <Route path='/compras-mayoristas' element={<Wholesaler />} />
+            <Route path='/pagos' element={<Checkout />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </Layout>

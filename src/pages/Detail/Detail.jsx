@@ -5,14 +5,18 @@ import { addToCart } from '../../app/state/cartSlice';
 import Swal from 'sweetalert2';
 
 import './detail.css';
+import { getProductById } from '../../app/state/productsSlice';
+import Spinner from '../../components/Spinner/Spinner';
 
 export default function Detail() {
-  const product = useSelector(state => state.detail.detail);
-  const [selectedProduct, setSelectedProduct] = useState({
-    ...product,
-    products: product.products[0],
-  });
+  const product = useSelector(state => state.products.detail);
+  const loading = useSelector(state => state.products.loading);
+
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const product_id = queryParams.get('producto');
+
   const dispatch = useDispatch();
 
   const [quantity, setQuantity] = useState(1);
@@ -46,10 +50,11 @@ export default function Detail() {
     const newProduct = {
       ...selectedProduct,
       selectedSize: size[0].value,
-      idCartProduct: selectedProduct.products.img,
+      idCartProduct: selectedProduct.img + '/' + size[0].value,
       quantity: quantity,
-      img: selectedProduct.products.img,
+      img: selectedProduct.img,
     };
+    console.log(newProduct);
     dispatch(addToCart(newProduct));
   };
 
@@ -88,7 +93,15 @@ export default function Detail() {
 
   const handleSelectProduct = e => {
     const index = product.products.findIndex(p => p.img == e.target.id);
-    const newProductSelected = { ...product, products: product.products[index] };
+    const newProductSelected = {
+      id_product: product.id_product,
+      brand: product.brand,
+      price: product.price,
+      model: product.model,
+      img: product.products && product.products[index].img,
+      sizes: product.products && product.products[index].sizes,
+      id_product_list: product.products && product.products[index].id_product_list,
+    };
     const sizes = document.getElementsByClassName('detail-active-size');
     const sizesArray = Array.from(sizes);
 
@@ -108,6 +121,60 @@ export default function Detail() {
     setSelectedProduct(newProductSelected);
   };
 
+  useEffect(() => {
+    dispatch(getProductById(product_id));
+  }, [dispatch, product_id]);
+
+  useEffect(() => {
+    if (product) {
+      setSelectedProduct({
+        id_product: product.id_product,
+        brand: product.brand,
+        price: product.price,
+        model: product.model,
+        img: product.products && product.products[0].img,
+        sizes: product.products && product.products[0].sizes,
+        id_product_list: product.products && product.products[0].id_product_list,
+      });
+    }
+  }, [product]);
+
+  useEffect(() => {
+    if (selectedProduct) {
+      const imgs = document.getElementsByClassName('detail-body-info-colors');
+      const imgArray = Array.from(imgs);
+
+      const found = imgArray.find(i => i.id == selectedProduct.img);
+
+      if (found) found.className = 'detail-body-info-colors img-selected';
+    }
+  }, [selectedProduct]);
+
+  if (!product) {
+    return (
+      <main className='detail'>
+        <section className='detail-header'>
+          <Link className='detail-header-link' to='/'>
+            Inicio
+          </Link>
+          <span className='detail-header-bar'>/</span>
+          <Link className='detail-header-link' to='/productos'>
+            Productos
+          </Link>
+          <span className='detail-header-bar'>/</span>
+          <h1 className='detail-header-title'>{selectedProduct.model ? selectedProduct.model : 'Detalle'}</h1>
+        </section>
+        <section className='detail-body'>
+          <p style={{ height: '40vh', letterSpacing: '1px' }}>Lo siento, no hemos encontrado tu producto</p>
+        </section>
+      </main>
+    );
+  }
+
+  if (loading || selectedProduct === null) {
+    return <Spinner />;
+  }
+
   return (
     <main className='detail'>
       <section className='detail-header'>
@@ -123,7 +190,7 @@ export default function Detail() {
       </section>
       <section className='detail-body'>
         <div>
-          <img className='detail-body-img' src={selectedProduct.products.img} alt='Calzado' />
+          <img className='detail-body-img' src={selectedProduct.img} alt='Calzado' />
         </div>
         <div className='detail-body-info'>
           <h2>{selectedProduct.model}</h2>
@@ -137,19 +204,21 @@ export default function Detail() {
 
           <label>Colores</label>
           <div className='detail-body-info-colors'>
-            {product.products.map(p => {
-              return <img onClick={e => handleSelectProduct(e)} key={p.img} id={p.img} className='detail-body-info-colors' src={p.img} alt='Calzado' />;
-            })}
+            {product.products &&
+              product.products.map(p => {
+                return <img onClick={e => handleSelectProduct(e)} key={p.img} id={p.img} className='detail-body-info-colors' src={p.img} alt='Calzado' />;
+              })}
           </div>
           <label>Talles</label>
           <div className='detail-body-info-sizes'>
-            {selectedProduct.products.sizes.map(s => {
-              return (
-                <button className='detail-body-info-sizes-buttons' value={s} onClick={e => selectSize(e)} key={s}>
-                  {s}
-                </button>
-              );
-            })}
+            {selectedProduct.sizes &&
+              selectedProduct.sizes.map(s => {
+                return (
+                  <button className='detail-body-info-sizes-buttons' value={s} onClick={e => selectSize(e)} key={s}>
+                    {s}
+                  </button>
+                );
+              })}
           </div>
           <label>Cantidad</label>
           <div className='detail-body-info-buttons'>

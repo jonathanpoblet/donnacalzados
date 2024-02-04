@@ -8,8 +8,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 import './home.css';
-import { useState } from 'react';
-
 export default function Home() {
   const navigate = useNavigate();
   useEffect(() => {

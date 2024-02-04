@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { addToCart } from '../../../app/state/cartSlice';
 import { formatPrice } from '../../../utils/formatPrice';
 import Modal from 'react-bootstrap/Modal';
 import Swal from 'sweetalert2';
 
 import './productModal.css';
-import { addToCart } from '../../../app/state/cartSlice';
 
 export default function ProductModal(props) {
   const dispatch = useDispatch();

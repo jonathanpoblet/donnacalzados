@@ -1,13 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit";
-import home from "./state/homeSlice";
-import cart from "./state/cartSlice";
-import detail from "./state/detailSlice";
-
+import { configureStore } from '@reduxjs/toolkit';
+import cart from './state/cartSlice';
+import products from './state/productsSlice';
 
 export const store = configureStore({
   reducer: {
-    home,
     cart,
-    detail
+    products,
   },
 });

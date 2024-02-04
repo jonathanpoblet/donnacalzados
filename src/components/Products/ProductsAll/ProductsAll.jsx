@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setDetail } from '../../../app/state/detailSlice';
 import { formatPrice } from '../../../utils/formatPrice';
 import ProductModal from '../ProductsModal/ProductModal';
 import Button from 'react-bootstrap/Button';
@@ -16,8 +15,7 @@ export default function ProductsAll({ products }) {
   const [product, setProduct] = useState({});
 
   const handleDetail = prod => {
-    dispatch(setDetail(prod));
-    navigate(`./detalle?producto=${prod.id}`);
+    navigate(`./detalle?producto=${prod.id_product}`);
   };
 
   return (

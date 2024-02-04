@@ -1,0 +1,77 @@
+.checkout-pay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-left: 100px;
+}
+
+.checkout-pay-brick {
+  width: 100%;
+}
+
+.mp-checkout-bricks__payment-form {
+  padding: 0px !important;
+}
+
+.checkout-pay-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.checkout-pay-info-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.checkout-pay-info-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.checkout-pay-info-form-input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  border: 2px solid rgb(226, 226, 226);
+  box-shadow: 2px 2px 10px 2px rgb(221, 221, 221);
+}
+
+.checkout-pay-info-form-input:active,
+.checkout-pay-info-form-input:focus,
+.checkout-pay-info-form-textarea:active {
+  outline: none;
+  border: 2px solid rgb(119, 119, 119);
+}
+
+.checkout-pay-info-form-errors {
+  text-align: start;
+  color: red;
+  width: 100%;
+  margin-top: 20px;
+  margin-left: 15px;
+}
+
+.checkout-pay-info-form-button {
+  margin-top: 20px;
+  border: none;
+  padding: 12px 12px;
+  background-color: #e54787;
+  color: #fff;
+  width: 100%;
+  border-radius: 5px;
+  transition: 0.5s;
+  box-shadow: 2px 2px 10px 2px rgb(221, 221, 221);
+  letter-spacing: 1px;
+}
+
+.checkout-pay-info-form-button:hover {
+  background-color: #e54786b4;
+}
