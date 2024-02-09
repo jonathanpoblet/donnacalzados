@@ -16,6 +16,7 @@ export default function HomeProducts() {
   const navigate = useNavigate();
 
   const products = useSelector(state => state.products.products);
+  console.log(products);
   const loading = useSelector(state => state.products.loading);
 
   const [productsToShow, setProductsToShow] = useState(8);

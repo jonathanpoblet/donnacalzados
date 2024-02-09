@@ -1,0 +1,53 @@
+.admin-products-edit {
+  font-size: 14px;
+  width: 80px;
+}
+
+.admin-modal-edit-color {
+  margin-bottom: 30px;
+}
+
+.admin-modal-edit-color-img {
+  width: 70px;
+  margin-bottom: 10px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 5px 1px #c5c5c5;
+}
+
+.admin-modal-edit-color-input {
+  font-size: 12px;
+  width: 100%;
+}
+
+.admin-modal-edit-color-sizes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  width: 320px;
+}
+
+.admin-modal-edit-color-sizes-button {
+  margin-right: 5px;
+  margin-top: 5px;
+  padding: 3px 6px;
+  background-color: #cfcfcf;
+  color: #111;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: 0.5s;
+}
+
+.admin-modal-edit-color-sizes-button:hover {
+  opacity: 0.7;
+}
+
+.admin-modal-edit-color-sizes-button-selected {
+  background-color: #e54787;
+  color: #fff;
+}
+
+.admin-modal-edit-color-actions-add {
+  font-size: 1px;
+}

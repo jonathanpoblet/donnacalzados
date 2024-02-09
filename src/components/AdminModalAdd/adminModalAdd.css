@@ -1,0 +1,40 @@
+.admin-modal-add-color {
+  margin-bottom: 30px;
+}
+
+.admin-modal-add-color-input {
+  font-size: 12px;
+}
+
+.admin-modal-add-color-sizes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  width: 320px;
+}
+
+.admin-modal-add-color-sizes-button {
+  margin-right: 5px;
+  margin-top: 5px;
+  padding: 3px 6px;
+  background-color: #cfcfcf;
+  color: #111;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: 0.5s;
+}
+
+.admin-modal-add-color-sizes-button:hover {
+  opacity: 0.7;
+}
+
+.admin-modal-add-color-sizes-button-selected {
+  background-color: #e54787;
+  color: #fff;
+}
+
+.admin-modal-add-color-actions-add {
+  font-size: 1px;
+}

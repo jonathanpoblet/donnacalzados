@@ -9,8 +9,9 @@ const Wholesaler = lazy(() => import('../pages/Wholesaler/Wholesaler'));
 const AboutUs = lazy(() => import('../pages/AboutUs/AboutUs'));
 const Detail = lazy(() => import('../pages/Detail/Detail'));
 const Checkout = lazy(() => import('../pages/Checkout/Checkout'));
-
 const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
+const Admin = lazy(() => import('../pages/Admin/Admin'));
+const AdminProduct = lazy(() => import('../pages/AdminProduct/AdminProduct'));
 
 const Spinner = lazy(() => import('../components/Spinner/Spinner'));
 
@@ -27,6 +28,8 @@ export default function AppRoute() {
             <Route path='/nosotros' element={<AboutUs />} />
             <Route path='/compras-mayoristas' element={<Wholesaler />} />
             <Route path='/pagos' element={<Checkout />} />
+            <Route path='/secure-admin-panel' element={<Admin />} />
+            <Route path='/secure-admin-panel-product' element={<AdminProduct />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </Layout>
