@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { productsTest } from '../../test/allTest';
 import ProductModal from '../Products/ProductsModal/ProductModal';
 import Button from 'react-bootstrap/Button';
 
 import AOS from 'aos';
-import 'aos/dist/aos.css';
-import './homeProducts.css';
 import { getHomeProducts } from '../../app/state/productsSlice';
 import Spinner from '../Spinner/Spinner';
+import 'aos/dist/aos.css';
+import './homeProducts.css';
 
 export default function HomeProducts() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const products = useSelector(state => state.products.products);
-  console.log(products);
   const loading = useSelector(state => state.products.loading);
 
   const [productsToShow, setProductsToShow] = useState(8);
@@ -25,7 +23,7 @@ export default function HomeProducts() {
   const [product, setProduct] = useState({});
 
   const handleDetail = prod => {
-    navigate(`./productos/detalle?producto=${prod.id}`);
+    navigate(`./productos/detalle?producto=${prod.id_product}`);
   };
 
   const formatPrice = number => {
