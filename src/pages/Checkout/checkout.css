@@ -49,3 +49,29 @@
   max-width: 1080px;
   margin-top: 10px;
 }
+
+@media screen and (max-width: 1250px) {
+  .checkout-header {
+    max-width: 900px;
+  }
+
+  .checkout-body {
+    max-width: 900px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .checkout-header {
+    max-width: 90%;
+  }
+
+  .checkout-body {
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .checkout-body {
+    flex-direction: column;
+  }
+}

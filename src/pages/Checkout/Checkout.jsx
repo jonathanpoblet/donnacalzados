@@ -1,18 +1,15 @@
 import { Link } from 'react-router-dom';
-
-import './checkout.css';
-import { formatPrice } from '../../utils/formatPrice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { addQuantity, deleteProduct, restQuantity } from '../../app/state/cartSlice';
-import { BsTrash } from 'react-icons/bs';
 import CheckoutBodyProducts from '../../components/CheckoutBodyProducts/CheckoutBodyProducts';
 import CheckoutPay from '../../components/CheckoutPay/CheckoutPay';
+
+import './checkout.css';
+import PaymentComponent from '../../components/PaymentComponent/PaymentComponent';
 
 function Checkout() {
   const cart = useSelector(state => state.cart);
   const [total, setTotal] = useState(0);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     let tempTotal = 0;

@@ -1,0 +1,1 @@
+export const DEBOUNCE_TIME_RENDER = 200;

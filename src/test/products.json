@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "img": "../donnacalzados/assets/products/force-adulto-blanco.png",
+    "title": "Air Force",
+    "price": 10500,
+    "size": ["35", "36", "37", "38", "39", "40", "41", "42", "43", "44"],
+    "category": "Zapatilla",
+    "person": ["Hombre", "Mujer"],
+    "color": ["Blanco"],
+    "model": "Air Force"
+  },
+
+  {
+    "id": 2,
+    "img": "../donnacalzados/assets/products/force-adulto-blanconegro.png",
+    "title": "Air Force",
+    "price": 10500,
+    "size": ["35", "36", "37", "38", "39", "40", "41", "42", "43", "44"],
+    "category": "Zapatilla",
+    "person": ["Hombre", "Mujer"],
+    "color": ["Blanco", "Negro"],
+    "model": "Air Force"
+  },
+
+  {
+    "id": 3,
+    "img": "../donnacalzados/assets/products/force-adulto-negro.png",
+    "title": "Air Force",
+    "price": 10500,
+    "size": ["35", "36", "37", "38", "39", "40", "41", "42", "43", "44"],
+    "category": "Zapatilla",
+    "person": ["Hombre", "Mujer"],
+    "color": ["Negro"],
+    "model": "Air Force"
+  }
+]

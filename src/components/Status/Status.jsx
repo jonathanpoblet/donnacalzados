@@ -1,8 +1,6 @@
-// src/App.js
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 
-function Status(payId) {
+function Status({ payId }) {
   const [renderStatus, setRenderStatus] = useState(false);
 
   useEffect(() => {
@@ -15,7 +13,7 @@ function Status(payId) {
         const renderStatusScreenBrick = async bricksBuilder => {
           const settings = {
             initialization: {
-              paymentId: 1321005437,
+              paymentId: payId,
             },
             customization: {
               visual: {
@@ -52,7 +50,7 @@ function Status(payId) {
     setRenderStatus(true);
   }, []);
 
-  return <div id='statusScreenBrick_container'></div>;
+  if (payId) return <div id='statusScreenBrick_container'></div>;
 }
 
 export default Status;

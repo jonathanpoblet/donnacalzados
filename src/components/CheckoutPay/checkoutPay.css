@@ -75,3 +75,10 @@
 .checkout-pay-info-form-button:hover {
   background-color: #e54786b4;
 }
+
+@media screen and (max-width: 800px) {
+  .checkout-pay {
+    margin-top: 20px;
+    margin-left: 0px;
+  }
+}

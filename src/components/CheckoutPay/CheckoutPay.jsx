@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Status from '../Status/Status';
 import { Formik, Form, Field } from 'formik';
+import PaymentComponent from '../PaymentComponent/PaymentComponent';
 import * as Yup from 'yup';
 import Swal from 'sweetalert2';
 
@@ -30,90 +31,7 @@ function CheckoutPay() {
     setLevel(2);
     setUserInfo(values);
     setRender(true);
-    console.log(userInfo);
   };
-
-  useEffect(() => {
-    if (render) {
-      const fetchData = async () => {
-        const mp = new MercadoPago('TEST-907ca3b4-73cf-4b28-895c-6604f59c5000', {
-          locale: 'es-CO',
-        });
-        const bricksBuilder = mp.bricks();
-        const renderPaymentBrick = async bricksBuilder => {
-          const settings = {
-            initialization: {
-              amount: 10000,
-              preferenceId: '<PREFERENCE_ID>',
-              payer: {
-                firstName: '',
-                lastName: '',
-                email: '',
-              },
-            },
-            customization: {
-              visual: {
-                style: {
-                  theme: 'default',
-                },
-              },
-              paymentMethods: {
-                creditCard: 'all',
-                debitCard: 'all',
-                onboarding_credits: 'all',
-                wallet_purchase: 'all',
-                maxInstallments: 1,
-              },
-              backUrls: {
-                error: 'http://localhost:5173/donnacalzados/#/',
-                return: 'http://localhost:5173/donnacalzados/#/',
-              },
-            },
-            callbacks: {
-              onReady: () => {
-                /*
-                 Callback llamado cuando el Brick está listo.
-                 Aquí puede ocultar cargamentos de su sitio, por ejemplo.
-                */
-              },
-              onSubmit: ({ selectedPaymentMethod, formData }) => {
-                // callback llamado al hacer clic en el botón de envío de datos
-                return new Promise((resolve, reject) => {
-                  fetch('http://localhost:3000/api/checkout', {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData),
-                  })
-                    .then(response => response.json())
-                    .then(response => {
-                      setPay(true);
-                      setPayId('1321005437');
-                      setRender(true);
-                      setLevel(3);
-                      resolve();
-                    })
-                    .catch(error => {
-                      // manejar la respuesta de error al intentar crear el pago
-                      reject();
-                    });
-                });
-              },
-              onError: error => {
-                // callback llamado para todos los casos de error de Brick
-                console.error(error);
-              },
-            },
-          };
-          window.paymentBrickController = await bricksBuilder.create('payment', 'paymentBrick_container', settings);
-        };
-        renderPaymentBrick(bricksBuilder);
-      };
-
-      fetchData();
-    }
-  }, [render]);
 
   return (
     <article className='checkout-pay'>
@@ -158,7 +76,7 @@ function CheckoutPay() {
           </Formik>
         </div>
       )}
-      {level == 2 && <div id='paymentBrick_container' className='checkout-pay-brick'></div>}
+      {level == 2 && <PaymentComponent setPayId={setPayId} setLevel={setLevel} />}
       {level == 3 && <Status payId={payId} />}
     </article>
   );
