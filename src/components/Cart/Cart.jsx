@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { BsTrash } from 'react-icons/bs';
 
 import { addQuantity, deleteProduct, restQuantity } from '../../app/state/cartSlice';
@@ -10,6 +11,7 @@ export default function Cart() {
   const cart = useSelector(state => state.cart);
   const [total, setTotal] = useState(0);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const formatPrice = number => {
     const formatNumber = new Intl.NumberFormat('es-ES', {
@@ -82,15 +84,7 @@ export default function Cart() {
                 <p className='offcanvas-body-total-container-credit'>O hasta 3 cuotas sin interés de ${formatPrice(total / 3)}</p>
               </div>
             </div>
-            <button
-              onClick={() =>
-                Swal.fire({
-                  title: 'Redirigiendo al formulario de compra',
-                  confirmButtonColor: '#E54787',
-                })
-              }
-              className='offcanvas-body-pay'
-            >
+            <button data-bs-toggle='offcanvas' data-bs-target='#offcanvasExample' aria-controls='offcanvasExample' onClick={() => navigate('/pagos')} className='offcanvas-body-pay'>
               INICIAR COMPRA
             </button>
           </>

@@ -1,21 +1,34 @@
 import React, { useEffect } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-
 import Swal from 'sweetalert2';
-
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 import './homeContact.css';
 
 const ContactSchema = Yup.object().shape({
-  nombre: Yup.string().required('Nombre requerido'),
+  name: Yup.string().required('Nombre requerido'),
   email: Yup.string().email('Email invalido').required('Email requerido'),
-  mensaje: Yup.string().required('Mensaje requerido'),
+  message: Yup.string().required('Mensaje requerido'),
 });
 
-const submitHandler = values => {
+const submitHandler = async values => {
+  console.log(values);
+  const res = await fetch('http://localhost:3000/api/contact', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(values),
+  });
+
+  if (!res.status === 200)
+    return Swal.fire({
+      title: 'Error al enviar su consulta, por favor reinicie la web',
+      confirmButtonColor: '#E54787',
+    });
+
   let timerInterval;
   Swal.fire({
     title: 'Mensaje enviado!',
@@ -47,20 +60,21 @@ export default function HomeContact() {
       <h2 className='home-contact-title'>CONTACTANOS</h2>
       <Formik
         initialValues={{
-          nombre: '',
+          name: '',
           email: '',
-          mensaje: '',
+          message: '',
         }}
         validationSchema={ContactSchema}
         onSubmit={submitHandler}
       >
         {({ errors, touched }) => (
           <Form className='home-contact-form'>
-            <Field className='home-contact-form-input' name='nombre' placeholder='Nombre' />
-            {errors.nombre && touched.nombre ? <div className='home-contact-form-errors'>{errors.nombre}</div> : null}
+            <Field className='home-contact-form-input' name='name' placeholder='Nombre' />
+            {errors.name && touched.name ? <div className='home-contact-form-errors'>{errors.name}</div> : null}
             <Field className='home-contact-form-input' name='email' placeholder='Email' />
             {errors.email && touched.email ? <div className='home-contact-form-errors'>{errors.email}</div> : null}
-            <Field as='textarea' className='home-contact-form-textarea' name='mensaje' placeholder='Mensaje' /> {errors.mensaje && touched.mensaje ? <div className='home-contact-form-errors'>{errors.mensaje}</div> : null}
+            <Field as='textarea' className='home-contact-form-textarea' name='message' placeholder='Mensaje' />{' '}
+            {errors.message && touched.message ? <div className='home-contact-form-errors'>{errors.message}</div> : null}
             <button className='home-contact-form-button' type='submit'>
               ENVIAR
             </button>

@@ -19,7 +19,7 @@ function Checkout() {
     setTotal(tempTotal);
   }, [cart]);
   return (
-    <main className='checkout'>
+    <main className='checkout fade-in'>
       <section className='checkout-header'>
         <Link className='checkout-header-link' to='/'>
           Inicio

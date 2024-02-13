@@ -4,7 +4,7 @@ import Payment from '../../../src/bricks/payment';
 import initMercadoPago from '../../mercadoPago/initMercadoPago';
 import { useSelector } from 'react-redux';
 
-initMercadoPago('TEST-907ca3b4-73cf-4b28-895c-6604f59c5000', { locale: 'es-AR' });
+initMercadoPago('TEST-43589de5-5ccb-4a6c-bcd7-aeaad64e972a', { locale: 'es-AR' });
 
 const PaymentComponent = ({ setPayId, setLevel }) => {
   const [preferenceId, setPreferenceId] = useState('');
@@ -36,6 +36,7 @@ const PaymentComponent = ({ setPayId, setLevel }) => {
   };
 
   const onSubmit = async ({ selectedPaymentMethod, formData }) => {
+    console.log(selectedPaymentMethod);
     const res = await fetch('http://localhost:3000/api/checkout', {
       method: 'POST',
       headers: {
