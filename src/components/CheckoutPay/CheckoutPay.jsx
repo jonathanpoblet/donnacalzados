@@ -1,7 +1,9 @@
 // src/App.js
 import React, { useEffect, useState } from 'react';
-import Status from '../Status/Status';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
+import { resetCart } from '../../app/state/cartSlice';
 import PaymentComponent from '../PaymentComponent/PaymentComponent';
 import * as Yup from 'yup';
 import Swal from 'sweetalert2';
@@ -9,6 +11,9 @@ import Swal from 'sweetalert2';
 import './checkoutPay.css';
 
 function CheckoutPay() {
+  const cart = useSelector(state => state.cart);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [render, setRender] = useState(false);
   const [pay, setPay] = useState(false);
   const [payId, setPayId] = useState();
@@ -28,10 +33,26 @@ function CheckoutPay() {
   });
 
   const submitHandler = values => {
+    if (cart.length === 0)
+      return Swal.fire({
+        title: 'No hay productos en el carrito',
+        confirmButtonColor: '#E54787',
+      });
     setLevel(2);
     setUserInfo(values);
     setRender(true);
   };
+
+  useEffect(() => {
+    if (level === 3) {
+      const confirmPay = async () => {
+        dispatch(resetCart());
+        navigate('/pago-confirmado');
+      };
+
+      confirmPay();
+    }
+  }, [level]);
 
   return (
     <article className='checkout-pay'>
@@ -76,8 +97,7 @@ function CheckoutPay() {
           </Formik>
         </div>
       )}
-      {level == 2 && <PaymentComponent setPayId={setPayId} setLevel={setLevel} />}
-      {level == 3 && <Status payId={payId} />}
+      {(level == 2 || level == 3) && <PaymentComponent setPayId={setPayId} setLevel={setLevel} />}
     </article>
   );
 }

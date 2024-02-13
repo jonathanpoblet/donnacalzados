@@ -3,11 +3,13 @@ import Payment from '../../../src/bricks/payment';
 
 import initMercadoPago from '../../mercadoPago/initMercadoPago';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 initMercadoPago('TEST-43589de5-5ccb-4a6c-bcd7-aeaad64e972a', { locale: 'es-AR' });
 
 const PaymentComponent = ({ setPayId, setLevel }) => {
   const [preferenceId, setPreferenceId] = useState('');
+  const navigate = useNavigate();
 
   const cart = useSelector(state => state.cart);
   const itemsList = [];
@@ -37,17 +39,19 @@ const PaymentComponent = ({ setPayId, setLevel }) => {
 
   const onSubmit = async ({ selectedPaymentMethod, formData }) => {
     console.log(selectedPaymentMethod);
-    const res = await fetch('http://localhost:3000/api/checkout', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
-    const data = await res.json();
+    if (selectedPaymentMethod !== 'wallet_purchase' && selectedPaymentMethod !== 'onboarding_credits') {
+      const res = await fetch('http://localhost:3000/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      console.log(data);
 
-    setLevel(3);
-    setPayId(data.id);
+      setLevel(3);
+    }
   };
 
   const onClickEditShippingData = () => console.log('Calling onClickEditShippingData...');

@@ -34,7 +34,7 @@ export const cartSlice = createSlice({
           confirmButton.setAttribute('aria-controls', 'offcanvasExample');
 
           const bodyElement = document.querySelector('body');
-          bodyElement.style = 'overflow: auto'
+          bodyElement.style = 'overflow: auto';
         },
       });
     },
@@ -75,9 +75,13 @@ export const cartSlice = createSlice({
       localStorage.setItem('donna-calzados-carrito', JSON.stringify(filter));
       return filter;
     },
+    resetCart: state => {
+      localStorage.setItem('donna-calzados-carrito', JSON.stringify([]));
+      return [];
+    },
   },
 });
 
-export const { addToCart, restQuantity, addQuantity, deleteProduct } = cartSlice.actions;
+export const { addToCart, restQuantity, addQuantity, deleteProduct, resetCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
