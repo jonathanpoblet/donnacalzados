@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Formik, Form, Field } from 'formik';
+import { url } from '../../services/httpRequests.js';
 import * as Yup from 'yup';
 import Swal from 'sweetalert2';
 import AOS from 'aos';
@@ -15,7 +16,7 @@ const ContactSchema = Yup.object().shape({
 
 const submitHandler = async values => {
   console.log(values);
-  const res = await fetch('http://localhost:3000/api/contact', {
+  const res = await fetch(`${url}/api/contact`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

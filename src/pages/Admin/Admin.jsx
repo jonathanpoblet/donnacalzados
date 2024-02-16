@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { url } from '../../services/httpRequests.js';
 import * as Yup from 'yup';
 import { Table } from 'react-bootstrap';
 import Swal from 'sweetalert2';
@@ -10,7 +12,6 @@ import { formatPrice } from '../../utils/formatPrice';
 import AdminModalEdit from '../../components/AdminModalEdit/AdminModalEdit';
 import AdminModalAdd from '../../components/AdminModalAdd/AdminModalAdd';
 import './admin.css';
-import { Link } from 'react-router-dom';
 
 const AuthSchema = Yup.object().shape({
   username: Yup.string().required('Usuario requerido'),
@@ -33,7 +34,7 @@ export default function Admin() {
   }, [auth]);
 
   const submitHandler = async values => {
-    const res = await fetch('http://localhost:3000/api/auth', {
+    const res = await fetch(`${url}/api/auth`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -67,7 +68,7 @@ export default function Admin() {
       denyButtonText: `Cancelar`,
     }).then(async result => {
       if (result.isConfirmed) {
-        const res = await fetch(`http://localhost:3000/api/products/${id_product}`, {
+        const res = await fetch(`${url}/api/products/${id_product}`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',

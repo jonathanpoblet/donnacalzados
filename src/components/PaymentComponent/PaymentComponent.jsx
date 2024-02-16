@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 initMercadoPago('TEST-43589de5-5ccb-4a6c-bcd7-aeaad64e972a', { locale: 'es-AR' });
 
-const PaymentComponent = ({ setPayId, setLevel }) => {
+const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
   const [preferenceId, setPreferenceId] = useState('');
   const navigate = useNavigate();
 
@@ -38,14 +38,24 @@ const PaymentComponent = ({ setPayId, setLevel }) => {
   };
 
   const onSubmit = async ({ selectedPaymentMethod, formData }) => {
-    console.log(selectedPaymentMethod);
+    const products = [];
+    cart.map(c => {
+      products.push({
+        model: c.model,
+        img: c.img,
+        quantity: c.quantity,
+        price: c.price,
+        size: c.selectedSize,
+      });
+    });
     if (selectedPaymentMethod !== 'wallet_purchase' && selectedPaymentMethod !== 'onboarding_credits') {
+      console.log(userInfo);
       const res = await fetch('http://localhost:3000/api/checkout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ formData, userInfo, products }),
       });
       const data = await res.json();
       console.log(data);

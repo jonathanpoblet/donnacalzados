@@ -1,8 +1,8 @@
-const URL = 'http://localhost:3000';
+export const url = 'http://api.donnacalzados.com:3000';
 
 export const getRequest = async endpoint => {
   try {
-    const res = await fetch(URL + endpoint);
+    const res = await fetch(url + endpoint);
     const data = res.json();
     return data;
   } catch (error) {

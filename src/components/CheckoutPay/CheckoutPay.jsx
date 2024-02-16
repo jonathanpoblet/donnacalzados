@@ -20,7 +20,7 @@ function CheckoutPay() {
 
   const [level, setLevel] = useState(1);
 
-  const [userInfo, setUserInfo] = useState();
+  const [userInfo, setUserInfo] = useState({});
 
   const UserInfoSchema = Yup.object().shape({
     nombre: Yup.string().required('Nombre requerido'),
@@ -39,7 +39,15 @@ function CheckoutPay() {
         confirmButtonColor: '#E54787',
       });
     setLevel(2);
-    setUserInfo(values);
+    setUserInfo({
+      name: values.nombre,
+      email: values.email,
+      state: values.provincia,
+      city: values.localidad,
+      street: values.calle,
+      number: values.altura,
+      cp: values.codigo_postal,
+    });
     setRender(true);
   };
 
@@ -97,7 +105,7 @@ function CheckoutPay() {
           </Formik>
         </div>
       )}
-      {(level == 2 || level == 3) && <PaymentComponent setPayId={setPayId} setLevel={setLevel} />}
+      {(level == 2 || level == 3) && <PaymentComponent userInfo={userInfo} setPayId={setPayId} setLevel={setLevel} />}
     </article>
   );
 }
