@@ -6,6 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 import Swal from 'sweetalert2';
 
 import './adminModalEditProductList.css';
+import { url } from '../../services/httpRequests.js';
 
 function AdminModalEditProductList({ product }) {
   const [show, setShow] = useState(false);
@@ -58,7 +59,7 @@ function AdminModalEditProductList({ product }) {
 
     console.log(productEdited);
 
-    const res = await fetch(`http://localhost:3000/api/products/list`, {
+    const res = await fetch(`${url}/api/products/list`, {
       method: 'PUT',
       body: formData,
     });

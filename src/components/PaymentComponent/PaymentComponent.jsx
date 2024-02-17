@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { url } from '../../services/httpRequests.js';
 
-initMercadoPago('TEST-43589de5-5ccb-4a6c-bcd7-aeaad64e972a', { locale: 'es-AR' });
+initMercadoPago('APP_USR-42cf64cc-48df-4ef0-9df6-0e493a3c7a2a', { locale: 'es-AR' });
 
 const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
   const [preferenceId, setPreferenceId] = useState('');
@@ -107,7 +107,7 @@ const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
             bank_transfer: 'all',
             creditCard: 'all',
             debitCard: 'all',
-            mercadoPago: 'all',
+            mercadoPago: 'wallet_purchase',
             maxInstallments: 3,
           },
         }}

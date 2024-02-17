@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
-import { useDispatch } from 'react-redux';
 import { url } from '../../services/httpRequests.js';
 import * as Yup from 'yup';
 import { Table } from 'react-bootstrap';
@@ -17,7 +16,6 @@ const AuthSchema = Yup.object().shape({
 export default function AdminOrders() {
   const [orders, setOrders] = useState();
   const [auth, setAuth] = useState(false);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     if (sessionStorage.getItem('donnacalzados-auth')) {
@@ -29,7 +27,6 @@ export default function AdminOrders() {
     const getOrders = async () => {
       const res = await fetch(`${url}/api/checkout/orders`);
       const data = await res.json();
-      console.log(data);
       setOrders(data);
     };
 
@@ -129,9 +126,9 @@ export default function AdminOrders() {
             <Table responsive className='admin-product-table' striped bordered hover>
               <thead>
                 <tr>
-                  <th></th>
-                  <th></th>
-                  <th></th>
+                  <th>Entregar/Codigo Envio</th>
+                  <th>Productos pedidos</th>
+                  <th>Datos Envio</th>
                   <th>Nro Orden</th>
                 </tr>
               </thead>
@@ -141,9 +138,13 @@ export default function AdminOrders() {
                     return (
                       <tr key={index}>
                         <td>
-                          <button className='btn btn-xs btn-success' onClick={() => handleDeliverOrder(order.order.id_order)}>
-                            Entregar
-                          </button>
+                          {order.order.delivered !== 1 ? (
+                            <button className='btn btn-xs btn-success' onClick={() => handleDeliverOrder(order.order.id_order)}>
+                              Entregar
+                            </button>
+                          ) : (
+                            <p style={{ marginBottom: '0px' }}>{order.order.codigo_envio}</p>
+                          )}
                         </td>
                         <td>
                           <AdminModalOrderProducts products={order.orderProducts} />

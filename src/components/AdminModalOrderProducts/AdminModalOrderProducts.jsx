@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { Col, Form, Row, Table } from 'react-bootstrap';
-import { url } from '../../services/httpRequests.js';
+import { Col, Row, Table } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import Swal from 'sweetalert2';
 
 import './adminModalOrderProducts.css';
 
@@ -25,11 +23,12 @@ function AdminModalOrderProducts({ products }) {
             <Modal.Body>
               <Row>
                 <Col className='admin-modal-edit-color' id='admin-modal-edit-color' xs={12} style={{ marginBottom: '15px' }}>
-                  <Table striped bordered hover>
+                  <Table striped bordered hover responsive>
                     <thead>
                       <tr>
                         <th>Imágen</th>
                         <th>Modelo</th>
+                        <th>Talle</th>
                         <th>Precio</th>
                         <th>Cantidad</th>
                       </tr>
@@ -43,6 +42,9 @@ function AdminModalOrderProducts({ products }) {
                             </td>
                             <td>
                               <p>{product.model}</p>
+                            </td>
+                            <td>
+                              <p>{product.size}</p>
                             </td>
                             <td>
                               <p>{product.price}</p>

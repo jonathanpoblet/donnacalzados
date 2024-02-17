@@ -36,7 +36,7 @@ export default function AdminProduct() {
   }, [auth]);
 
   const submitHandler = async values => {
-    const res = await fetch('http://localhost:3000/api/auth', {
+    const res = await fetch(`${url}/api/auth`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
