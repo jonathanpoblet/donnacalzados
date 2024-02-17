@@ -1,29 +1,23 @@
 import { useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
-import { useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { url } from '../../services/httpRequests.js';
 import * as Yup from 'yup';
 import { Table } from 'react-bootstrap';
 import Swal from 'sweetalert2';
-import { getProductById } from '../../app/state/productsSlice';
-import AdminModalAddProductList from '../../components/AdminModalAddProductList/AdminModalAddProductList';
-import AdminModalEditProductList from '../../components/AdminModalEditProductList/AdminModalEditProductList';
-import './adminProduct.css';
+import './adminOrders.css';
+import AdminModalOrderProducts from '../../components/AdminModalOrderProducts/AdminModalOrderProducts.jsx';
+import AdminModalOrderInfo from '../../components/AdminModalOrderInfo/AdminModalOrderInfo.jsx';
 
 const AuthSchema = Yup.object().shape({
   username: Yup.string().required('Usuario requerido'),
   password: Yup.string().required('Contraseña requerida'),
 });
 
-export default function AdminProduct() {
+export default function AdminOrders() {
+  const [orders, setOrders] = useState();
   const [auth, setAuth] = useState(false);
   const dispatch = useDispatch();
-  const product = useSelector(state => state.products.detail);
-
-  const locationParam = useLocation();
-  const queryParams = new URLSearchParams(locationParam.search);
-  const id_product = queryParams.get('product');
 
   useEffect(() => {
     if (sessionStorage.getItem('donnacalzados-auth')) {
@@ -32,11 +26,18 @@ export default function AdminProduct() {
   }, []);
 
   useEffect(() => {
-    if (auth) dispatch(getProductById(id_product));
+    const getOrders = async () => {
+      const res = await fetch(`${url}/api/checkout/orders`);
+      const data = await res.json();
+      console.log(data);
+      setOrders(data);
+    };
+
+    getOrders();
   }, [auth]);
 
   const submitHandler = async values => {
-    const res = await fetch('http://localhost:3000/api/auth', {
+    const res = await fetch(`${url}/api/auth`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -54,38 +55,44 @@ export default function AdminProduct() {
     setAuth(true);
   };
 
-  const handleDeleteProduct = async id_product_list => {
-    if (product.products.length === 1)
-      return Swal.fire({
-        title: 'No es posible eliminar ya que tiene que haber como minimo un color cargado',
-        confirmButtonColor: '#E54787',
-      });
+  const handleDeliverOrder = async id_order => {
     Swal.fire({
-      title: 'Estas seguro de eliminar el color?',
-      showDenyButton: true,
-      showCancelButton: false,
-      confirmButtonText: 'Si, eliminar',
-      confirmButtonColor: '#dc3545',
-      denyButtonColor: '#000000',
-      denyButtonText: `Cancelar`,
+      title: 'Codigo de envio',
+      input: 'text',
+      inputAttributes: {
+        autocapitalize: 'off',
+      },
+      showCancelButton: true,
+      confirmButtonText: 'Confirmar',
+      showLoaderOnConfirm: true,
     }).then(async result => {
       if (result.isConfirmed) {
-        const res = await fetch(`${url}/api/products/list/${id_product_list}`, {
-          method: 'DELETE',
+        const codigo_envio = result.value;
+
+        if (!codigo_envio)
+          return Swal.fire({
+            title: 'Es necesario cargar el codigo de seguimiento',
+            confirmButtonColor: '#E54787',
+          });
+
+        const res = await fetch(`${url}/api/checkout/orders`, {
+          method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-        });
-        const data = await res.json();
-        console.log(data);
-        Swal.fire({
-          title: 'Color Eliminado',
-          confirmButtonColor: '#E54787',
+          body: JSON.stringify({ id_order, codigo_envio }),
         });
 
-        setTimeout(() => {
-          location.reload();
-        }, 2000);
+        if (res.status == 200) {
+          Swal.fire({
+            title: 'Producto Entregado',
+            confirmButtonColor: '#E54787',
+          });
+
+          setTimeout(() => {
+            location.reload();
+          }, 1500);
+        }
       }
     });
   };
@@ -118,41 +125,34 @@ export default function AdminProduct() {
       ) : (
         <>
           <section className='admin-product'>
-            <h1 className='admin-product-title'>{product.model}</h1>
-            <AdminModalAddProductList product={product} />
+            <h1 className='admin-product-title'>Listado de Ordenes</h1>
             <Table responsive className='admin-product-table' striped bordered hover>
               <thead>
                 <tr>
                   <th></th>
                   <th></th>
-                  <th>Foto</th>
-                  <th>Talles</th>
+                  <th></th>
+                  <th>Nro Orden</th>
                 </tr>
               </thead>
               <tbody>
-                {product.products &&
-                  product.products.map(p => {
+                {orders &&
+                  orders.map((order, index) => {
                     return (
-                      <tr className='admin-product-table-row' key={p.id_product_list}>
+                      <tr key={index}>
                         <td>
-                          <button onClick={() => handleDeleteProduct(p.id_product_list)} className='btn btn-xs btn-danger'>
-                            Eliminar
+                          <button className='btn btn-xs btn-success' onClick={() => handleDeliverOrder(order.order.id_order)}>
+                            Entregar
                           </button>
                         </td>
                         <td>
-                          <AdminModalEditProductList product={p} />
+                          <AdminModalOrderProducts products={order.orderProducts} />
                         </td>
                         <td>
-                          <img style={{ width: '70px', borderRadius: '2px' }} src={p.img} />
+                          <AdminModalOrderInfo info={order.order} />
                         </td>
                         <td>
-                          {p.sizes.map(size => {
-                            return (
-                              <button key={p.id_product_list + '/' + size} className='btn btn-xs btn-dark' style={{ margin: '0px 5px 5px 0px', fontSize: '12px' }}>
-                                {size}
-                              </button>
-                            );
-                          })}
+                          <p style={{ marginBottom: '0px' }}>{order.order.id_order}</p>
                         </td>
                       </tr>
                     );

@@ -4,6 +4,7 @@ import Payment from '../../../src/bricks/payment';
 import initMercadoPago from '../../mercadoPago/initMercadoPago';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { url } from '../../services/httpRequests.js';
 
 initMercadoPago('TEST-43589de5-5ccb-4a6c-bcd7-aeaad64e972a', { locale: 'es-AR' });
 
@@ -49,8 +50,7 @@ const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
       });
     });
     if (selectedPaymentMethod !== 'wallet_purchase' && selectedPaymentMethod !== 'onboarding_credits') {
-      console.log(userInfo);
-      const res = await fetch('http://localhost:3000/api/checkout', {
+      const res = await fetch(`${url}/api/checkout`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -61,6 +61,14 @@ const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
       console.log(data);
 
       setLevel(3);
+    } else {
+      await fetch(`${url}/api/checkout/mp`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ preferenceId, userInfo, products }),
+      });
     }
   };
 
@@ -74,7 +82,7 @@ const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
 
   useEffect(() => {
     const getPreferenceId = async () => {
-      const res = await fetch('http://localhost:3000/api/checkout/preference', {
+      const res = await fetch(`${url}/api/checkout/preference`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

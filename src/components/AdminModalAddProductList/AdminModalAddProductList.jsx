@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { sizes } from '../../test/sizes';
+import { url } from '../../services/httpRequests.js';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Swal from 'sweetalert2';
@@ -81,7 +82,7 @@ function AdminModalAddProductList({ product }) {
         });
     }
 
-    const res = await fetch(`http://localhost:3000/api/products/list`, {
+    const res = await fetch(`${url}/api/products/list`, {
       method: 'POST',
       body: formData,
     });

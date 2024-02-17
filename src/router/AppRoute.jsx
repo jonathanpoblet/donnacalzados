@@ -14,6 +14,7 @@ const Failure = lazy(() => import('../pages/Failure/Failure'));
 const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
 const Admin = lazy(() => import('../pages/Admin/Admin'));
 const AdminProduct = lazy(() => import('../pages/AdminProduct/AdminProduct'));
+const AdminOrders = lazy(() => import('../pages/AdminOrders/AdminOrders'));
 
 const Spinner = lazy(() => import('../components/Spinner/Spinner'));
 
@@ -34,6 +35,7 @@ export default function AppRoute() {
             <Route path='/pago-rechazado' element={<Failure />} />
             <Route path='/secure-admin-panel' element={<Admin />} />
             <Route path='/secure-admin-panel-product' element={<AdminProduct />} />
+            <Route path='/secure-admin-panel-orders' element={<AdminOrders />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </Layout>

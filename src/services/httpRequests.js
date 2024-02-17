@@ -1,4 +1,4 @@
-export const url = 'http://api.donnacalzados.com:3000';
+export const url = 'https://donnacalzados-backend.onrender.com';
 
 export const getRequest = async endpoint => {
   try {

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
-import { sizes } from '../../test/sizes';
+import { url } from '../../services/httpRequests.js';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Swal from 'sweetalert2';
@@ -30,9 +30,7 @@ function AdminModalEdit({ product }) {
       price,
     };
 
-    console.log(form);
-
-    const res = await fetch(`http://localhost:3000/api/products/${product.id_product}`, {
+    const res = await fetch(`${url}/api/products/${product.id_product}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

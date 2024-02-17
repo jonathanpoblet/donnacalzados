@@ -1,0 +1,123 @@
+.admin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 200px;
+  margin-top: 30px;
+}
+
+.admin-section {
+  width: 100%;
+  max-width: 600px;
+}
+
+.admin-section-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 70px;
+}
+
+.admin-section-form-input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 40px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  border: 2px solid rgb(226, 226, 226);
+  box-shadow: 2px 2px 10px 2px rgb(221, 221, 221);
+}
+
+.admin-section-form-input:active,
+.admin-section-form-input:focus,
+.admin-section-form-textarea:active {
+  outline: none;
+  border: 2px solid rgb(119, 119, 119);
+}
+
+.admin-section-form-errors {
+  text-align: start;
+  color: red;
+  width: 100%;
+  margin-top: 20px;
+  margin-left: 15px;
+}
+
+.admin-section-form-button {
+  margin-top: 40px;
+  border: none;
+  padding: 12px 12px;
+  background-color: #e54787;
+  color: #fff;
+  width: 100%;
+  border-radius: 5px;
+  transition: 0.5s;
+  box-shadow: 2px 2px 10px 2px rgb(221, 221, 221);
+  letter-spacing: 1px;
+}
+
+.admin-section-form-button:hover {
+  background-color: #e54786b4;
+}
+
+.admin-product {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.admin-product-title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.admin-products-add {
+  width: 210px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.admin-product-table-row td {
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.admin-product-table-row td svg {
+  color: #fff;
+  font-size: 30px;
+  padding: 7px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.admin-product-table-row td svg:hover {
+  opacity: 0.7;
+}
+
+.admin-product-table-row td button {
+  font-size: 12px;
+}
+
+@media screen and (max-width: 1200px) {
+  .admin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 100px;
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .admin-product {
+    width: 90%;
+  }
+}
