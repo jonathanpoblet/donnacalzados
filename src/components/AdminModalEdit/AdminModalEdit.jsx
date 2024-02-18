@@ -76,6 +76,7 @@ function AdminModalEdit({ product }) {
                 <option value='3'>Adidas</option>
                 <option value='4'>Converse</option>
                 <option value='5'>New Balance</option>
+                <option value='6'>Puma</option>
               </Form.Select>
             </Col>
             <Col xs={12} style={{ marginBottom: '15px' }}>

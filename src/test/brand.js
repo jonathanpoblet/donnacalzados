@@ -1,1 +1,1 @@
-export const brands = ['Nike', 'Adidas', 'Vans', 'Converse'];
+export const brands = ['Nike', 'Adidas', 'Vans', 'Converse', 'Puma', 'New Balance'];
