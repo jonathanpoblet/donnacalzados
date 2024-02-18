@@ -73,7 +73,7 @@ export default function Footer() {
             </li>
             <li className='footer-container-div-list-item'>
               <BsFillEnvelopeFill className='footer-container-div-list-item-icon' />
-              <h4 className='footer-container-div-list-item-info'>donnacalzados@gmail.com</h4>
+              <h4 className='footer-container-div-list-item-info'>contacto.donnacalzados@gmail.com</h4>
             </li>
           </ul>
         </div>
