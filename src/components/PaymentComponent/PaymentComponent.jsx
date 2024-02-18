@@ -58,7 +58,6 @@ const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
         body: JSON.stringify({ formData, userInfo, products }),
       });
       const data = await res.json();
-      console.log(data);
 
       setLevel(3);
     } else {

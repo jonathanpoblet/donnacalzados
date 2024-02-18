@@ -34,7 +34,6 @@ export const getAllProducts = () => async dispatch => {
     const { products } = await getRequest('/api/products');
     dispatch(setProducts(products));
   } catch (error) {
-    console.log(error);
     dispatch(setLoading(false));
   }
 };
@@ -45,7 +44,6 @@ export const getHomeProducts = () => async dispatch => {
     const { products } = await getRequest('/api/products/homeProducts');
     dispatch(setProducts(products));
   } catch (error) {
-    console.log(error);
     dispatch(setLoading(false));
   }
 };
@@ -56,7 +54,6 @@ export const getProductById = id => async dispatch => {
     const { product } = await getRequest('/api/products/' + id);
     dispatch(setDetail(product));
   } catch (error) {
-    console.log(error);
     dispatch(setLoading(false));
   }
 };

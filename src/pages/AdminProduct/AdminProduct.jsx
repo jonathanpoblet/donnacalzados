@@ -77,7 +77,6 @@ export default function AdminProduct() {
           },
         });
         const data = await res.json();
-        console.log(data);
         Swal.fire({
           title: 'Color Eliminado',
           confirmButtonColor: '#E54787',

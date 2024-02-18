@@ -22,7 +22,6 @@ export default function Success() {
     });
 
     const data = await res.json();
-    console.log(data);
 
     setSend(true);
   };

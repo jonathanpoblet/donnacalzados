@@ -15,7 +15,6 @@ const ContactSchema = Yup.object().shape({
 });
 
 const submitHandler = async values => {
-  console.log(values);
   const res = await fetch(`${url}/api/contact`, {
     method: 'POST',
     headers: {
@@ -74,8 +73,7 @@ export default function HomeContact() {
             {errors.name && touched.name ? <div className='home-contact-form-errors'>{errors.name}</div> : null}
             <Field className='home-contact-form-input' name='email' placeholder='Email' />
             {errors.email && touched.email ? <div className='home-contact-form-errors'>{errors.email}</div> : null}
-            <Field as='textarea' className='home-contact-form-textarea' name='message' placeholder='Mensaje' />{' '}
-            {errors.message && touched.message ? <div className='home-contact-form-errors'>{errors.message}</div> : null}
+            <Field as='textarea' className='home-contact-form-textarea' name='message' placeholder='Mensaje' /> {errors.message && touched.message ? <div className='home-contact-form-errors'>{errors.message}</div> : null}
             <button className='home-contact-form-button' type='submit'>
               ENVIAR
             </button>

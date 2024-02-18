@@ -57,8 +57,6 @@ function AdminModalEditProductList({ product }) {
     formData.append('img', productEdited.img);
     formData.append('sizes', productEdited.sizes);
 
-    console.log(productEdited);
-
     const res = await fetch(`${url}/api/products/list`, {
       method: 'PUT',
       body: formData,
@@ -71,7 +69,6 @@ function AdminModalEditProductList({ product }) {
       });
 
     const data = await res.json();
-    console.log(data);
 
     Swal.fire({
       title: 'Color Editado',

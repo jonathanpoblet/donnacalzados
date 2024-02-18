@@ -6,7 +6,6 @@ export const getRequest = async endpoint => {
     const data = res.json();
     return data;
   } catch (error) {
-    console.log('unexpected error: ', error);
     return 'An unexpected error occurred';
   }
 };

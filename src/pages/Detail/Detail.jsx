@@ -54,7 +54,6 @@ export default function Detail() {
       quantity: quantity,
       img: selectedProduct.img,
     };
-    console.log(newProduct);
     dispatch(addToCart(newProduct));
   };
 

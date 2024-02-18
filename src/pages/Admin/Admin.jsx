@@ -75,7 +75,6 @@ export default function Admin() {
           },
         });
         const data = await res.json();
-        console.log(data);
         Swal.fire({
           title: 'Publicación Eliminada',
           confirmButtonColor: '#E54787',
