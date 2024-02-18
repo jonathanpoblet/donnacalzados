@@ -53,13 +53,33 @@ function AdminModalEditProductList({ product }) {
       });
 
     const formData = new FormData();
-    formData.append('id_product_list', productEdited.id_product_list);
-    formData.append('img', productEdited.img);
-    formData.append('sizes', productEdited.sizes);
+    formData.append('file', productEdited.img);
+    formData.append('upload_preset', 'donnacalzados');
+
+    const response = await fetch('https://api.cloudinary.com/v1_1/dmx8e4tt0/image/upload', {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (!response.ok) {
+      throw new Error('Error al cargar la imagen en Cloudinary');
+    }
+
+    const data = await response.json();
+    const imageUrl = data.secure_url;
+
+    const updatedProduct = {
+      id_product_list: productEdited.id_product_list,
+      img: imageUrl,
+      sizes: productEdited.sizes,
+    };
 
     const res = await fetch(`${url}/api/products/list`, {
       method: 'PUT',
-      body: formData,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedProduct),
     });
 
     if (res.status !== 201)
@@ -67,8 +87,6 @@ function AdminModalEditProductList({ product }) {
         title: 'Error al editar color, refresque la pagina e intente nuevamente',
         confirmButtonColor: '#E54787',
       });
-
-    const data = await res.json();
 
     Swal.fire({
       title: 'Color Editado',

@@ -45,6 +45,11 @@ function AdminModalAdd() {
   };
 
   const addColorRow = () => {
+    if (products.length === 5)
+      return Swal.fire({
+        title: 'Máximo 5 colores por publicación',
+        confirmButtonColor: '#E54787',
+      });
     setProducts([...products, { img: null, sizes: [], id: id }]);
     setId(id + 1);
   };
@@ -59,16 +64,6 @@ function AdminModalAdd() {
         title: 'Faltan datos del producto',
         confirmButtonColor: '#E54787',
       });
-
-    const formData = new FormData();
-    formData.append('model', model);
-    formData.append('brand', brand);
-    formData.append('price', price);
-
-    products.forEach((product, index) => {
-      formData.append(`product-sizes${index}`, product.sizes);
-      formData.append(`img`, product.img);
-    });
 
     if (products.length == 0)
       return Swal.fire({
@@ -89,10 +84,51 @@ function AdminModalAdd() {
         });
     }
 
+    const updatedProducts = await Promise.all(
+      products.map(async product => {
+        try {
+          const formData = new FormData();
+          formData.append('file', product.img);
+          formData.append('upload_preset', 'donnacalzados');
+
+          const response = await fetch('https://api.cloudinary.com/v1_1/dmx8e4tt0/image/upload', {
+            method: 'POST',
+            body: formData,
+          });
+
+          if (!response.ok) {
+            throw new Error('Error al cargar la imagen en Cloudinary');
+          }
+
+          const data = await response.json();
+          const imageUrl = data.secure_url;
+
+          return {
+            ...product,
+            img: imageUrl,
+          };
+        } catch (error) {
+          return product;
+        }
+      })
+    );
+
+    const form = {
+      model,
+      brand,
+      price,
+      products: updatedProducts,
+    };
+
     const res = await fetch(`${url}/api/products`, {
       method: 'POST',
-      body: formData,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(form),
     });
+
+    console.log(res);
 
     if (res.status !== 201)
       return Swal.fire({
