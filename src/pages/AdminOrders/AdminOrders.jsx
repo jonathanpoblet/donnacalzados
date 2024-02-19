@@ -25,7 +25,7 @@ export default function AdminOrders() {
 
   useEffect(() => {
     const getOrders = async () => {
-      const res = await fetch(`${url}/api/checkout/orders`);
+      const res = await fetch(`${url}/api/orders`);
       const data = await res.json();
       setOrders(data);
     };
@@ -52,7 +52,7 @@ export default function AdminOrders() {
     setAuth(true);
   };
 
-  const handleDeliverOrder = async id_order => {
+  const handleDeliverOrder = async (id_order, email) => {
     Swal.fire({
       title: 'Codigo de envio',
       input: 'text',
@@ -72,12 +72,12 @@ export default function AdminOrders() {
             confirmButtonColor: '#E54787',
           });
 
-        const res = await fetch(`${url}/api/checkout/orders`, {
+        const res = await fetch(`${url}/api/orders`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ id_order, codigo_envio }),
+          body: JSON.stringify({ id_order, codigo_envio, email }),
         });
 
         if (res.status == 200) {
@@ -139,7 +139,7 @@ export default function AdminOrders() {
                       <tr key={index}>
                         <td>
                           {order.order.delivered !== 1 ? (
-                            <button className='btn btn-xs btn-success' onClick={() => handleDeliverOrder(order.order.id_order)}>
+                            <button className='btn btn-xs btn-success' onClick={() => handleDeliverOrder(order.order.id_order, order.order.email)}>
                               Entregar
                             </button>
                           ) : (

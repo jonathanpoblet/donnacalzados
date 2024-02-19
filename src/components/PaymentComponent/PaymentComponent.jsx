@@ -49,7 +49,7 @@ const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
         size: c.selectedSize,
       });
     });
-    if (selectedPaymentMethod !== 'wallet_purchase' && selectedPaymentMethod !== 'onboarding_credits') {
+    if (selectedPaymentMethod !== 'wallet_purchase') {
       const res = await fetch(`${url}/api/checkout`, {
         method: 'POST',
         headers: {
@@ -58,8 +58,18 @@ const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
         body: JSON.stringify({ formData, userInfo, products }),
       });
       const data = await res.json();
+      if (data.status === 'rejected') navigate('/pago-rechazado');
+      else if (data.status === 'approved') navigate('/pago-confirmado');
+      else {
+        Swal.fire({
+          title: 'Error al procesar tu compra, intenta nuevamente!',
+          confirmButtonColor: '#E54787',
+        });
 
-      setLevel(3);
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      }
     } else {
       await fetch(`${url}/api/checkout/mp`, {
         method: 'POST',

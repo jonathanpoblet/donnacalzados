@@ -109,7 +109,7 @@ function AdminModalAddProductList({ product }) {
       products: updatedProducts,
     };
 
-    const res = await fetch(`${url}/api/products/list`, {
+    const res = await fetch(`${url}/api/list`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

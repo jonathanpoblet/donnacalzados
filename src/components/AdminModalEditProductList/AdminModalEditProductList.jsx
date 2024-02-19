@@ -74,7 +74,7 @@ function AdminModalEditProductList({ product }) {
       sizes: productEdited.sizes,
     };
 
-    const res = await fetch(`${url}/api/products/list`, {
+    const res = await fetch(`${url}/api/list`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
