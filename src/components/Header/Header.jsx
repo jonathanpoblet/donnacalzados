@@ -48,12 +48,21 @@ export default function Header() {
         />
 
         <Navbar.Brand href='./'>
-          <img src='/donnacalzados/assets/logo.png' alt='Logo' className='navbar-img' />
+          <img src='./assets/logo.png' alt='Logo' className='navbar-img' />
         </Navbar.Brand>
 
-        <Button variant='light' className='order-10 order-lg-2 ml-auto' style={{ backgroundColor: '#E54787', position: 'relative' }} data-bs-toggle='offcanvas' data-bs-target='#offcanvasExample' aria-controls='offcanvasExample'>
+        <Button
+          variant='light'
+          className='order-10 order-lg-2 ml-auto'
+          style={{ backgroundColor: '#E54787', position: 'relative' }}
+          data-bs-toggle='offcanvas'
+          data-bs-target='#offcanvasExample'
+          aria-controls='offcanvasExample'
+        >
           <BsCart style={{ color: '#fff' }} />
-          <p style={{ position: 'absolute', marginRight: '3px', right: 0, bottom: 0, top: 0, borderRadius: '20%', fontSize: '10px', color: '#fff', fontWeight: 700 }}>{cart.length ? cart.length : ''}</p>
+          <p style={{ position: 'absolute', marginRight: '3px', right: 0, bottom: 0, top: 0, borderRadius: '20%', fontSize: '10px', color: '#fff', fontWeight: 700 }}>
+            {cart.length ? cart.length : ''}
+          </p>
         </Button>
 
         <Navbar.Collapse id='responsive-navbar-nav'>

@@ -6,19 +6,19 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   const cards = [
-    '../donnacalzados/assets/payments/payment1.png',
-    '../donnacalzados/assets/payments/payment2.png',
-    '../donnacalzados/assets/payments/payment3.png',
-    '../donnacalzados/assets/payments/payment4.png',
-    '../donnacalzados/assets/payments/payment5.png',
-    '../donnacalzados/assets/payments/payment6.png',
-    '../donnacalzados/assets/payments/payment7.png',
-    '../donnacalzados/assets/payments/payment8.png',
-    '../donnacalzados/assets/payments/payment9.png',
-    '../donnacalzados/assets/payments/payment10.png',
-    '../donnacalzados/assets/payments/payment11.png',
-    '../donnacalzados/assets/payments/payment12.png',
-    '../donnacalzados/assets/payments/payment13.png',
+    '/assets/payments/payment1.png',
+    '/assets/payments/payment2.png',
+    '/assets/payments/payment3.png',
+    '/assets/payments/payment4.png',
+    '/assets/payments/payment5.png',
+    '/assets/payments/payment6.png',
+    '/assets/payments/payment7.png',
+    '/assets/payments/payment8.png',
+    '/assets/payments/payment9.png',
+    '/assets/payments/payment10.png',
+    '/assets/payments/payment11.png',
+    '/assets/payments/payment12.png',
+    '/assets/payments/payment13.png',
   ];
   return (
     <footer className='footer'>
