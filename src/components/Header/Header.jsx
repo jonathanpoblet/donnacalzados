@@ -34,7 +34,7 @@ export default function Header() {
   }, [location.pathname, navigate]);
   return (
     <header>
-      <p style={{ backgroundColor: '#000', color: '#fff', fontSize: 13, width: '100%', padding: '10px 5px' }}>ENVIOS A TODA LA ARGENTINA</p>
+      <p style={{ backgroundColor: '#000', color: '#fff', fontSize: 13, width: '100%', padding: '10px 5px' }}>ENVIO GRATIS A TODA LA ARGENTINA</p>
       <Navbar collapseOnSelect expand='lg' variant='light' className='justify-content-beetwen '>
         <Navbar.Toggle
           aria-controls='responsive-navbar-nav'
