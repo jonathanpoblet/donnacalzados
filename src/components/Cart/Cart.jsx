@@ -81,7 +81,6 @@ export default function Cart() {
               <h6 className='offcanvas-body-total-title'>Total:</h6>
               <div className='offcanvas-body-total-container'>
                 <p className='offcanvas-body-total-container-price'>$ {formatPrice(total)}</p>
-                <p className='offcanvas-body-total-container-credit'>O hasta 3 cuotas sin interés de ${formatPrice(total / 3)}</p>
               </div>
             </div>
             <button data-bs-toggle='offcanvas' data-bs-target='#offcanvasExample' aria-controls='offcanvasExample' onClick={() => navigate('/pagos')} className='offcanvas-body-pay'>

@@ -193,13 +193,7 @@ export default function Detail() {
         </div>
         <div className='detail-body-info'>
           <h2>{selectedProduct.model}</h2>
-          <p>
-            $ {formatPrice(product.price)}
-            <small className='mt-2'>
-              {' '}
-              (O hasta 3 cuotas sin interés de <b>${formatPrice(selectedProduct.price / 3)}</b>)
-            </small>
-          </p>
+          <p>$ {formatPrice(product.price)}</p>
 
           <label>Colores</label>
           <div className='detail-body-info-colors'>

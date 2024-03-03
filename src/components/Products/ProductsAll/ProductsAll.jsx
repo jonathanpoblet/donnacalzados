@@ -29,9 +29,7 @@ export default function ProductsAll({ products }) {
             <p className='products-all-card-price'>
               <b>${formatPrice(prod.price)}</b>
             </p>
-            <p className='products-all-card-price products-all-card-price2'>
-              <b>3</b> cuotas sin interés <b>${formatPrice(prod.price / 3)}</b>
-            </p>
+
             <Button
               className='products-all-card-button'
               onClick={() => {
