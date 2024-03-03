@@ -29,7 +29,6 @@ export default function ProductsAll({ products }) {
             <p className='products-all-card-price'>
               <b>${formatPrice(prod.price)}</b>
             </p>
-
             <Button
               className='products-all-card-button'
               onClick={() => {
