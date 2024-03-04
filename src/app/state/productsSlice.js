@@ -14,6 +14,10 @@ export const productsSlice = createSlice({
       state.products = action.payload;
       state.loading = false;
     },
+    setHomeProducts: (state, action) => {
+      state.homeProducts = action.payload;
+      state.loading = false;
+    },
     setLoading: (state, action) => {
       state.loading = action.payload;
     },
@@ -24,7 +28,7 @@ export const productsSlice = createSlice({
   },
 });
 
-export const { setProducts, setLoading, setDetail } = productsSlice.actions;
+export const { setProducts, setHomeProducts, setLoading, setDetail } = productsSlice.actions;
 
 export default productsSlice.reducer;
 
@@ -42,7 +46,7 @@ export const getHomeProducts = () => async dispatch => {
   try {
     dispatch(setLoading(true));
     const { products } = await getRequest('/api/products/homeProducts');
-    dispatch(setProducts(products));
+    dispatch(setHomeProducts(products));
   } catch (error) {
     dispatch(setLoading(false));
   }
