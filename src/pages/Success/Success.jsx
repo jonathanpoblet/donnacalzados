@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { CiCircleCheck } from 'react-icons/ci';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -10,20 +9,15 @@ import './success.css';
 export default function Success() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const [send, setSend] = useState(false);
 
   const setPaid = async () => {
-    const res = await fetch(`${url}/api/checkout/confirm`, {
+    await fetch(`${url}/api/checkout/confirm`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ preference_id: queryParams.get('preference_id') }),
     });
-
-    const data = await res.json();
-
-    setSend(true);
   };
 
   const dispatch = useDispatch();
@@ -31,11 +25,8 @@ export default function Success() {
   useEffect(() => {
     const confirmPay = async () => {
       dispatch(resetCart());
+      await setPaid();
     };
-
-    // if (queryParams.get('preference_id') && !send) {
-    // }
-    setPaid();
 
     confirmPay();
   }, []);

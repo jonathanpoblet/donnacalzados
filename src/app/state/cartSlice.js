@@ -3,7 +3,7 @@ import Swal from 'sweetalert2';
 
 export const cartSlice = createSlice({
   name: 'cart',
-  initialState: JSON.parse(localStorage.getItem('donna-calzados-carrito')) || [],
+  initialState: JSON.parse(sessionStorage.getItem('donna-calzados-carrito')) || [],
   reducers: {
     addToCart: (state, action) => {
       if (state.length === 0) {
@@ -18,7 +18,7 @@ export const cartSlice = createSlice({
         }
       }
 
-      localStorage.setItem('donna-calzados-carrito', JSON.stringify(state));
+      sessionStorage.setItem('donna-calzados-carrito', JSON.stringify(state));
       Swal.fire({
         title: 'Calzado Agregado al carrito',
         showDenyButton: true,
@@ -48,7 +48,7 @@ export const cartSlice = createSlice({
         });
       } else {
         state[index].quantity--;
-        localStorage.setItem('donna-calzados-carrito', JSON.stringify(state));
+        sessionStorage.setItem('donna-calzados-carrito', JSON.stringify(state));
       }
     },
     addQuantity: (state, action) => {
@@ -61,7 +61,7 @@ export const cartSlice = createSlice({
         });
       } else {
         state[index].quantity++;
-        localStorage.setItem('donna-calzados-carrito', JSON.stringify(state));
+        sessionStorage.setItem('donna-calzados-carrito', JSON.stringify(state));
       }
     },
     deleteProduct: (state, action) => {
@@ -72,11 +72,11 @@ export const cartSlice = createSlice({
         confirmButtonColor: '#E54787',
       });
 
-      localStorage.setItem('donna-calzados-carrito', JSON.stringify(filter));
+      sessionStorage.setItem('donna-calzados-carrito', JSON.stringify(filter));
       return filter;
     },
     resetCart: state => {
-      localStorage.setItem('donna-calzados-carrito', JSON.stringify([]));
+      sessionStorage.setItem('donna-calzados-carrito', JSON.stringify([]));
       return [];
     },
   },
