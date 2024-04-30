@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import Payment from "../../../src/bricks/payment";
+import React, { useEffect, useState } from 'react';
+import Payment from '../../../src/bricks/payment';
 
-import initMercadoPago from "../../mercadoPago/initMercadoPago";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { url } from "../../services/httpRequests.js";
+import initMercadoPago from '../../mercadoPago/initMercadoPago';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { url } from '../../services/httpRequests.js';
 
-initMercadoPago("APP_USR-42cf64cc-48df-4ef0-9df6-0e493a3c7a2a", { locale: "es-AR" });
+initMercadoPago('APP_USR-ba9ecba8-715b-406a-8186-7435660cc944', { locale: 'es-AR' });
 
 const generateExternalReference = () => {
   const date = new Date();
@@ -17,8 +17,8 @@ const generateExternalReference = () => {
 };
 
 const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
-  const [preferenceId, setPreferenceId] = useState("");
-  const [externalReference, setExternalReference] = useState("");
+  const [preferenceId, setPreferenceId] = useState('');
+  const [externalReference, setExternalReference] = useState('');
   const navigate = useNavigate();
 
   const cart = useSelector(state => state.cart);
@@ -32,8 +32,8 @@ const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
       value: c.price,
       name: c.model,
       imageURL: c.img,
-      category_id: "Calzados",
-      description: "Donna Calzados Zapatillas",
+      category_id: 'fashion',
+      description: "Men's, Women's, Kids & baby, Handbags & Accessories, Health & Beauty, Shoes, Jewelry & Watches",
       id: c.name + c.img,
     });
   });
@@ -54,8 +54,10 @@ const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
         zip_code: userInfo.cp,
       },
     },
-    externalReference: externalReference,
   };
+
+  // notification_url: 'https://api.donnacalzados:3001/mp',
+  // external_reference: externalReference,
 
   const onSubmit = async ({ selectedPaymentMethod, formData }) => {
     const products = [];
@@ -68,22 +70,22 @@ const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
         size: c.selectedSize,
       });
     });
-    if (selectedPaymentMethod !== "wallet_purchase") {
+    if (selectedPaymentMethod !== 'wallet_purchase') {
       const res = await fetch(`${url}/api/checkout`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ formData, userInfo, products }),
       });
       const data = await res.json();
       console.log(data);
-      if (data.status === "rejected") navigate("/pago-rechazado");
-      else if (data.status === "approved") navigate("/pago-confirmado");
+      if (data.status === 'rejected') navigate('/pago-rechazado');
+      else if (data.status === 'approved') navigate('/pago-confirmado');
       else {
         Swal.fire({
-          title: "Error al procesar tu compra, intenta nuevamente!",
-          confirmButtonColor: "#E54787",
+          title: 'Error al procesar tu compra, intenta nuevamente!',
+          confirmButtonColor: '#E54787',
         });
 
         setTimeout(() => {
@@ -92,29 +94,29 @@ const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
       }
     } else {
       await fetch(`${url}/api/checkout/mp`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ preferenceId, userInfo, products }),
       });
     }
   };
 
-  const onClickEditShippingData = () => console.log("Calling onClickEditShippingData...");
+  const onClickEditShippingData = () => console.log('Calling onClickEditShippingData...');
 
-  const onClickEditBillingData = () => console.log("Calling onClicktEditBillingData...");
+  const onClickEditBillingData = () => console.log('Calling onClicktEditBillingData...');
 
-  const onRenderNextStep = currentStep => console.log("Calling onRenderNextStep...", currentStep);
+  const onRenderNextStep = currentStep => console.log('Calling onRenderNextStep...', currentStep);
 
-  const onRenderPreviousStep = currentStep => console.log("Calling onRenderPreviousStep...", currentStep);
+  const onRenderPreviousStep = currentStep => console.log('Calling onRenderPreviousStep...', currentStep);
 
   useEffect(() => {
     const getPreferenceId = async () => {
       const res = await fetch(`${url}/api/checkout/preference`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ cart }),
       });
@@ -133,12 +135,12 @@ const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
         initialization={initialization}
         customization={{
           enableReviewStep: true,
-          reviewCardsOrder: ["payment_method", "shipping", "billing"],
+          reviewCardsOrder: ['payment_method', 'shipping', 'billing'],
           paymentMethods: {
-            bank_transfer: "all",
-            creditCard: "all",
-            debitCard: "all",
-            mercadoPago: "wallet_purchase",
+            bank_transfer: 'all',
+            creditCard: 'all',
+            debitCard: 'all',
+            mercadoPago: 'wallet_purchase',
             maxInstallments: 3,
           },
         }}
