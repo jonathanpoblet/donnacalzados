@@ -20,7 +20,7 @@ export default function HomeInfo() {
     {
       logo: <SiMercadopago className='home-info-container-logo' />,
       title: 'Mercado Pago',
-      text: 'Tarjeta de débito/crédito',
+      text: '10% de descuento',
     },
     {
       logo: <CiDeliveryTruck className='home-info-container-logo' />,

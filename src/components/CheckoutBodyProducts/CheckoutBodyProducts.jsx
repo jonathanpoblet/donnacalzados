@@ -48,12 +48,20 @@ export default function CheckoutBodyProducts({ cart, total }) {
         <p className='w-100 text-start mt-3'>No hay productos agregados al carrito</p>
       )}
       {cart.length !== 0 && (
-        <div className='checkout-body-total'>
-          <h6 className='checkout-body-total-title'>Total:</h6>
-          <div className='checkout-body-total-container'>
-            <p className='checkout-body-total-container-price'>$ {formatPrice(total)}</p>
+        <>
+          <div className='checkout-body-total'>
+            <h6 className='checkout-body-total-title'>Total:</h6>
+            <div className='checkout-body-total-container'>
+              <p className='checkout-body-total-container-price'>$ {formatPrice(total)}</p>
+            </div>
           </div>
-        </div>
+          <p className='checkout-body-total-info' style={{ fontSize: '14px', marginTop: '10px' }}>
+            <b style={{ color: '#e54787' }}>10%</b> descuento abonando con <b style={{ color: '#e54787' }}>Mercado Pago.</b>
+          </p>
+          <p className='checkout-body-total-info' style={{ fontSize: '14px', marginTop: '5px' }}>
+            Una vez abonado el producto, aguarda a ser redirigido nuevamente a nuestro sitio web.
+          </p>
+        </>
       )}
     </article>
   );

@@ -9,6 +9,7 @@ const Wholesaler = lazy(() => import('../pages/Wholesaler/Wholesaler'));
 const AboutUs = lazy(() => import('../pages/AboutUs/AboutUs'));
 const Detail = lazy(() => import('../pages/Detail/Detail'));
 const Checkout = lazy(() => import('../pages/Checkout/Checkout'));
+const CheckoutTest = lazy(() => import('../pages/CheckoutTest/Checkout'));
 const Success = lazy(() => import('../pages/Success/Success'));
 const Failure = lazy(() => import('../pages/Failure/Failure'));
 const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
@@ -30,7 +31,8 @@ export default function AppRoute() {
             <Route path='/productos/detalle' element={<Detail />} />
             <Route path='/nosotros' element={<AboutUs />} />
             <Route path='/compras-mayoristas' element={<Wholesaler />} />
-            <Route path='/pagos' element={<Checkout />} />
+            <Route path='/pagos' element={<CheckoutTest />} />
+            <Route path='/pagoss' element={<Checkout />} />
             <Route path='/pago-confirmado' element={<Success />} />
             <Route path='/pago-rechazado' element={<Failure />} />
             <Route path='/secure-admin-panel' element={<Admin />} />

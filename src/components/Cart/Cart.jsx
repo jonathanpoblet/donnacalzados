@@ -83,6 +83,10 @@ export default function Cart() {
                 <p className='offcanvas-body-total-container-price'>$ {formatPrice(total)}</p>
               </div>
             </div>
+            <p style={{ fontSize: '14px', marginTop: '10px', textAlign: 'start' }}>
+              <b style={{ color: '#e54787' }}>10%</b> descuento abonando con <b style={{ color: '#e54787' }}>Mercado Pago.</b>
+            </p>
+            <p style={{ fontSize: '14px', marginTop: '5px', textAlign: 'start' }}>Una vez abonado el producto, aguarda a ser redirigido nuevamente a nuestro sitio web.</p>
             <button data-bs-toggle='offcanvas' data-bs-target='#offcanvasExample' aria-controls='offcanvasExample' onClick={() => navigate('/pagos')} className='offcanvas-body-pay'>
               INICIAR COMPRA
             </button>

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import Payment from '../../../src/bricks/payment';
+import Payment from '../../bricks/payment';
 
 import initMercadoPago from '../../mercadoPago/initMercadoPago';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { url } from '../../services/httpRequests.js';
 
-initMercadoPago('APP_USR-ba9ecba8-715b-406a-8186-7435660cc944', { locale: 'es-AR' });
+initMercadoPago('APP_USR-42cf64cc-48df-4ef0-9df6-0e493a3c7a2a', { locale: 'es-AR' });
 
 const generateExternalReference = () => {
   const date = new Date();
@@ -16,7 +16,7 @@ const generateExternalReference = () => {
   return reference;
 };
 
-const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
+const PaymentComponentTest = ({ userInfo, setPayId, setLevel }) => {
   const [preferenceId, setPreferenceId] = useState('');
   const [externalReference, setExternalReference] = useState('');
   const navigate = useNavigate();
@@ -138,9 +138,6 @@ const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
           enableReviewStep: true,
           reviewCardsOrder: ['payment_method', 'shipping', 'billing'],
           paymentMethods: {
-            bank_transfer: 'all',
-            creditCard: 'all',
-            debitCard: 'all',
             mercadoPago: 'wallet_purchase',
             maxInstallments: 3,
           },
@@ -154,4 +151,4 @@ const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
     );
 };
 
-export default PaymentComponent;
+export default PaymentComponentTest;
