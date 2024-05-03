@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import Payment from '../../../src/bricks/payment';
+import React, { useEffect, useState } from "react";
+import Payment from "../../../src/bricks/payment";
 
-import initMercadoPago from '../../mercadoPago/initMercadoPago';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { url } from '../../services/httpRequests.js';
+import initMercadoPago from "../../mercadoPago/initMercadoPago";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { url } from "../../services/httpRequests.js";
 
-initMercadoPago('APP_USR-ba9ecba8-715b-406a-8186-7435660cc944', { locale: 'es-AR' });
+initMercadoPago("APP_USR-42cf64cc-48df-4ef0-9df6-0e493a3c7a2a", { locale: "es-AR" });
 
 const generateExternalReference = () => {
   const date = new Date();
@@ -16,9 +16,9 @@ const generateExternalReference = () => {
   return reference;
 };
 
-const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
-  const [preferenceId, setPreferenceId] = useState('');
-  const [externalReference, setExternalReference] = useState('');
+const PaymentComponentTest = ({ userInfo, setPayId, setLevel }) => {
+  const [preferenceId, setPreferenceId] = useState("");
+  const [externalReference, setExternalReference] = useState("");
   const navigate = useNavigate();
 
   const cart = useSelector(state => state.cart);
@@ -32,7 +32,7 @@ const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
       value: c.price,
       name: c.model,
       imageURL: c.img,
-      category_id: 'fashion',
+      category_id: "fashion",
       description: "Men's, Women's, Kids & baby, Handbags & Accessories, Health & Beauty, Shoes, Jewelry & Watches",
       id: c.name + c.img,
     });
@@ -65,27 +65,27 @@ const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
         quantity: c.quantity,
         price: c.price,
         size: c.selectedSize,
-        category_id: 'fashion',
+        category_id: "fashion",
         description: "Men's, Women's, Kids & baby, Handbags & Accessories, Health & Beauty, Shoes, Jewelry & Watches",
         id: c.model + c.img,
       });
     });
-    if (selectedPaymentMethod !== 'wallet_purchase') {
-      const res = await fetch(`${url}/api/checkout`, {
-        method: 'POST',
+    if (selectedPaymentMethod !== "wallet_purchase") {
+      const res = await fetch(`${url}/api/test`, {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ formData, userInfo, products, preferenceId }),
       });
-      const data = await res.json().catch(error => console.error('Error:', error));
+      const data = await res.json().catch(error => console.error("Error:", error));
       console.log(data);
-      if (data.status === 'rejected') navigate('/pago-rechazado');
-      else if (data.status === 'approved') navigate('/pago-confirmado');
+      if (data.status === "rejected") navigate("/pago-rechazado");
+      else if (data.status === "approved") navigate("/pago-confirmado");
       else {
         Swal.fire({
-          title: 'Error al procesar tu compra, intenta nuevamente!',
-          confirmButtonColor: '#E54787',
+          title: "Error al procesar tu compra, intenta nuevamente!",
+          confirmButtonColor: "#E54787",
         });
 
         setTimeout(() => {
@@ -93,30 +93,30 @@ const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
         }, 2000);
       }
     } else {
-      await fetch(`${url}/api/checkout/mp`, {
-        method: 'POST',
+      await fetch(`${url}/api/test/mp`, {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ preferenceId, userInfo, products }),
+        body: JSON.stringify({ preferenceId, userInfo, products, external_reference: externalReference }),
       });
     }
   };
 
-  const onClickEditShippingData = () => console.log('Calling onClickEditShippingData...');
+  const onClickEditShippingData = () => console.log("Calling onClickEditShippingData...");
 
-  const onClickEditBillingData = () => console.log('Calling onClicktEditBillingData...');
+  const onClickEditBillingData = () => console.log("Calling onClicktEditBillingData...");
 
-  const onRenderNextStep = currentStep => console.log('Calling onRenderNextStep...', currentStep);
+  const onRenderNextStep = currentStep => console.log("Calling onRenderNextStep...", currentStep);
 
-  const onRenderPreviousStep = currentStep => console.log('Calling onRenderPreviousStep...', currentStep);
+  const onRenderPreviousStep = currentStep => console.log("Calling onRenderPreviousStep...", currentStep);
 
   useEffect(() => {
-    const getPreferenceId = async () => {
-      const res = await fetch(`${url}/api/checkout/preference`, {
-        method: 'POST',
+    const getPreference = async () => {
+      const res = await fetch(`${url}/api/test/preference`, {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ cart }),
       });
@@ -125,7 +125,7 @@ const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
       setExternalReference(data.external_reference);
     };
 
-    getPreferenceId();
+    getPreference();
 
     setExternalReference(generateExternalReference());
   }, [cart]);
@@ -136,12 +136,9 @@ const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
         initialization={initialization}
         customization={{
           enableReviewStep: true,
-          reviewCardsOrder: ['payment_method', 'shipping', 'billing'],
+          reviewCardsOrder: ["payment_method", "shipping", "billing"],
           paymentMethods: {
-            bank_transfer: 'all',
-            creditCard: 'all',
-            debitCard: 'all',
-            mercadoPago: 'wallet_purchase',
+            mercadoPago: "wallet_purchase",
             maxInstallments: 3,
           },
         }}
@@ -154,4 +151,4 @@ const PaymentComponent = ({ userInfo, setPayId, setLevel }) => {
     );
 };
 
-export default PaymentComponent;
+export default PaymentComponentTest;

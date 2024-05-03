@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import CheckoutBodyProducts from '../../components/CheckoutBodyProducts/CheckoutBodyProducts';
-import CheckoutPay from '../../components/CheckoutPay/CheckoutPay';
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import CheckoutBodyProducts from "../../components/CheckoutBodyProducts/CheckoutBodyProducts";
+import CheckoutPay from "../../components/CheckoutPay/CheckoutPay";
 
-import './checkout.css';
-import PaymentComponent from '../../components/PaymentComponent/PaymentComponent';
-import CheckoutPayTest from '../../components/CheckoutPayTest/CheckoutPay';
+import "./checkout.css";
+import PaymentComponent from "../../components/PaymentComponent/PaymentComponent";
+import CheckoutPayTest from "../../components/CheckoutPayTest/CheckoutPay";
 
 function CheckoutTest() {
   const cart = useSelector(state => state.cart);
