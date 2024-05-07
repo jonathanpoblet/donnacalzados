@@ -106,7 +106,6 @@ const PaymentComponentTest = ({ userInfo, setPayId, setLevel }) => {
   const onSubmitCard = async ({ param }) => {
     console.log(param);
     param.external_reference = externalReferenceCard;
-    param.preferenceId = preferenceIdCard;
     const products = [];
     cart.map(c => {
       products.push({
