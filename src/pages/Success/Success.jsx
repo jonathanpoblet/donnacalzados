@@ -24,7 +24,7 @@ export default function Success() {
 
   useEffect(() => {
     const confirmPay = async () => {
-      dispatch(resetCart());
+      // dispatch(resetCart());
       await setPaid();
     };
 
