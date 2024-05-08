@@ -9,14 +9,6 @@ import CardPayment from '../../bricks/cardPayment';
 
 initMercadoPago('APP_USR-ba9ecba8-715b-406a-8186-7435660cc944', { locale: 'es-AR' });
 
-const generateExternalReference = () => {
-  const date = new Date();
-  const timestamp = date.getTime();
-  const random = Math.floor(Math.random() * 1000);
-  const reference = timestamp.toString() + random.toString();
-  return reference;
-};
-
 const PaymentComponentTest = ({ userInfo, setPayId, setLevel }) => {
   const [preferenceId, setPreferenceId] = useState('');
   const [externalReference, setExternalReference] = useState('');
@@ -104,7 +96,6 @@ const PaymentComponentTest = ({ userInfo, setPayId, setLevel }) => {
   };
 
   const onSubmitCard = async ({ param }) => {
-    param.external_reference = externalReferenceCard;
     const products = [];
     cart.map(c => {
       products.push({

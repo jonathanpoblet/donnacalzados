@@ -2,30 +2,14 @@ import { CiCircleCheck } from 'react-icons/ci';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { resetCart } from '../../app/state/cartSlice';
-import { useLocation } from 'react-router-dom';
-import { url } from '../../services/httpRequests.js';
 import './success.css';
 
 export default function Success() {
-  const location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
-
-  const setPaid = async () => {
-    await fetch(`${url}/api/checkout/confirm`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ preference_id: queryParams.get('preference_id') }),
-    });
-  };
-
   const dispatch = useDispatch();
 
   useEffect(() => {
     const confirmPay = async () => {
-      // dispatch(resetCart());
-      await setPaid();
+      dispatch(resetCart());
     };
 
     confirmPay();
