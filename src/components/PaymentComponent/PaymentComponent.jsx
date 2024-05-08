@@ -127,8 +127,8 @@ const PaymentComponentTest = ({ userInfo, setPayId, setLevel }) => {
       body: JSON.stringify({ formData: param, userInfo, products, preferenceId, external_reference: externalReferenceCard }),
     });
     const data = await res.json();
-    if (data.status === 'rejected') navigate('/pago-rechazado');
-    else if (data.status === 'approved') navigate('/pago-confirmado');
+    if (data.status == 'rejected') navigate('/pago-rechazado');
+    else if (data.status == 'approved') navigate('/pago-confirmado');
     else {
       Swal.fire({
         title: 'Error al procesar tu compra, intenta nuevamente!',
@@ -200,7 +200,7 @@ const PaymentComponentTest = ({ userInfo, setPayId, setLevel }) => {
           onRenderPreviousStep={onRenderPreviousStep}
         />
         <div style={{ borderTop: '1px solid rgb(211, 211, 211)', width: '100%', marginBottom: '10px' }}> </div>
-        <CardPayment initialization={initializationCard} onSubmit={async param => onSubmitCard({ param })} />
+        <CardPayment initialization={initializationCard} onRenderNextStep={onRenderNextStep} onRenderPreviousStep={onRenderPreviousStep} onSubmit={async param => onSubmitCard({ param })} />
       </>
     );
 };
