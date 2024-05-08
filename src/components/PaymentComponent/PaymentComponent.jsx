@@ -118,7 +118,8 @@ const PaymentComponentTest = ({ userInfo, setPayId, setLevel }) => {
       body: JSON.stringify({ formData: param, userInfo, products, preferenceId, external_reference: externalReferenceCard }),
     });
     const data = await res.json();
-    if (!data.status == 'rejected' && !data.status == 'approved') navigate('/pago-rechazado');
+    console.log(await data);
+    if (!data.status == 'rejected') navigate('/pago-rechazado');
     else if (data.status == 'approved') navigate('/pago-confirmado');
     else {
       Swal.fire({
