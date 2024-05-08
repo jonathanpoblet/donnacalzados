@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { url } from '../../services/httpRequests.js';
 import CardPayment from '../../bricks/cardPayment';
 
-initMercadoPago('APP_USR-ba9ecba8-715b-406a-8186-7435660cc944', { locale: 'es-AR' });
+initMercadoPago('APP_USR-42cf64cc-48df-4ef0-9df6-0e493a3c7a2a', { locale: 'es-AR' });
 
 const PaymentComponentTest = ({ userInfo, setPayId, setLevel }) => {
   const [preferenceId, setPreferenceId] = useState('');
