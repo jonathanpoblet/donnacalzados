@@ -172,7 +172,7 @@ const PaymentComponentTest = ({ userInfo, setPayId, setLevel }) => {
   if (preferenceId)
     return (
       <>
-        <Payment
+        {/* <Payment
           initialization={initialization}
           customization={{
             enableReviewStep: true,
@@ -187,7 +187,7 @@ const PaymentComponentTest = ({ userInfo, setPayId, setLevel }) => {
           onClickEditBillingData={onClickEditBillingData}
           onRenderNextStep={onRenderNextStep}
           onRenderPreviousStep={onRenderPreviousStep}
-        />
+        /> */}
         <div style={{ borderTop: '1px solid rgb(211, 211, 211)', width: '100%', marginBottom: '10px' }}> </div>
         <CardPayment initialization={initializationCard} onRenderNextStep={onRenderNextStep} onRenderPreviousStep={onRenderPreviousStep} onSubmit={async param => onSubmitCard({ param })} />
       </>
