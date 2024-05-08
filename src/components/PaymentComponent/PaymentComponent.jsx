@@ -110,13 +110,26 @@ const PaymentComponentTest = ({ userInfo, setPayId, setLevel }) => {
       });
     });
 
-    await fetch(`${url}/api/checkout`, {
+    const res = await fetch(`${url}/api/checkout`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ formData: param, userInfo, products, preferenceId, external_reference: externalReferenceCard }),
     });
+    const data = await res.json();
+    if (!data.status == 'rejected' && !data.status == 'approved') navigate('/pago-rechazado');
+    else if (data.status == 'approved') navigate('/pago-confirmado');
+    else {
+      Swal.fire({
+        title: 'Error al procesar tu compra, intenta nuevamente!',
+        confirmButtonColor: '#E54787',
+      });
+
+      setTimeout(() => {
+        location.reload();
+      }, 2000);
+    }
   };
 
   const onClickEditShippingData = () => console.log('Calling onClickEditShippingData...');
