@@ -142,7 +142,7 @@ const PaymentComponentTest = ({ userInfo, setPayId, setLevel }) => {
 
   useEffect(() => {
     const getPreference = async () => {
-      const res = await fetch(`${url}/api/checkout/preference`, {
+      const res = await fetch(`${url}/api/test/preference`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
