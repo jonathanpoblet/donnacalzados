@@ -1,19 +1,19 @@
-import { useEffect, useState } from 'react';
-import { Formik, Form, Field } from 'formik';
-import { useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { url } from '../../services/httpRequests.js';
-import * as Yup from 'yup';
-import { Table } from 'react-bootstrap';
-import Swal from 'sweetalert2';
-import { getProductById } from '../../app/state/productsSlice';
-import AdminModalAddProductList from '../../components/AdminModalAddProductList/AdminModalAddProductList';
-import AdminModalEditProductList from '../../components/AdminModalEditProductList/AdminModalEditProductList';
-import './adminProduct.css';
+import { useEffect, useState } from "react";
+import { Formik, Form, Field } from "formik";
+import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { url } from "../../services/httpRequests.js";
+import * as Yup from "yup";
+import { Table } from "react-bootstrap";
+import Swal from "sweetalert2";
+import { getProductById } from "../../app/state/productsSlice";
+import AdminModalAddProductList from "../../components/AdminModalAddProductList/AdminModalAddProductList";
+import AdminModalEditProductList from "../../components/AdminModalEditProductList/AdminModalEditProductList";
+import "./adminProduct.css";
 
 const AuthSchema = Yup.object().shape({
-  username: Yup.string().required('Usuario requerido'),
-  password: Yup.string().required('Contraseña requerida'),
+  username: Yup.string().required("Usuario requerido"),
+  password: Yup.string().required("Contraseña requerida"),
 });
 
 export default function AdminProduct() {
@@ -23,10 +23,10 @@ export default function AdminProduct() {
 
   const locationParam = useLocation();
   const queryParams = new URLSearchParams(locationParam.search);
-  const id_product = queryParams.get('product');
+  const id_product = queryParams.get("product");
 
   useEffect(() => {
-    if (sessionStorage.getItem('donnacalzados-auth')) {
+    if (sessionStorage.getItem("donnacalzados-auth")) {
       setAuth(true);
     }
   }, []);
@@ -37,9 +37,9 @@ export default function AdminProduct() {
 
   const submitHandler = async values => {
     const res = await fetch(`${url}/api/auth`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ username: values.username, password: values.password }),
     });
@@ -47,39 +47,39 @@ export default function AdminProduct() {
     if (res.status == 404)
       return Swal.fire({
         title: data.error,
-        confirmButtonColor: '#E54787',
+        confirmButtonColor: "#E54787",
       });
 
-    sessionStorage.setItem('donnacalzados-auth', JSON.stringify({ auth: 1 }));
+    sessionStorage.setItem("donnacalzados-auth", JSON.stringify({ auth: 1 }));
     setAuth(true);
   };
 
   const handleDeleteProduct = async id_product_list => {
     if (product.products.length === 1)
       return Swal.fire({
-        title: 'No es posible eliminar ya que tiene que haber como minimo un color cargado',
-        confirmButtonColor: '#E54787',
+        title: "No es posible eliminar ya que tiene que haber como minimo un color cargado",
+        confirmButtonColor: "#E54787",
       });
     Swal.fire({
-      title: 'Estas seguro de eliminar el color?',
+      title: "Estas seguro de eliminar el color?",
       showDenyButton: true,
       showCancelButton: false,
-      confirmButtonText: 'Si, eliminar',
-      confirmButtonColor: '#dc3545',
-      denyButtonColor: '#000000',
+      confirmButtonText: "Si, eliminar",
+      confirmButtonColor: "#dc3545",
+      denyButtonColor: "#000000",
       denyButtonText: `Cancelar`,
     }).then(async result => {
       if (result.isConfirmed) {
-        const res = await fetch(`${url}/api/products/list/${id_product_list}`, {
-          method: 'DELETE',
+        const res = await fetch(`${url}/api/list/${id_product_list}`, {
+          method: "DELETE",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         });
         const data = await res.json();
         Swal.fire({
-          title: 'Color Eliminado',
-          confirmButtonColor: '#E54787',
+          title: "Color Eliminado",
+          confirmButtonColor: "#E54787",
         });
 
         setTimeout(() => {
@@ -95,8 +95,8 @@ export default function AdminProduct() {
         <section className='admin-section'>
           <Formik
             initialValues={{
-              username: '',
-              password: '',
+              username: "",
+              password: "",
             }}
             validationSchema={AuthSchema}
             onSubmit={submitHandler}
@@ -142,12 +142,12 @@ export default function AdminProduct() {
                           <AdminModalEditProductList product={p} />
                         </td>
                         <td>
-                          <img style={{ width: '70px', borderRadius: '2px' }} src={p.img} />
+                          <img style={{ width: "70px", borderRadius: "2px" }} src={p.img} />
                         </td>
                         <td>
                           {p.sizes.map(size => {
                             return (
-                              <button key={p.id_product_list + '/' + size} className='btn btn-xs btn-dark' style={{ margin: '0px 5px 5px 0px', fontSize: '12px' }}>
+                              <button key={p.id_product_list + "/" + size} className='btn btn-xs btn-dark' style={{ margin: "0px 5px 5px 0px", fontSize: "12px" }}>
                                 {size}
                               </button>
                             );
