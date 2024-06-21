@@ -55,9 +55,6 @@ export default function CheckoutBodyProducts({ cart, total }) {
               <p className='checkout-body-total-container-price'>$ {formatPrice(total)}</p>
             </div>
           </div>
-          <p className='checkout-body-total-info' style={{ fontSize: '14px', marginTop: '10px' }}>
-            <b style={{ color: '#e54787' }}>10%</b> descuento abonando con <b style={{ color: '#e54787' }}>Mercado Pago.</b>
-          </p>
           <p className='checkout-body-total-info' style={{ fontSize: '14px', marginTop: '5px' }}>
             Una vez abonado el producto, aguarda a ser redirigido nuevamente a nuestro sitio web. Envio gratis a toda la Argentina.
           </p>

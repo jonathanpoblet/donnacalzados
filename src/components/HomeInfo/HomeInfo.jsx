@@ -20,7 +20,7 @@ export default function HomeInfo() {
     {
       logo: <SiMercadopago className='home-info-container-logo' />,
       title: 'Mercado Pago',
-      text: '10% de descuento',
+      text: 'Dinero en cuenta',
     },
     {
       logo: <CiDeliveryTruck className='home-info-container-logo' />,
