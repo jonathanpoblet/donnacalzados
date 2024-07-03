@@ -81,6 +81,9 @@ export default function Cart() {
               <h6 className='offcanvas-body-total-title'>Total:</h6>
               <div className='offcanvas-body-total-container'>
                 <p className='offcanvas-body-total-container-price'>$ {formatPrice(total)}</p>
+                <p className='offcanvas-body-total-container-credit'>
+                  O hasta <b>3</b> cuotas sin interés de <b>${formatPrice(total / 3)}</b>
+                </p>
               </div>
             </div>
             <p style={{ fontSize: '14px', marginTop: '5px', textAlign: 'start' }}>Una vez abonado el producto, aguarda a ser redirigido nuevamente a nuestro sitio web. Envio gratis a toda la Argentina</p>

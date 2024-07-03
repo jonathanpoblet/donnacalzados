@@ -86,6 +86,9 @@ export default function HomeProducts() {
                 <p className='home-products-container-card-title'>{prod.model.toLocaleUpperCase()}</p>
                 <p className='home-products-container-card-price'>
                   <b>${formatPrice(prod.price)}</b>
+                </p>{' '}
+                <p className='home-products-container-card-price home-products-container-card-price2'>
+                  <b>3</b> cuotas sin interés <b>${formatPrice(prod.price / 3)}</b>
                 </p>
                 <Button
                   className='home-products-container-card-button'

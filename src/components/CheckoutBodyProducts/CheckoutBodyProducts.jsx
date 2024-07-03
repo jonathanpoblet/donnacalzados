@@ -53,6 +53,9 @@ export default function CheckoutBodyProducts({ cart, total }) {
             <h6 className='checkout-body-total-title'>Total:</h6>
             <div className='checkout-body-total-container'>
               <p className='checkout-body-total-container-price'>$ {formatPrice(total)}</p>
+              <p className='checkout-body-total-container-credit'>
+                O hasta <b>3</b> cuotas sin interés de <b>${formatPrice(total / 3)}</b>
+              </p>
             </div>
           </div>
           <p className='checkout-body-total-info' style={{ fontSize: '14px', marginTop: '5px' }}>

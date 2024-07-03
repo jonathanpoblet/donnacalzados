@@ -131,7 +131,13 @@ export default function ProductModal(props) {
             <h2 className='product-modal-body-info-title'>{props.product && props.product.model}</h2>
             <button onClick={() => props.onHide()} type='button' className='btn-close' aria-label='Close' closebutton='true'></button>
           </div>
-          <p className='product-modal-body-info-price'>$ {formatPrice(props.product && props.product.price)}</p>
+          <p className='product-modal-body-info-price'>
+            $ {formatPrice(props.product && props.product.price)}
+            <small className='mt-2'>
+              {' '}
+              (O hasta <b>3</b> cuotas sin interés de <b>${formatPrice(props.product && props.product.price / 3)}</b>)
+            </small>
+          </p>
 
           <label>Colores</label>
           <div className='product-modal-body-info-colors'>

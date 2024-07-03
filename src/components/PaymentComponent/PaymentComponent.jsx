@@ -191,7 +191,17 @@ const PaymentComponentTest = ({ userInfo, setPayId, setLevel }) => {
           onRenderPreviousStep={onRenderPreviousStep}
         />
         <div style={{ borderTop: '1px solid rgb(211, 211, 211)', width: '100%', marginBottom: '10px' }}> </div>
-        <CardPayment initialization={initializationCard} onRenderNextStep={onRenderNextStep} onRenderPreviousStep={onRenderPreviousStep} onSubmit={async param => onSubmitCard({ param })} />
+        <CardPayment
+          initialization={initializationCard}
+          onRenderNextStep={onRenderNextStep}
+          onRenderPreviousStep={onRenderPreviousStep}
+          onSubmit={async param => onSubmitCard({ param })}
+          customization={{
+            paymentMethods: {
+              maxInstallments: 3,
+            },
+          }}
+        />
       </>
     );
 };
