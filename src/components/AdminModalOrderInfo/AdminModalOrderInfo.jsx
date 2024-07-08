@@ -27,6 +27,7 @@ function AdminModalOrderInfo({ info }) {
                     <thead>
                       <tr>
                         <th>Nombre</th>
+                        <th>Tel</th>
                         <th>Email</th>
                         <th>Provincia</th>
                         <th>Localidad</th>
@@ -39,6 +40,9 @@ function AdminModalOrderInfo({ info }) {
                       <tr>
                         <td>
                           <p style={{ marginBottom: '0px' }}>{info.name}</p>
+                        </td>
+                        <td>
+                          <p style={{ marginBottom: '0px' }}>{info.tel}</p>
                         </td>
                         <td>
                           <p style={{ marginBottom: '0px' }}>{info.email}</p>
