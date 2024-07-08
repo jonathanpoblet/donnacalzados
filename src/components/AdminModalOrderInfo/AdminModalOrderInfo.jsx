@@ -33,6 +33,7 @@ function AdminModalOrderInfo({ info }) {
                         <th>Localidad</th>
                         <th>Calle</th>
                         <th>Altura</th>
+                        <th>N° Departamento</th>
                         <th>CP</th>
                       </tr>
                     </thead>
@@ -58,6 +59,9 @@ function AdminModalOrderInfo({ info }) {
                         </td>
                         <td>
                           <p style={{ marginBottom: '0px' }}>{info.number}</p>
+                        </td>
+                        <td>
+                          <p style={{ marginBottom: '0px' }}>{info.dep_number}</p>
                         </td>
                         <td>
                           <p style={{ marginBottom: '0px' }}>{info.cp}</p>
