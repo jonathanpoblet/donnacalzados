@@ -25,10 +25,12 @@ function CheckoutPay() {
   const UserInfoSchema = Yup.object().shape({
     nombre: Yup.string().required('Nombre requerido'),
     email: Yup.string().email('Email invalido').required('Email requerido'),
+    tel: Yup.string().required('Telefono requerido'),
     provincia: Yup.string().required('Provincia requerida'),
     localidad: Yup.string().required('Localidad requerida'),
     calle: Yup.string().required('Calle requerida'),
     altura: Yup.number().typeError('Debe ser de valor numerico').positive('Debe ser numero positivo').required('Altura requerida'),
+    dep_number: Yup.number().typeError('Debe ser de valor numerico').positive('Debe ser numero positivo'),
     codigo_postal: Yup.string().required('Codigo Postal requerido'),
   });
 
@@ -42,10 +44,12 @@ function CheckoutPay() {
     setUserInfo({
       name: values.nombre,
       email: values.email,
+      tel: values.tel,
       state: values.provincia,
       city: values.localidad,
       street: values.calle,
       number: values.altura,
+      dep_number: values.dep_number,
       cp: values.codigo_postal,
     });
     setRender(true);
@@ -71,10 +75,12 @@ function CheckoutPay() {
             initialValues={{
               nombre: '',
               email: '',
+              tel: '',
               provincia: '',
               localidad: '',
               calle: '',
               altura: '',
+              dep_number: '',
               codigo_postal: '',
             }}
             validationSchema={UserInfoSchema}
@@ -84,16 +90,28 @@ function CheckoutPay() {
               <Form className='checkout-pay-info-form'>
                 <Field className='checkout-pay-info-form-input' name='nombre' placeholder='Nombre Completo' />
                 {errors.nombre && touched.nombre ? <div className='checkout-pay-info-form-errors'>{errors.nombre}</div> : null}
+
                 <Field className='checkout-pay-info-form-input' name='email' placeholder='Email' />
                 {errors.email && touched.email ? <div className='checkout-pay-info-form-errors'>{errors.email}</div> : null}
+
+                <Field className='checkout-pay-info-form-input' name='tel' placeholder='Telefono' />
+                {errors.tel && touched.tel ? <div className='checkout-pay-info-form-errors'>{errors.tel}</div> : null}
+
                 <Field className='checkout-pay-info-form-input' name='provincia' placeholder='Provincia' />
                 {errors.provincia && touched.provincia ? <div className='checkout-pay-info-form-errors'>{errors.provincia}</div> : null}
+
                 <Field className='checkout-pay-info-form-input' name='localidad' placeholder='Localidad' />
                 {errors.localidad && touched.localidad ? <div className='checkout-pay-info-form-errors'>{errors.localidad}</div> : null}
+
                 <Field className='checkout-pay-info-form-input' name='calle' placeholder='Calle' />
                 {errors.calle && touched.calle ? <div className='checkout-pay-info-form-errors'>{errors.calle}</div> : null}
+
                 <Field className='checkout-pay-info-form-input' name='altura' placeholder='Altura' />
                 {errors.altura && touched.altura ? <div className='checkout-pay-info-form-errors'>{errors.altura}</div> : null}
+
+                <Field className='checkout-pay-info-form-input' name='dep_number' placeholder='Numero de Departamento (opcional)' />
+                {errors.dep_number && touched.dep_number ? <div className='checkout-pay-info-form-errors'>{errors.dep_number}</div> : null}
+
                 <Field className='checkout-pay-info-form-input' name='codigo_postal' placeholder='Codigo Postal' />
                 {errors.codigo_postal && touched.codigo_postal ? <div className='checkout-pay-info-form-errors'>{errors.codigo_postal}</div> : null}
                 <button className='checkout-pay-info-form-button' type='submit'>
