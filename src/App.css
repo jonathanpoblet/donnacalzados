@@ -5,6 +5,10 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   padding-right: 0px !important;
   overflow-y: auto;

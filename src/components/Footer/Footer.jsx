@@ -1,4 +1,10 @@
-import { BsFillTelephoneFill, BsFillEnvelopeFill, BsInstagram, BsFacebook, BsWhatsapp } from 'react-icons/bs';
+import {
+  BsFillTelephoneFill,
+  BsFillEnvelopeFill,
+  BsInstagram,
+  BsFacebook,
+  BsWhatsapp,
+} from 'react-icons/bs';
 import { MdLocationOn } from 'react-icons/md';
 
 import './footer.css';
@@ -81,11 +87,24 @@ export default function Footer() {
 
       <div className='footer-copyright'>
         <div className='footer-copyright-container'>
-          <p>© 2024 Copyright Donna Calzados</p>
+          <p style={{ textAlign: 'center' }}>
+            ©2024 Donna Calzados | Powered by{' '}
+            <a
+              href='https://virtualdesigns.tech'
+              style={{ color: '#e54787', textDecoration: 'none' }}
+              target='_blank'
+            >
+              Virtual Designs
+            </a>
+          </p>
           <div>
             <BsWhatsapp onClick={() => window.open('https://wa.me/541150460184', '_blank')} />
-            <BsInstagram onClick={() => window.open('https://www.instagram.com/donnacalzadosymoda/', '_blank')} />
-            <BsFacebook onClick={() => window.open('https://www.facebook.com/donnaflores20', '_blank')} />
+            <BsInstagram
+              onClick={() => window.open('https://www.instagram.com/donnacalzadosymoda/', '_blank')}
+            />
+            <BsFacebook
+              onClick={() => window.open('https://www.facebook.com/donnaflores20', '_blank')}
+            />
           </div>
         </div>
       </div>
