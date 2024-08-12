@@ -1,7 +1,7 @@
 .products-all {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: end;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
@@ -47,6 +47,7 @@
   font-size: 12px;
   padding: 0px 5px 10px 5px;
   color: rgb(0, 0, 0);
+  text-align: center;
 }
 
 .products-all-card-button {
@@ -96,6 +97,7 @@
 @media screen and (max-width: 992px) {
   .products-all {
     justify-content: space-between;
+    align-items: end;
   }
 
   .products-all-card {
