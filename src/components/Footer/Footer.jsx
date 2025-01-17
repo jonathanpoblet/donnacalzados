@@ -100,7 +100,9 @@ export default function Footer() {
           <div>
             <BsWhatsapp onClick={() => window.open('https://wa.me/541150460184', '_blank')} />
             <BsInstagram
-              onClick={() => window.open('https://www.instagram.com/donnacalzadosymoda/', '_blank')}
+              onClick={() =>
+                window.open('https://www.instagram.com/donnacalzadosflores1/', '_blank')
+              }
             />
             <BsFacebook
               onClick={() => window.open('https://www.facebook.com/donnaflores20', '_blank')}

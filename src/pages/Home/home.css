@@ -9,6 +9,7 @@
 
 .home-img {
   width: 100%;
+  cursor: pointer;
 }
 
 .home-products-button {

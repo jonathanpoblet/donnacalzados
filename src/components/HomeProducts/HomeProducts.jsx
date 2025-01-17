@@ -37,7 +37,7 @@ export default function HomeProducts() {
 
   const updateProductsToShow = () => {
     const screenWidth = window.innerWidth;
-    let maxProductsToShow = 8;
+    let maxProductsToShow = 6;
 
     if (screenWidth < 1220) {
       maxProductsToShow = 6;
@@ -76,14 +76,27 @@ export default function HomeProducts() {
     <>
       <ProductModal product={product} show={modalShow} onHide={() => setModalShow(false)} />
 
-      <section className='home-products' data-aos='fade-up' data-aos-offset='200' data-aos-easing='ease-in-sine' data-aos-duration='600'>
+      <section
+        className='home-products'
+        data-aos='fade-up'
+        data-aos-offset='200'
+        data-aos-easing='ease-in-sine'
+        data-aos-duration='600'
+      >
         <h2 className='home-products-title'>DESCUBRÍ NUESTROS CALZADOS</h2>
         <div className='home-products-container'>
           {products &&
             products.slice(0, productsToShow).map((prod, index) => (
               <div className='home-products-container-card' key={index}>
-                <img className='home-products-container-card-img' src={prod.products[0].img} alt='Producto' onClick={() => handleDetail(prod)} />
-                <p className='home-products-container-card-title'>{prod.model.toLocaleUpperCase()}</p>
+                <img
+                  className='home-products-container-card-img'
+                  src={prod.products[0].img}
+                  alt='Producto'
+                  onClick={() => handleDetail(prod)}
+                />
+                <p className='home-products-container-card-title'>
+                  {prod.model.toLocaleUpperCase()}
+                </p>
                 <p className='home-products-container-card-price'>
                   <b>${formatPrice(prod.price)}</b>
                 </p>{' '}

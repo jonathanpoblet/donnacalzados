@@ -14,8 +14,8 @@ export default function HomeInfo() {
   const info = [
     {
       logo: <CiCreditCard1 className='home-info-container-logo' />,
-      title: 'Visa/Mastercard',
-      text: 'Tarjeta de débito/crédito',
+      title: 'Tarjeta de crédito',
+      text: '3 cuotas sin interes',
     },
     {
       logo: <SiMercadopago className='home-info-container-logo' />,
@@ -24,12 +24,18 @@ export default function HomeInfo() {
     },
     {
       logo: <CiDeliveryTruck className='home-info-container-logo' />,
-      title: 'Envios a todo el pais',
-      text: 'Correo argentino',
+      title: 'Envio gratis',
+      text: 'A todo el pais',
     },
   ];
   return (
-    <section className='home-info' data-aos='fade-up' data-aos-offset='200' data-aos-easing='ease-in-sine' data-aos-duration='600'>
+    <section
+      className='home-info'
+      data-aos='fade-up'
+      data-aos-offset='200'
+      data-aos-easing='ease-in-sine'
+      data-aos-duration='600'
+    >
       {info.map((inf, index) => {
         return (
           <div className='home-info-container' key={index}>

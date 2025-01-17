@@ -15,6 +15,11 @@ export default function Home() {
   }, []);
   return (
     <main className='home'>
+      <img
+        className='home-img'
+        src={window.innerWidth > 700 ? '../assets/banner.png' : '../assets/banner-mobile.png'}
+        onClick={() => navigate('/productos')}
+      />
       <HomeProducts />
       <button onClick={() => navigate('/productos')} className='btn btn-dark home-products-button'>
         MOSTRAR MÁS PRODUCTOS
